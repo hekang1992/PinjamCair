@@ -27,6 +27,7 @@
 		7349CEA02F4D78EE00B0EB0F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349CE9F2F4D78EE00B0EB0F /* LoadingView.swift */; };
 		7349CEA32F4D860F00B0EB0F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7349CEA12F4D860F00B0EB0F /* Localizable.strings */; };
 		7349CEA62F4D863900B0EB0F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7349CEA42F4D863900B0EB0F /* InfoPlist.strings */; };
+		7349CEAF2F4D882200B0EB0F /* CustomDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349CEAE2F4D882200B0EB0F /* CustomDatePickerView.swift */; };
 		F463F6921760B25883AA1E1A /* Pods_PinjamCair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		7349CEA52F4D863900B0EB0F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7349CEA72F4D865700B0EB0F /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7349CEA82F4D865700B0EB0F /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7349CEAE2F4D882200B0EB0F /* CustomDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerView.swift; sourceTree = "<group>"; };
 		DBB41FD14F8919C034DEC0D7 /* Pods-PinjamCair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.release.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.release.xcconfig"; sourceTree = "<group>"; };
 		E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinjamCair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE4C731136F1CFC9E2A724A /* Pods-PinjamCair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.debug.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.debug.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				7349CE672F4D6F1800B0EB0F /* AppDelegate.swift */,
 				7349CE6B2F4D6F1800B0EB0F /* LaunchScreen.storyboard */,
 				7349CE8C2F4D72FD00B0EB0F /* ViewModel */,
+				7349CEA92F4D87EA00B0EB0F /* Product */,
 				7349CE882F4D72BF00B0EB0F /* Order */,
 				7349CE872F4D72B900B0EB0F /* Mine */,
 				7349CE862F4D72B200B0EB0F /* Home */,
@@ -199,6 +202,38 @@
 				7349CE9D2F4D75DD00B0EB0F /* NetworkManager.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7349CEA92F4D87EA00B0EB0F /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				7349CEAA2F4D87F700B0EB0F /* UploadVc */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		7349CEAA2F4D87F700B0EB0F /* UploadVc */ = {
+			isa = PBXGroup;
+			children = (
+				7349CEAB2F4D880900B0EB0F /* View */,
+				7349CEAD2F4D881600B0EB0F /* Controller */,
+			);
+			path = UploadVc;
+			sourceTree = "<group>";
+		};
+		7349CEAB2F4D880900B0EB0F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7349CEAE2F4D882200B0EB0F /* CustomDatePickerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7349CEAD2F4D881600B0EB0F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		DB56F940DD03B5AEF10DBFCE /* Frameworks */ = {
@@ -338,6 +373,7 @@
 				7349CE902F4D732500B0EB0F /* HttpModel.swift in Sources */,
 				7349CEA02F4D78EE00B0EB0F /* LoadingView.swift in Sources */,
 				7349CE712F4D6F1800B0EB0F /* AppDelegate.swift in Sources */,
+				7349CEAF2F4D882200B0EB0F /* CustomDatePickerView.swift in Sources */,
 				7349CE922F4D73B200B0EB0F /* LoginManager.swift in Sources */,
 				7349CE832F4D720000B0EB0F /* AppLaunchViewController.swift in Sources */,
 				7349CE9C2F4D751900B0EB0F /* LoginView.swift in Sources */,
