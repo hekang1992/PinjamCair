@@ -9,12 +9,12 @@ import Foundation
 import Alamofire
 import UIKit
 
+let base_h5_url = "http://8.215.5.252:10503"
+private let baseURL = "\(base_h5_url)/tectonacle"
 final class NetworkManager {
     
     static let shared = NetworkManager()
     private init() {}
-    
-    private let baseURL = "https://api.yourserver.com"
         
     private func makeRequest(
         url: String,
@@ -25,8 +25,11 @@ final class NetworkManager {
         timeout: TimeInterval
     ) throws -> URLRequest {
         
+        let parameters = AppCommonParas.shared.toDictionary()
+        let apiUrl = (baseURL + url).appendingQueryParameters(parameters: parameters)
+        
         var request = try URLRequest(
-            url: url,
+            url: apiUrl,
             method: method,
             headers: headers
         )
@@ -65,10 +68,10 @@ final class NetworkManager {
         headers: HTTPHeaders? = nil
     ) async throws -> T {
         
-        let url = baseURL + path
+        let apiUrl = (baseURL + path).appendingQueryParameters(parameters: AppCommonParas.shared.toDictionary())
         
         var request = try URLRequest(
-            url: url,
+            url: apiUrl,
             method: .post,
             headers: headers
         )
@@ -94,20 +97,20 @@ final class NetworkManager {
     func uploadImage<T: Codable>(
         _ path: String,
         image: UIImage,
-        imageName: String = "file",
-        fileName: String = "image.jpg",
+        imageName: String = "withinard",
+        fileName: String = "withinard.jpg",
         parameters: [String: String]? = nil,
         headers: HTTPHeaders? = nil
     ) async throws -> T {
         
-        let url = baseURL + path
+        let apiUrl = (baseURL + path).appendingQueryParameters(parameters: AppCommonParas.shared.toDictionary())
         
         guard let imageData = image.jpegData(compressionQuality: 0.8) else {
             throw NSError(domain: "ImageError", code: -1)
         }
         
         var request = try URLRequest(
-            url: url,
+            url: apiUrl,
             method: .post,
             headers: headers
         )

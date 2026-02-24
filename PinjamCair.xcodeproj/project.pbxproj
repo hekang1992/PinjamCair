@@ -36,6 +36,8 @@
 		7365C5AB2F4D900A00240451 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5AA2F4D900A00240451 /* ContactViewController.swift */; };
 		7365C5AD2F4D901500240451 /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5AC2F4D901500240451 /* PersonalViewController.swift */; };
 		7365C5AF2F4D9F9F00240451 /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5AE2F4D9F9F00240451 /* AppLanguage.swift */; };
+		7365C5B22F4DA22600240451 /* AppCommonParas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5B12F4DA22600240451 /* AppCommonParas.swift */; };
+		7365C5B42F4DA27A00240451 /* IDFVKeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5B32F4DA27A00240451 /* IDFVKeychainManager.swift */; };
 		F463F6921760B25883AA1E1A /* Pods_PinjamCair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,8 @@
 		7365C5AA2F4D900A00240451 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		7365C5AC2F4D901500240451 /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
 		7365C5AE2F4D9F9F00240451 /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
+		7365C5B12F4DA22600240451 /* AppCommonParas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommonParas.swift; sourceTree = "<group>"; };
+		7365C5B32F4DA27A00240451 /* IDFVKeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFVKeychainManager.swift; sourceTree = "<group>"; };
 		DBB41FD14F8919C034DEC0D7 /* Pods-PinjamCair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.release.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.release.xcconfig"; sourceTree = "<group>"; };
 		E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinjamCair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE4C731136F1CFC9E2A724A /* Pods-PinjamCair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.debug.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.debug.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 				7349CE862F4D72B200B0EB0F /* Home */,
 				7349CE852F4D72AC00B0EB0F /* Login */,
 				7349CE792F4D6F8F00B0EB0F /* Base */,
+				7365C5B02F4DA1AD00240451 /* AppCommonParas */,
 			);
 			path = PinjamCair;
 			sourceTree = "<group>";
@@ -142,8 +147,8 @@
 		7349CE792F4D6F8F00B0EB0F /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				7365C5AE2F4D9F9F00240451 /* AppLanguage.swift */,
 				7349CE7C2F4D6FB300B0EB0F /* BaseView.swift */,
+				7365C5AE2F4D9F9F00240451 /* AppLanguage.swift */,
 				7349CE7A2F4D6FA700B0EB0F /* BaseViewController.swift */,
 				7349CE7E2F4D6FCC00B0EB0F /* AppTabBarController.swift */,
 				7349CE802F4D6FDE00B0EB0F /* AppNavigationController.swift */,
@@ -332,6 +337,15 @@
 			path = Wallet;
 			sourceTree = "<group>";
 		};
+		7365C5B02F4DA1AD00240451 /* AppCommonParas */ = {
+			isa = PBXGroup;
+			children = (
+				7365C5B32F4DA27A00240451 /* IDFVKeychainManager.swift */,
+				7365C5B12F4DA22600240451 /* AppCommonParas.swift */,
+			);
+			path = AppCommonParas;
+			sourceTree = "<group>";
+		};
 		DB56F940DD03B5AEF10DBFCE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,6 +476,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7365C5B22F4DA22600240451 /* AppCommonParas.swift in Sources */,
+				7365C5B42F4DA27A00240451 /* IDFVKeychainManager.swift in Sources */,
 				7349CE7D2F4D6FB300B0EB0F /* BaseView.swift in Sources */,
 				7349CE7F2F4D6FCC00B0EB0F /* AppTabBarController.swift in Sources */,
 				7349CE9A2F4D750800B0EB0F /* OrderViewController.swift in Sources */,
