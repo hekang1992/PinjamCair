@@ -13,10 +13,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        changeRootNotiVc()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = AppLaunchViewController()
+        window?.makeKeyAndVisible()
         return true
     }
     
-    
 }
 
+extension AppDelegate {
+    
+    private func changeRootNotiVc() {
+        NotificationCenter.default.addObserver(self, selector: #selector(changeRootVc(_:)), name: NSNotification.Name("changeRootVc"), object: nil)
+    }
+    
+    @objc func changeRootVc(_ noti: Notification) {
+        
+    }
+    
+}

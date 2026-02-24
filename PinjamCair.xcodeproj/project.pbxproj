@@ -14,6 +14,10 @@
 		7349CE7D2F4D6FB300B0EB0F /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349CE7C2F4D6FB300B0EB0F /* BaseView.swift */; };
 		7349CE7F2F4D6FCC00B0EB0F /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349CE7E2F4D6FCC00B0EB0F /* AppTabBarController.swift */; };
 		7349CE812F4D6FDE00B0EB0F /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349CE802F4D6FDE00B0EB0F /* AppNavigationController.swift */; };
+		7349CE832F4D720000B0EB0F /* AppLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349CE822F4D720000B0EB0F /* AppLaunchViewController.swift */; };
+		7349CE8E2F4D730C00B0EB0F /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349CE8D2F4D730800B0EB0F /* AppViewModel.swift */; };
+		7349CE902F4D732500B0EB0F /* HttpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349CE8F2F4D731E00B0EB0F /* HttpModel.swift */; };
+		7349CE922F4D73B200B0EB0F /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349CE912F4D73B200B0EB0F /* LoginManager.swift */; };
 		F463F6921760B25883AA1E1A /* Pods_PinjamCair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +32,10 @@
 		7349CE7C2F4D6FB300B0EB0F /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		7349CE7E2F4D6FCC00B0EB0F /* AppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarController.swift; sourceTree = "<group>"; };
 		7349CE802F4D6FDE00B0EB0F /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
+		7349CE822F4D720000B0EB0F /* AppLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchViewController.swift; sourceTree = "<group>"; };
+		7349CE8D2F4D730800B0EB0F /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		7349CE8F2F4D731E00B0EB0F /* HttpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpModel.swift; sourceTree = "<group>"; };
+		7349CE912F4D73B200B0EB0F /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		DBB41FD14F8919C034DEC0D7 /* Pods-PinjamCair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.release.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.release.xcconfig"; sourceTree = "<group>"; };
 		E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinjamCair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE4C731136F1CFC9E2A724A /* Pods-PinjamCair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.debug.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.debug.xcconfig"; sourceTree = "<group>"; };
@@ -51,7 +59,6 @@
 				ECE4C731136F1CFC9E2A724A /* Pods-PinjamCair.debug.xcconfig */,
 				DBB41FD14F8919C034DEC0D7 /* Pods-PinjamCair.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -81,6 +88,11 @@
 				7349CE782F4D6F4D00B0EB0F /* PinjamCair.entitlements */,
 				7349CE672F4D6F1800B0EB0F /* AppDelegate.swift */,
 				7349CE6B2F4D6F1800B0EB0F /* LaunchScreen.storyboard */,
+				7349CE8C2F4D72FD00B0EB0F /* ViewModel */,
+				7349CE882F4D72BF00B0EB0F /* Order */,
+				7349CE872F4D72B900B0EB0F /* Mine */,
+				7349CE862F4D72B200B0EB0F /* Home */,
+				7349CE852F4D72AC00B0EB0F /* Login */,
 				7349CE792F4D6F8F00B0EB0F /* Base */,
 			);
 			path = PinjamCair;
@@ -93,8 +105,71 @@
 				7349CE7A2F4D6FA700B0EB0F /* BaseViewController.swift */,
 				7349CE7E2F4D6FCC00B0EB0F /* AppTabBarController.swift */,
 				7349CE802F4D6FDE00B0EB0F /* AppNavigationController.swift */,
+				7349CE822F4D720000B0EB0F /* AppLaunchViewController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		7349CE852F4D72AC00B0EB0F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7349CE8B2F4D72F100B0EB0F /* LoginManager */,
+				7349CE8A2F4D72DE00B0EB0F /* View */,
+				7349CE892F4D72D900B0EB0F /* Controller */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		7349CE862F4D72B200B0EB0F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		7349CE872F4D72B900B0EB0F /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		7349CE882F4D72BF00B0EB0F /* Order */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		7349CE892F4D72D900B0EB0F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7349CE8A2F4D72DE00B0EB0F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7349CE8B2F4D72F100B0EB0F /* LoginManager */ = {
+			isa = PBXGroup;
+			children = (
+				7349CE912F4D73B200B0EB0F /* LoginManager.swift */,
+			);
+			path = LoginManager;
+			sourceTree = "<group>";
+		};
+		7349CE8C2F4D72FD00B0EB0F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7349CE8F2F4D731E00B0EB0F /* HttpModel.swift */,
+				7349CE8D2F4D730800B0EB0F /* AppViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		DB56F940DD03B5AEF10DBFCE /* Frameworks */ = {
@@ -116,6 +191,7 @@
 				7349CE4B2F4D6F1000B0EB0F /* Sources */,
 				7349CE4C2F4D6F1000B0EB0F /* Frameworks */,
 				7349CE4D2F4D6F1000B0EB0F /* Resources */,
+				476CFC1DBF4CD5C5B6955711 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -173,6 +249,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		476CFC1DBF4CD5C5B6955711 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PinjamCair/Pods-PinjamCair-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PinjamCair/Pods-PinjamCair-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PinjamCair/Pods-PinjamCair-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5841F4D0B04ACB3A5FE0DE55 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -204,7 +301,11 @@
 			files = (
 				7349CE7D2F4D6FB300B0EB0F /* BaseView.swift in Sources */,
 				7349CE7F2F4D6FCC00B0EB0F /* AppTabBarController.swift in Sources */,
+				7349CE8E2F4D730C00B0EB0F /* AppViewModel.swift in Sources */,
+				7349CE902F4D732500B0EB0F /* HttpModel.swift in Sources */,
 				7349CE712F4D6F1800B0EB0F /* AppDelegate.swift in Sources */,
+				7349CE922F4D73B200B0EB0F /* LoginManager.swift in Sources */,
+				7349CE832F4D720000B0EB0F /* AppLaunchViewController.swift in Sources */,
 				7349CE7B2F4D6FA700B0EB0F /* BaseViewController.swift in Sources */,
 				7349CE812F4D6FDE00B0EB0F /* AppNavigationController.swift in Sources */,
 			);
