@@ -1,17 +1,14 @@
 //
-//  BaseViewController.swift
+//  OrderViewController.swift
 //  PinjamCair
 //
 //  Created by hekang on 2026/2/24.
 //
 
 import UIKit
-import RxSwift
 
-class BaseViewController: UIViewController {
+class OrderViewController: BaseViewController {
 
-    let disposeBag = DisposeBag()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -30,7 +30,11 @@ extension AppDelegate {
     }
     
     @objc func changeRootVc(_ noti: Notification) {
-        
+        if LoginManager.shared.isLoggedIn() {
+            window?.rootViewController = AppTabBarController()
+        }else {
+            window?.rootViewController = AppNavigationController(rootViewController: LoginViewController())
+        }
     }
     
 }
