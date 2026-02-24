@@ -11,7 +11,10 @@ class AppLaunchViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil)
+        Task {
+            try? await Task.sleep(nanoseconds: 1)
+            NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil)
+        }
     }
     
 }
