@@ -83,7 +83,7 @@ class CustomDatePickerView: UIView {
         containerView.addSubview(headerStack)
         headerStack.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
-            make.left.right.equalToSuperview()
+            make.left.right.equalToSuperview().inset(2)
             make.height.equalTo(24)
         }
         
@@ -213,7 +213,7 @@ extension CustomDatePickerView: UIPickerViewDelegate, UIPickerViewDataSource {
         
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         label.textColor = .black
         
         switch component {
