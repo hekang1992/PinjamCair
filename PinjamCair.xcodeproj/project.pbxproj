@@ -32,6 +32,10 @@
 		7365C59E2F4D8F1800240451 /* MineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C59D2F4D8F1800240451 /* MineView.swift */; };
 		7365C5A22F4D8F3200240451 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5A12F4D8F3200240451 /* HomeView.swift */; };
 		7365C5A42F4D8F4700240451 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5A32F4D8F4700240451 /* OrderView.swift */; };
+		7365C5A92F4D900100240451 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5A82F4D900100240451 /* WalletViewController.swift */; };
+		7365C5AB2F4D900A00240451 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5AA2F4D900A00240451 /* ContactViewController.swift */; };
+		7365C5AD2F4D901500240451 /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5AC2F4D901500240451 /* PersonalViewController.swift */; };
+		7365C5AF2F4D9F9F00240451 /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5AE2F4D9F9F00240451 /* AppLanguage.swift */; };
 		F463F6921760B25883AA1E1A /* Pods_PinjamCair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +70,10 @@
 		7365C59D2F4D8F1800240451 /* MineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineView.swift; sourceTree = "<group>"; };
 		7365C5A12F4D8F3200240451 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7365C5A32F4D8F4700240451 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
+		7365C5A82F4D900100240451 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
+		7365C5AA2F4D900A00240451 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		7365C5AC2F4D901500240451 /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
+		7365C5AE2F4D9F9F00240451 /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
 		DBB41FD14F8919C034DEC0D7 /* Pods-PinjamCair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.release.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.release.xcconfig"; sourceTree = "<group>"; };
 		E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinjamCair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE4C731136F1CFC9E2A724A /* Pods-PinjamCair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.debug.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +142,7 @@
 		7349CE792F4D6F8F00B0EB0F /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				7365C5AE2F4D9F9F00240451 /* AppLanguage.swift */,
 				7349CE7C2F4D6FB300B0EB0F /* BaseView.swift */,
 				7349CE7A2F4D6FA700B0EB0F /* BaseViewController.swift */,
 				7349CE7E2F4D6FCC00B0EB0F /* AppTabBarController.swift */,
@@ -218,6 +227,9 @@
 		7349CEA92F4D87EA00B0EB0F /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				7365C5A72F4D8FE200240451 /* Wallet */,
+				7365C5A62F4D8FD300240451 /* Contact */,
+				7365C5A52F4D8FC900240451 /* Personal */,
 				7349CEAA2F4D87F700B0EB0F /* UploadVc */,
 			);
 			path = Product;
@@ -294,6 +306,30 @@
 				7365C5A12F4D8F3200240451 /* HomeView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7365C5A52F4D8FC900240451 /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				7365C5AC2F4D901500240451 /* PersonalViewController.swift */,
+			);
+			path = Personal;
+			sourceTree = "<group>";
+		};
+		7365C5A62F4D8FD300240451 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				7365C5AA2F4D900A00240451 /* ContactViewController.swift */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
+		7365C5A72F4D8FE200240451 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				7365C5A82F4D900100240451 /* WalletViewController.swift */,
+			);
+			path = Wallet;
 			sourceTree = "<group>";
 		};
 		DB56F940DD03B5AEF10DBFCE /* Frameworks */ = {
@@ -436,15 +472,19 @@
 				7349CE712F4D6F1800B0EB0F /* AppDelegate.swift in Sources */,
 				7349CEAF2F4D882200B0EB0F /* CustomDatePickerView.swift in Sources */,
 				7349CE922F4D73B200B0EB0F /* LoginManager.swift in Sources */,
+				7365C5AD2F4D901500240451 /* PersonalViewController.swift in Sources */,
 				7349CE832F4D720000B0EB0F /* AppLaunchViewController.swift in Sources */,
 				7349CE9C2F4D751900B0EB0F /* LoginView.swift in Sources */,
 				7349CE962F4D74FA00B0EB0F /* HomeViewController.swift in Sources */,
 				7365C5A22F4D8F3200240451 /* HomeView.swift in Sources */,
+				7365C5AB2F4D900A00240451 /* ContactViewController.swift in Sources */,
 				7365C59E2F4D8F1800240451 /* MineView.swift in Sources */,
+				7365C5A92F4D900100240451 /* WalletViewController.swift in Sources */,
 				7349CE7B2F4D6FA700B0EB0F /* BaseViewController.swift in Sources */,
 				7349CE942F4D74C100B0EB0F /* LoginViewController.swift in Sources */,
 				7349CE9E2F4D75DD00B0EB0F /* NetworkManager.swift in Sources */,
 				7365C5A42F4D8F4700240451 /* OrderView.swift in Sources */,
+				7365C5AF2F4D9F9F00240451 /* AppLanguage.swift in Sources */,
 				7349CE812F4D6FDE00B0EB0F /* AppNavigationController.swift in Sources */,
 				7349CE982F4D750100B0EB0F /* MineViewController.swift in Sources */,
 			);
