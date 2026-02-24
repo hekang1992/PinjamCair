@@ -14,6 +14,7 @@
 		7349CE7D2F4D6FB300B0EB0F /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349CE7C2F4D6FB300B0EB0F /* BaseView.swift */; };
 		7349CE7F2F4D6FCC00B0EB0F /* AppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349CE7E2F4D6FCC00B0EB0F /* AppTabBarController.swift */; };
 		7349CE812F4D6FDE00B0EB0F /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349CE802F4D6FDE00B0EB0F /* AppNavigationController.swift */; };
+		F463F6921760B25883AA1E1A /* Pods_PinjamCair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,9 @@
 		7349CE7C2F4D6FB300B0EB0F /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		7349CE7E2F4D6FCC00B0EB0F /* AppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarController.swift; sourceTree = "<group>"; };
 		7349CE802F4D6FDE00B0EB0F /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
+		DBB41FD14F8919C034DEC0D7 /* Pods-PinjamCair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.release.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.release.xcconfig"; sourceTree = "<group>"; };
+		E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinjamCair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECE4C731136F1CFC9E2A724A /* Pods-PinjamCair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.debug.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,17 +38,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F463F6921760B25883AA1E1A /* Pods_PinjamCair.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		352DBEB239BC21C594E233B5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ECE4C731136F1CFC9E2A724A /* Pods-PinjamCair.debug.xcconfig */,
+				DBB41FD14F8919C034DEC0D7 /* Pods-PinjamCair.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		7349CE462F4D6F1000B0EB0F = {
 			isa = PBXGroup;
 			children = (
 				7349CE702F4D6F1800B0EB0F /* PinjamCair */,
 				7349CE502F4D6F1000B0EB0F /* Products */,
+				352DBEB239BC21C594E233B5 /* Pods */,
+				DB56F940DD03B5AEF10DBFCE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +97,14 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		DB56F940DD03B5AEF10DBFCE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -87,6 +112,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7349CE622F4D6F1200B0EB0F /* Build configuration list for PBXNativeTarget "PinjamCair" */;
 			buildPhases = (
+				5841F4D0B04ACB3A5FE0DE55 /* [CP] Check Pods Manifest.lock */,
 				7349CE4B2F4D6F1000B0EB0F /* Sources */,
 				7349CE4C2F4D6F1000B0EB0F /* Frameworks */,
 				7349CE4D2F4D6F1000B0EB0F /* Resources */,
@@ -96,8 +122,6 @@
 			dependencies = (
 			);
 			name = PinjamCair;
-			packageProductDependencies = (
-			);
 			productName = PinjamCair;
 			productReference = 7349CE4F2F4D6F1000B0EB0F /* PinjamCair.app */;
 			productType = "com.apple.product-type.application";
@@ -148,6 +172,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5841F4D0B04ACB3A5FE0DE55 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PinjamCair-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7349CE4B2F4D6F1000B0EB0F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -177,6 +226,7 @@
 /* Begin XCBuildConfiguration section */
 		7349CE632F4D6F1200B0EB0F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECE4C731136F1CFC9E2A724A /* Pods-PinjamCair.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -215,6 +265,7 @@
 		};
 		7349CE642F4D6F1200B0EB0F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBB41FD14F8919C034DEC0D7 /* Pods-PinjamCair.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
