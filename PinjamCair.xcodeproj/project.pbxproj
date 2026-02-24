@@ -25,6 +25,8 @@
 		7349CE9C2F4D751900B0EB0F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349CE9B2F4D751900B0EB0F /* LoginView.swift */; };
 		7349CE9E2F4D75DD00B0EB0F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349CE9D2F4D75DD00B0EB0F /* NetworkManager.swift */; };
 		7349CEA02F4D78EE00B0EB0F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349CE9F2F4D78EE00B0EB0F /* LoadingView.swift */; };
+		7349CEA32F4D860F00B0EB0F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7349CEA12F4D860F00B0EB0F /* Localizable.strings */; };
+		7349CEA62F4D863900B0EB0F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7349CEA42F4D863900B0EB0F /* InfoPlist.strings */; };
 		F463F6921760B25883AA1E1A /* Pods_PinjamCair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,10 @@
 		7349CE9B2F4D751900B0EB0F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7349CE9D2F4D75DD00B0EB0F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7349CE9F2F4D78EE00B0EB0F /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		7349CEA22F4D860F00B0EB0F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7349CEA52F4D863900B0EB0F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7349CEA72F4D865700B0EB0F /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7349CEA82F4D865700B0EB0F /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DBB41FD14F8919C034DEC0D7 /* Pods-PinjamCair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.release.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.release.xcconfig"; sourceTree = "<group>"; };
 		E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinjamCair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE4C731136F1CFC9E2A724A /* Pods-PinjamCair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.debug.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.debug.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +106,8 @@
 				7349CE692F4D6F1800B0EB0F /* Info.plist */,
 				7349CE682F4D6F1800B0EB0F /* Assets.xcassets */,
 				7349CE782F4D6F4D00B0EB0F /* PinjamCair.entitlements */,
+				7349CEA42F4D863900B0EB0F /* InfoPlist.strings */,
+				7349CEA12F4D860F00B0EB0F /* Localizable.strings */,
 				7349CE672F4D6F1800B0EB0F /* AppDelegate.swift */,
 				7349CE6B2F4D6F1800B0EB0F /* LaunchScreen.storyboard */,
 				7349CE8C2F4D72FD00B0EB0F /* ViewModel */,
@@ -244,6 +252,7 @@
 			knownRegions = (
 				en,
 				Base,
+				id,
 			);
 			mainGroup = 7349CE462F4D6F1000B0EB0F;
 			minimizedProjectReferenceProxies = 1;
@@ -263,6 +272,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7349CE742F4D6F1800B0EB0F /* Assets.xcassets in Resources */,
+				7349CEA62F4D863900B0EB0F /* InfoPlist.strings in Resources */,
+				7349CEA32F4D860F00B0EB0F /* Localizable.strings in Resources */,
 				7349CE762F4D6F1800B0EB0F /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,6 +359,24 @@
 				7349CE6A2F4D6F1800B0EB0F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7349CEA12F4D860F00B0EB0F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7349CEA22F4D860F00B0EB0F /* en */,
+				7349CEA82F4D865700B0EB0F /* id */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		7349CEA42F4D863900B0EB0F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7349CEA52F4D863900B0EB0F /* en */,
+				7349CEA72F4D865700B0EB0F /* id */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -438,6 +467,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -501,6 +531,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
