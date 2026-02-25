@@ -6,5 +6,11 @@
 //
 
 class BaseModel: Codable {
-    
+    var ectopurposeess: String?
+    var urgth: String?
+    var casia: casiaModel?
+}
+
+class casiaModel: Codable {
+    var sagacain: String?
 }

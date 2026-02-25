@@ -148,7 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				7349CE7C2F4D6FB300B0EB0F /* BaseView.swift */,
-				7365C5AE2F4D9F9F00240451 /* AppLanguage.swift */,
 				7349CE7A2F4D6FA700B0EB0F /* BaseViewController.swift */,
 				7349CE7E2F4D6FCC00B0EB0F /* AppTabBarController.swift */,
 				7349CE802F4D6FDE00B0EB0F /* AppNavigationController.swift */,
@@ -340,8 +339,9 @@
 		7365C5B02F4DA1AD00240451 /* AppCommonParas */ = {
 			isa = PBXGroup;
 			children = (
-				7365C5B32F4DA27A00240451 /* IDFVKeychainManager.swift */,
+				7365C5AE2F4D9F9F00240451 /* AppLanguage.swift */,
 				7365C5B12F4DA22600240451 /* AppCommonParas.swift */,
+				7365C5B32F4DA27A00240451 /* IDFVKeychainManager.swift */,
 			);
 			path = AppCommonParas;
 			sourceTree = "<group>";
