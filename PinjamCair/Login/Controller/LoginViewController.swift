@@ -7,8 +7,13 @@
 
 import UIKit
 import SnapKit
+import FBSDKCoreKit
+import AppTrackingTransparency
+import DeviceKit
 
 class LoginViewController: BaseViewController {
+    
+    private let viewModel = AppViewModel()
     
     lazy var loginView: LoginView = {
         let loginView = LoginView(frame: .zero)
@@ -23,6 +28,68 @@ class LoginViewController: BaseViewController {
             make.edges.equalToSuperview()
         }
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Task {
+            await self.getAppIDFA()
+        }
+    }
+    
+}
+
+extension LoginViewController {
+    
+    private func getAppIDFA() async {
+        guard #available(iOS 14, *) else { return }
+        
+        try? await Task.sleep(nanoseconds: 1_000_000_000)
+        let status = await ATTrackingManager.requestTrackingAuthorization()
+        
+        switch status {
+        case .authorized, .denied, .notDetermined:
+            Task {
+                await uploadIDFAInfo()
+            }
+            
+        case .restricted:
+            break
+            
+        @unknown default:
+            break
+        }
+        
+    }
+    
+    private func uploadIDFAInfo() async {
+        let idfa = IDFVKeychainManager.shared.getIDFA()
+        let idfv = IDFVKeychainManager.shared.getIDFV()
+        let itselfion = Device.current.cpu.description
+        let parameters = ["healtheous": idfv, "animal": idfa, "itselfion": itselfion]
+        do {
+            let model = try await viewModel.uploadGoogleInfo(parameters: parameters)
+            let ectopurposeess = model.ectopurposeess ?? ""
+            if ["0", "00"].contains(ectopurposeess) {
+                if let sorbModel = model.casia?.sorb {
+                    self.configFacebookSDK(with: sorbModel)
+                }
+            }
+        } catch {
+            
+        }
+    }
+    
+    func configFacebookSDK(with model: sorbModel) {
+        Settings.shared.displayName = model.subjectatory ?? ""
+        Settings.shared.appURLSchemeSuffix = model.transress ?? ""
+        Settings.shared.appID = model.hearability ?? ""
+        Settings.shared.clientToken = model.narren ?? ""
+        
+        ApplicationDelegate.shared.application(
+            UIApplication.shared,
+            didFinishLaunchingWithOptions: nil
+        )
     }
     
 }

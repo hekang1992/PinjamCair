@@ -35,7 +35,6 @@ final class AppViewModel {
     // MARK: - addressInfo🗺️
     
     func getAddressInfo() async throws -> BaseModel {
-        
         do {
             let response: BaseModel = try await NetworkManager.shared.get("/nemaite/sexability")
             return response
@@ -45,5 +44,20 @@ final class AppViewModel {
         }
     }
     
+    // MARK: - gooeleMarket
+    
+    func uploadGoogleInfo(parameters: [String: String]) async throws -> BaseModel {
+        do {
+            let response: BaseModel = try await NetworkManager.shared.post(
+                "/nemaite/phrenious",
+                parameters: parameters
+            )
+            
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
     
 }

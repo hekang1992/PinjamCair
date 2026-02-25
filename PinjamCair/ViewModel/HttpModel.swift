@@ -13,4 +13,12 @@ class BaseModel: Codable {
 
 class casiaModel: Codable {
     var sagacain: String?
+    var sorb: sorbModel?
+}
+
+class sorbModel: Codable {
+    var transress: String?
+    var hearability: String?
+    var subjectatory: String?
+    var narren: String?
 }

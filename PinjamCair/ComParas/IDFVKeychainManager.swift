@@ -5,9 +5,11 @@
 //  Created by hekang on 2026/2/24.
 //
 
+import UIKit
 import Foundation
 import Security
-import UIKit
+import AdSupport
+
 
 final class IDFVKeychainManager {
     
@@ -28,6 +30,11 @@ final class IDFVKeychainManager {
         saveToKeychain(idfv)
         
         return idfv
+    }
+    
+    func getIDFA() -> String {
+        let idfa = ASIdentifierManager.shared().advertisingIdentifier.uuidString
+        return idfa
     }
 }
 
