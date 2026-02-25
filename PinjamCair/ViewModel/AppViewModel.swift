@@ -9,7 +9,7 @@ import Foundation
 
 final class AppViewModel {
     
-    // MARK: - launchInfo
+    // MARK: - launchInfo☝️
     
     func getAppLaunchInfo(parameters: [String: String]) async throws -> BaseModel {
         
@@ -32,24 +32,12 @@ final class AppViewModel {
         }
     }
     
+    // MARK: - addressInfo🗺️
     
-    func loginApi(phone: String, password: String) async throws -> BaseModel {
-        
-        LoadingView.shared.show()
-        
-        defer {
-            LoadingView.shared.hide()
-        }
+    func getAddressInfo() async throws -> BaseModel {
         
         do {
-            let response: BaseModel = try await NetworkManager.shared.post(
-                "/login",
-                parameters: [
-                    "phone": phone,
-                    "password": password
-                ]
-            )
-            
+            let response: BaseModel = try await NetworkManager.shared.get("/nemaite/sexability")
             return response
             
         } catch {

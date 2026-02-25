@@ -8,8 +8,8 @@
 import Foundation
 
 enum LanguageType: String {
-    case english    = "823"
-    case indonesian = "932"
+    case english    = "832"
+    case indonesian = "923"
     
     var languageCode: String {
         switch self {
@@ -52,7 +52,7 @@ final class LanguageManager {
                                              value: nil,
                                              table: nil)
     }
-        
+    
     func localizedString(_ key: String, _ args: CVarArg...) -> String {
         let format = currentBundle.localizedString(forKey: key,
                                                    value: nil,
@@ -61,6 +61,6 @@ final class LanguageManager {
     }
 }
 
-func LStr(_ key: String) -> String {
+func LocalStr(_ key: String) -> String {
     return LanguageManager.shared.localizedString(key)
 }

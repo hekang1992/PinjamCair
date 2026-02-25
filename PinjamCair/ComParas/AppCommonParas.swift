@@ -34,13 +34,13 @@ final class AppCommonParas {
 private extension AppCommonParas {
     
     func currentLanguageCode() -> String {
-        let language = LanguageManager.currentLanguage()
+        let language = LanguageManager.shared.currentType
         
         switch language {
-        case .id:
+        case .indonesian:
             return "ANG"
             
-        case .en:
+        case .english:
             return "ITA"
         }
     }

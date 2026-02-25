@@ -25,11 +25,8 @@ final class NetworkManager {
         timeout: TimeInterval
     ) throws -> URLRequest {
         
-        let parameters = AppCommonParas.shared.toDictionary()
-        let apiUrl = (baseURL + url).appendingQueryParameters(parameters: parameters)
-        
         var request = try URLRequest(
-            url: apiUrl,
+            url: url,
             method: method,
             headers: headers
         )
@@ -45,10 +42,11 @@ final class NetworkManager {
         headers: HTTPHeaders? = nil
     ) async throws -> T {
         
-        let url = baseURL + path
+        let parameters = AppCommonParas.shared.toDictionary()
+        let apiUrl = (baseURL + path).appendingQueryParameters(parameters: parameters)
         
         let request = try makeRequest(
-            url: url,
+            url: apiUrl,
             method: .get,
             parameters: parameters,
             encoding: URLEncoding.default,
