@@ -41,7 +41,7 @@ class AppLaunchViewController: BaseViewController {
         view.addSubview(tryBtn)
         tryBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-10)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-30)
             make.size.equalTo(CGSize(width: 200, height: 48))
         }
         

@@ -17,4 +17,5 @@ target 'PinjamCair' do
   pod 'FBSDKCoreKit'
   pod 'IQKeyboardManagerSwift', '~> 6.5.16'
   pod 'TYAlertController'
+  pod 'Toast-Swift'
 end

@@ -81,11 +81,10 @@ extension LoginViewController {
     }
     
     func configFacebookSDK(with model: sorbModel) {
-        Settings.shared.displayName = model.subjectatory ?? ""
-        Settings.shared.appURLSchemeSuffix = model.transress ?? ""
         Settings.shared.appID = model.hearability ?? ""
         Settings.shared.clientToken = model.narren ?? ""
-        
+        Settings.shared.displayName = model.subjectatory ?? ""
+        Settings.shared.appURLSchemeSuffix = model.transress ?? ""
         ApplicationDelegate.shared.application(
             UIApplication.shared,
             didFinishLaunchingWithOptions: nil

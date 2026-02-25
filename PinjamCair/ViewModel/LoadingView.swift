@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 final class LoadingView {
     
@@ -42,7 +43,7 @@ final class LoadingView {
         backgroundView = nil
     }
     
-    private static func keyWindow() -> UIWindow? {
+    static func keyWindow() -> UIWindow? {
         if #available(iOS 13.0, *) {
             return UIApplication.shared
                 .connectedScenes
@@ -51,6 +52,23 @@ final class LoadingView {
                 .first { $0.isKeyWindow }
         } else {
             return UIApplication.shared.keyWindow
+        }
+    }
+}
+
+class ToastManager {
+    
+    static func showLocalMessage(_ key: String) {
+        let languageStr = LocalStr(key)
+        showOnWindow(languageStr)
+    }
+    
+    private static func showOnWindow(_ message: String) {
+
+        guard let keyWindow = LoadingView.keyWindow() else { return }
+        
+        DispatchQueue.main.async {
+            keyWindow.makeToast(message, duration: 3.0, position: .center)
         }
     }
 }
@@ -73,13 +91,7 @@ extension UIColor {
             r = CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0
             g = CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0
             b = CGFloat(rgbValue & 0x0000FF) / 255.0
-            
             a = 1.0
-        case 8:
-            r = CGFloat((rgbValue & 0xFF000000) >> 24) / 255.0
-            g = CGFloat((rgbValue & 0x00FF0000) >> 16) / 255.0
-            b = CGFloat((rgbValue & 0x0000FF00) >> 8) / 255.0
-            a = CGFloat(rgbValue & 0x000000FF) / 255.0
             
         default:
             r = 0; g = 0; b = 0; a = 1.0
