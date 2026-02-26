@@ -9,10 +9,30 @@ class BaseModel: Codable {
     var ectopurposeess: String?
     var urgth: String?
     var casia: casiaModel?
+    
+    enum CodingKeys: String, CodingKey {
+        case ectopurposeess, urgth, casia
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        urgth = try container.decodeIfPresent(String.self, forKey: .urgth)
+        casia = try container.decodeIfPresent(casiaModel.self, forKey: .casia)
+        
+        if let stringValue = try? container.decode(String.self, forKey: .ectopurposeess) {
+            ectopurposeess = stringValue
+        } else if let intValue = try? container.decode(Int.self, forKey: .ectopurposeess) {
+            ectopurposeess = String(intValue)
+        } else {
+            ectopurposeess = nil
+        }
+    }
 }
 
 class casiaModel: Codable {
     var sagacain: String?
+    var station: String?
+    var maliion: String?
     var sorb: sorbModel?
 }
 

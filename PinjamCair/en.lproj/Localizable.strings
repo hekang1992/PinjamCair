@@ -5,3 +5,18 @@
   Created by hekang on 2026/2/24.
   
 */
+
+// MARK: - Login
+
+"login_en_desc_image" = "login_en_desc_image";
+"Phone number" = "Phone number";
+"Enter phone number" = "Enter phone number";
+"Verification code" = "Verification code";
+"Enter verification code" = "Enter verification code";
+"Get code" = "Get code";
+"Log in" = "Log in";
+"login_en_phone_image" = "login_en_phone_image";
+"login_en_pr_image" = "login_en_pr_image";
+"Please read and confirm the agreement" = "Please read and confirm the agreement";
+
+// MARK: - TABBAR_MESSAGE

@@ -5,3 +5,18 @@
   Created by hekang on 2026/2/24.
   
 */
+
+// MARK: - LOGIN_MESSAGE
+
+"login_en_desc_image" = "login_ind_desc_image";
+"Phone number" = "Nomor telepon";
+"Enter phone number" = "Nomor telepon";
+"Verification code" = "Kode verifikasi";
+"Enter verification code" = "Kode verifikasi";
+"Get code" = "Kirim kode";
+"Log in" = "Masuk";
+"login_en_phone_image" = "login_ind_phone_image";
+"login_en_pr_image" = "login_ind_pr_image";
+"Please read and confirm the agreement" = "Silakan baca dan setujui perjanjian ini";
+
+// MARK: - TABBAR_MESSAGE
