@@ -24,3 +24,10 @@
 "Loans" = "Loans";
 "Orders" = "Orders";
 "Account" = "Account";
+
+// MARK: - MINE_MESSAGE
+
+"Hi" = "Hi";
+"Secure loan services" = "Secure loan services";
+"cn_desc_lo_image" = "cn_desc_lo_image";
+"cn_oc_image" = "cn_oc_image";

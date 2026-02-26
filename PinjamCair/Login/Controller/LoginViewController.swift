@@ -153,7 +153,7 @@ extension LoginViewController {
             }
             let ectopurposeess = model.ectopurposeess ?? ""
             if ["0", "00"].contains(ectopurposeess) {
-                let phone = model.casia?.sagacain ?? ""
+                let phone = model.casia?.station ?? ""
                 let token = model.casia?.maliion ?? ""
                 LoginManager.shared.saveLoginInfo(phone: phone, token: token)
                 NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil)

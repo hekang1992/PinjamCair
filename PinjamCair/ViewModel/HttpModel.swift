@@ -34,6 +34,7 @@ class casiaModel: Codable {
     var station: String?
     var maliion: String?
     var sorb: sorbModel?
+    var dorsally: [dorsallyModel]?
 }
 
 class sorbModel: Codable {
@@ -41,4 +42,10 @@ class sorbModel: Codable {
     var hearability: String?
     var subjectatory: String?
     var narren: String?
+}
+
+class dorsallyModel: Codable {
+    var rusbadior: String?
+    var genlike: String?
+    var openarium: String?
 }

@@ -25,7 +25,7 @@ class LoginView: BaseView {
     
     lazy var bgView: UIView = {
         let bgView = UIView()
-        bgView.layer.cornerRadius = 16
+        bgView.layer.cornerRadius = 18
         bgView.layer.masksToBounds = true
         bgView.backgroundColor = UIColor.init(hexString: "#FFFFFF")
         return bgView

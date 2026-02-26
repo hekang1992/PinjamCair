@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73097B5B2F501CFC008DDA52 /* MineMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73097B5A2F501CFC008DDA52 /* MineMessageView.swift */; };
+		73097B5D2F502B64008DDA52 /* MineListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73097B5C2F502B64008DDA52 /* MineListViewCell.swift */; };
 		7349CE712F4D6F1800B0EB0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349CE672F4D6F1800B0EB0F /* AppDelegate.swift */; };
 		7349CE742F4D6F1800B0EB0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7349CE682F4D6F1800B0EB0F /* Assets.xcassets */; };
 		7349CE762F4D6F1800B0EB0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7349CE6B2F4D6F1800B0EB0F /* LaunchScreen.storyboard */; };
@@ -43,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		73097B5A2F501CFC008DDA52 /* MineMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineMessageView.swift; sourceTree = "<group>"; };
+		73097B5C2F502B64008DDA52 /* MineListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineListViewCell.swift; sourceTree = "<group>"; };
 		7349CE4F2F4D6F1000B0EB0F /* PinjamCair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinjamCair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7349CE672F4D6F1800B0EB0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7349CE682F4D6F1800B0EB0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -294,6 +298,8 @@
 			isa = PBXGroup;
 			children = (
 				7365C59D2F4D8F1800240451 /* MineView.swift */,
+				73097B5A2F501CFC008DDA52 /* MineMessageView.swift */,
+				73097B5C2F502B64008DDA52 /* MineListViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -484,10 +490,12 @@
 				7349CE902F4D732500B0EB0F /* HttpModel.swift in Sources */,
 				7365C5982F4D8EEA00240451 /* UploadImageViewController.swift in Sources */,
 				7349CEA02F4D78EE00B0EB0F /* LoadingView.swift in Sources */,
+				73097B5D2F502B64008DDA52 /* MineListViewCell.swift in Sources */,
 				7349CE712F4D6F1800B0EB0F /* AppDelegate.swift in Sources */,
 				7349CEAF2F4D882200B0EB0F /* CustomDatePickerView.swift in Sources */,
 				7349CE922F4D73B200B0EB0F /* LoginManager.swift in Sources */,
 				7365C5AD2F4D901500240451 /* PersonalViewController.swift in Sources */,
+				73097B5B2F501CFC008DDA52 /* MineMessageView.swift in Sources */,
 				7349CE832F4D720000B0EB0F /* AppLaunchViewController.swift in Sources */,
 				7349CE9C2F4D751900B0EB0F /* LoginView.swift in Sources */,
 				7349CE962F4D74FA00B0EB0F /* HomeViewController.swift in Sources */,

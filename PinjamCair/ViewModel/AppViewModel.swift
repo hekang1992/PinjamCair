@@ -9,7 +9,7 @@ import Foundation
 
 final class AppViewModel {
     
-    // MARK: - LAUNCH_INFO☝️
+    // MARK: - LAUNCH_INFO
     
     func getAppLaunchInfo(parameters: [String: String]) async throws -> BaseModel {
         
@@ -32,7 +32,11 @@ final class AppViewModel {
         }
     }
     
-    // MARK: - ADDRESS_INFO🗺️
+}
+
+extension AppViewModel {
+    
+    // MARK: - ADDRESS_INFO
     
     func getAddressInfo() async throws -> BaseModel {
         do {
@@ -59,6 +63,10 @@ final class AppViewModel {
             throw error
         }
     }
+    
+}
+
+extension AppViewModel {
     
     // MARK: - LOGIN_INFO
     
@@ -103,4 +111,28 @@ final class AppViewModel {
             throw error
         }
     }
+    
+}
+
+extension AppViewModel {
+    
+    // MARK: - MINE_INFO
+    
+    func getMineInfo(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.get("/nemaite/togetheretic", parameters: parameters)
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+    
 }

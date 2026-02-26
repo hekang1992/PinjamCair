@@ -12,8 +12,8 @@ class AppTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.delegate = self
         setupViewControllers()
-        
         setupTabBarAppearance()
     }
     
@@ -88,3 +88,10 @@ class AppTabBarController: UITabBarController {
     }
 }
 
+extension AppTabBarController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        return true
+    }
+    
+}

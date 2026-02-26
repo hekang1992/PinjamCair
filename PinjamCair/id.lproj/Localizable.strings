@@ -25,4 +25,9 @@
 "Orders" = "Pesanan";
 "Account" = "Akun";
 
+// MARK: - MINE_MESSAGE
 
+"Hi" = "Hai";
+"Secure loan services" = "Layanan pinjaman yang aman";
+"cn_desc_lo_image" = "cnd_desc_lo_image";
+"cn_oc_image" = "cnd_oc_image";

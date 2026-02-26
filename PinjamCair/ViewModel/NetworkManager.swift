@@ -42,8 +42,7 @@ final class NetworkManager {
         headers: HTTPHeaders? = nil
     ) async throws -> T {
         
-        let parameters = AppCommonParas.shared.toDictionary()
-        let apiUrl = (baseURL + path).appendingQueryParameters(parameters: parameters)
+        let apiUrl = (baseURL + path).appendingQueryParameters(parameters: AppCommonParas.shared.toDictionary())
         
         let request = try makeRequest(
             url: apiUrl,

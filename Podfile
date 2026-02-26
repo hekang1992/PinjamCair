@@ -8,14 +8,14 @@ target 'PinjamCair' do
   # Pods for PinjamCair
   pod 'SnapKit'
   pod 'RxSwift'
+  pod 'FBSDKCoreKit'
+  pod 'IQKeyboardManagerSwift', '~> 6.5.16'
+  pod 'TYAlertController'
+  pod 'Toast-Swift'
   pod 'RxCocoa'
   pod 'DeviceKit'
   pod 'Kingfisher'
   pod 'Alamofire'
   pod 'MJRefresh'
-  pod 'Toast-Swift'
-  pod 'FBSDKCoreKit'
-  pod 'IQKeyboardManagerSwift', '~> 6.5.16'
-  pod 'TYAlertController'
   pod 'Toast-Swift'
 end
