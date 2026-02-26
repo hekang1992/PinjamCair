@@ -18,26 +18,26 @@ class AppTabBarController: UITabBarController {
     }
     
     private func setupViewControllers() {
-
+        
         let homeVC = HomeViewController()
         homeVC.tabBarItem = createTabBarItem(
             title: "Loans",
-            imageName: "login_sel_btn_image",
-            selectedImageName: "login_sel_btn_image"
+            imageName: "loan_nor_image",
+            selectedImageName: "loan_sel_image"
         )
         
         let orderVC = OrderViewController()
         orderVC.tabBarItem = createTabBarItem(
             title: "Orders",
-            imageName: "login_sel_btn_image",
-            selectedImageName: "login_sel_btn_image"
+            imageName: "oc_nor_image",
+            selectedImageName: "oc_sel_image"
         )
         
         let mineVC = MineViewController()
         mineVC.tabBarItem = createTabBarItem(
             title: "Account",
-            imageName: "login_sel_btn_image",
-            selectedImageName: "login_sel_btn_image"
+            imageName: "cn_nor_image",
+            selectedImageName: "cn_sel_image"
         )
         
         viewControllers = [homeVC, orderVC, mineVC].map {
