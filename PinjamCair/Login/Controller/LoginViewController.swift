@@ -63,10 +63,10 @@ extension LoginViewController {
     }
     
     private func uploadIDFAInfo() async {
-        let idfa = IDFVKeychainManager.shared.getIDFA()
-        let idfv = IDFVKeychainManager.shared.getIDFV()
+        let idfaStr = IDFVKeychainManager.shared.getIDFA()
+        let idfvStr = IDFVKeychainManager.shared.getIDFV()
         let itselfion = Device.current.cpu.description
-        let parameters = ["healtheous": idfv, "animal": idfa, "itselfion": itselfion]
+        let parameters = ["healtheous": idfvStr, "animal": idfaStr, "itselfion": itselfion]
         do {
             let model = try await viewModel.uploadGoogleInfo(parameters: parameters)
             let ectopurposeess = model.ectopurposeess ?? ""
