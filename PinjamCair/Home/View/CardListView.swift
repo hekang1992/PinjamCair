@@ -57,13 +57,13 @@ class CardListView: UIView {
         
         twoLabel.snp.makeConstraints { make in
             make.left.equalTo(oneLabel)
-            make.top.equalTo(oneLabel.snp.bottom).offset(4)
+            make.top.equalTo(oneLabel.snp.bottom).offset(4.pix())
             make.height.equalTo(44)
         }
         
         bgView.snp.makeConstraints { make in
             make.left.equalTo(oneLabel)
-            make.top.equalTo(twoLabel.snp.bottom).offset(10)
+            make.top.equalTo(twoLabel.snp.bottom).offset(10.pix())
             make.size.equalTo(CGSize(width: 200.pix(), height: 32.pix()))
         }
         

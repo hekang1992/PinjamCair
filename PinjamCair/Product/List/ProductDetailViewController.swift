@@ -10,8 +10,10 @@ import SnapKit
 import MJRefresh
 import DeviceKit
 import Kingfisher
+import RxSwift
+import RxCocoa
 
-class ProductDetailViewController: UIViewController {
+class ProductDetailViewController: BaseViewController {
     
     var productId: String = ""
     
@@ -112,7 +114,7 @@ class ProductDetailViewController: UIViewController {
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(headView.snp.bottom)
+            make.top.equalTo(headView.snp.bottom).offset(5)
             make.left.right.equalToSuperview()
             make.bottom.equalTo(nextBtn.snp.top).offset(-5)
         }
@@ -126,6 +128,16 @@ class ProductDetailViewController: UIViewController {
         headView.backBlock = { [weak self] in
             self?.navigationController?.popToRootViewController(animated: true)
         }
+        
+        nextBtn
+            .rx
+            .tap
+            .throttle(.microseconds(200), scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] in
+                guard let self = self else { return }
+            }).disposed(by: disposeBag)
+        
+        
         
     }
     
@@ -147,6 +159,7 @@ extension ProductDetailViewController {
             let ectopurposeess = model.ectopurposeess ?? ""
             if ["0", "00"].contains(ectopurposeess) {
                 self.model = model
+                self.configTitle(model: model)
             }
             self.tableView.reloadData()
             await MainActor.run {
@@ -157,6 +170,11 @@ extension ProductDetailViewController {
                 self.tableView.mj_header?.endRefreshing()
             }
         }
+    }
+    
+    private func configTitle(model: BaseModel) {
+        self.headView.nameLabel.text = model.casia?.spergice?.shareian ?? ""
+        self.nextBtn.setTitle(model.casia?.spergice?.employeesome ?? "", for: .normal)
     }
     
 }
@@ -203,7 +221,7 @@ extension ProductDetailViewController: UITableViewDelegate, UITableViewDataSourc
         }
         
         listView.snp.makeConstraints { make in
-            make.top.equalTo(logoImageView.snp.bottom).offset(12)
+            make.top.equalTo(logoImageView.snp.bottom).offset(15)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
             make.height.equalTo(106.pix())
@@ -231,6 +249,10 @@ extension ProductDetailViewController: UITableViewDelegate, UITableViewDataSourc
         let model = self.model?.casia?.mrer?[indexPath.row]
         cell.model = model
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = self.model?.casia?.mrer?[indexPath.row]
     }
     
 }
