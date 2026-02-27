@@ -135,4 +135,38 @@ extension AppViewModel {
         }
     }
     
+    func deleteInfo() async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.get("/nemaite/nauo")
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+    
+    func logoutInfo() async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.get("/nemaite/urgth")
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+    
 }

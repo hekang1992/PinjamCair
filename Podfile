@@ -13,6 +13,7 @@ target 'PinjamCair' do
   pod 'TYAlertController'
   pod 'Toast-Swift'
   pod 'RxCocoa'
+  pod 'RxGesture'
   pod 'DeviceKit'
   pod 'Kingfisher'
   pod 'Alamofire'

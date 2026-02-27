@@ -41,6 +41,13 @@
 		7365C5B22F4DA22600240451 /* AppCommonParas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5B12F4DA22600240451 /* AppCommonParas.swift */; };
 		7365C5B42F4DA27A00240451 /* IDFVKeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5B32F4DA27A00240451 /* IDFVKeychainManager.swift */; };
 		736D7C542F4E9AC500CD6F14 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736D7C532F4E9AC500CD6F14 /* NetworkMonitor.swift */; };
+		73E0C7752F512D3E00BBFE9C /* H5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7742F512D3E00BBFE9C /* H5ViewController.swift */; };
+		73E0C7772F512D5A00BBFE9C /* AppHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7762F512D5A00BBFE9C /* AppHeadView.swift */; };
+		73E0C7792F5132C100BBFE9C /* SchemeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7782F5132C100BBFE9C /* SchemeRouter.swift */; };
+		73E0C77B2F51338300BBFE9C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C77A2F51338300BBFE9C /* SettingViewController.swift */; };
+		73E0C77E2F5133D400BBFE9C /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C77D2F5133D400BBFE9C /* ProductDetailViewController.swift */; };
+		73E0C7802F5145B400BBFE9C /* DeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C77F2F5145B400BBFE9C /* DeleteView.swift */; };
+		73E0C7822F514C0600BBFE9C /* LogouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7812F514C0600BBFE9C /* LogouView.swift */; };
 		F463F6921760B25883AA1E1A /* Pods_PinjamCair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +91,13 @@
 		7365C5B12F4DA22600240451 /* AppCommonParas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommonParas.swift; sourceTree = "<group>"; };
 		7365C5B32F4DA27A00240451 /* IDFVKeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFVKeychainManager.swift; sourceTree = "<group>"; };
 		736D7C532F4E9AC500CD6F14 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		73E0C7742F512D3E00BBFE9C /* H5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H5ViewController.swift; sourceTree = "<group>"; };
+		73E0C7762F512D5A00BBFE9C /* AppHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeadView.swift; sourceTree = "<group>"; };
+		73E0C7782F5132C100BBFE9C /* SchemeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeRouter.swift; sourceTree = "<group>"; };
+		73E0C77A2F51338300BBFE9C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		73E0C77D2F5133D400BBFE9C /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		73E0C77F2F5145B400BBFE9C /* DeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteView.swift; sourceTree = "<group>"; };
+		73E0C7812F514C0600BBFE9C /* LogouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogouView.swift; sourceTree = "<group>"; };
 		DBB41FD14F8919C034DEC0D7 /* Pods-PinjamCair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.release.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.release.xcconfig"; sourceTree = "<group>"; };
 		E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinjamCair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE4C731136F1CFC9E2A724A /* Pods-PinjamCair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.debug.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.debug.xcconfig"; sourceTree = "<group>"; };
@@ -237,6 +251,7 @@
 		7349CEA92F4D87EA00B0EB0F /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				73E0C77C2F5133C400BBFE9C /* List */,
 				7365C5A72F4D8FE200240451 /* Wallet */,
 				7365C5A62F4D8FD300240451 /* Contact */,
 				7365C5A52F4D8FC900240451 /* Personal */,
@@ -290,6 +305,8 @@
 			isa = PBXGroup;
 			children = (
 				7349CE972F4D750100B0EB0F /* MineViewController.swift */,
+				73E0C7742F512D3E00BBFE9C /* H5ViewController.swift */,
+				73E0C77A2F51338300BBFE9C /* SettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -297,9 +314,13 @@
 		7365C59C2F4D8F0900240451 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				73E0C7782F5132C100BBFE9C /* SchemeRouter.swift */,
 				7365C59D2F4D8F1800240451 /* MineView.swift */,
 				73097B5A2F501CFC008DDA52 /* MineMessageView.swift */,
 				73097B5C2F502B64008DDA52 /* MineListViewCell.swift */,
+				73E0C7762F512D5A00BBFE9C /* AppHeadView.swift */,
+				73E0C77F2F5145B400BBFE9C /* DeleteView.swift */,
+				73E0C7812F514C0600BBFE9C /* LogouView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -353,6 +374,14 @@
 				7365C5B32F4DA27A00240451 /* IDFVKeychainManager.swift */,
 			);
 			path = ComParas;
+			sourceTree = "<group>";
+		};
+		73E0C77C2F5133C400BBFE9C /* List */ = {
+			isa = PBXGroup;
+			children = (
+				73E0C77D2F5133D400BBFE9C /* ProductDetailViewController.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 		DB56F940DD03B5AEF10DBFCE /* Frameworks */ = {
@@ -443,9 +472,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PinjamCair/Pods-PinjamCair-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PinjamCair/Pods-PinjamCair-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -483,10 +516,14 @@
 			files = (
 				7365C5B22F4DA22600240451 /* AppCommonParas.swift in Sources */,
 				7365C5B42F4DA27A00240451 /* IDFVKeychainManager.swift in Sources */,
+				73E0C77E2F5133D400BBFE9C /* ProductDetailViewController.swift in Sources */,
 				7349CE7D2F4D6FB300B0EB0F /* BaseView.swift in Sources */,
 				7349CE7F2F4D6FCC00B0EB0F /* AppTabBarController.swift in Sources */,
 				7349CE9A2F4D750800B0EB0F /* OrderViewController.swift in Sources */,
+				73E0C77B2F51338300BBFE9C /* SettingViewController.swift in Sources */,
 				7349CE8E2F4D730C00B0EB0F /* AppViewModel.swift in Sources */,
+				73E0C7792F5132C100BBFE9C /* SchemeRouter.swift in Sources */,
+				73E0C7802F5145B400BBFE9C /* DeleteView.swift in Sources */,
 				7349CE902F4D732500B0EB0F /* HttpModel.swift in Sources */,
 				7365C5982F4D8EEA00240451 /* UploadImageViewController.swift in Sources */,
 				7349CEA02F4D78EE00B0EB0F /* LoadingView.swift in Sources */,
@@ -498,6 +535,7 @@
 				73097B5B2F501CFC008DDA52 /* MineMessageView.swift in Sources */,
 				7349CE832F4D720000B0EB0F /* AppLaunchViewController.swift in Sources */,
 				7349CE9C2F4D751900B0EB0F /* LoginView.swift in Sources */,
+				73E0C7752F512D3E00BBFE9C /* H5ViewController.swift in Sources */,
 				7349CE962F4D74FA00B0EB0F /* HomeViewController.swift in Sources */,
 				7365C5A22F4D8F3200240451 /* HomeView.swift in Sources */,
 				7365C5AB2F4D900A00240451 /* ContactViewController.swift in Sources */,
@@ -506,6 +544,8 @@
 				7349CE7B2F4D6FA700B0EB0F /* BaseViewController.swift in Sources */,
 				7349CE942F4D74C100B0EB0F /* LoginViewController.swift in Sources */,
 				7349CE9E2F4D75DD00B0EB0F /* NetworkManager.swift in Sources */,
+				73E0C7822F514C0600BBFE9C /* LogouView.swift in Sources */,
+				73E0C7772F512D5A00BBFE9C /* AppHeadView.swift in Sources */,
 				7365C5A42F4D8F4700240451 /* OrderView.swift in Sources */,
 				7365C5AF2F4D9F9F00240451 /* AppLanguage.swift in Sources */,
 				736D7C542F4E9AC500CD6F14 /* NetworkMonitor.swift in Sources */,

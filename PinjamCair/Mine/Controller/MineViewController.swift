@@ -27,6 +27,17 @@ class MineViewController: BaseViewController {
             make.edges.equalToSuperview()
         }
         
+        mineView.tapBlock = { [weak self] pageUrl in
+            guard let self = self else { return }
+            if pageUrl.contains(SchemeRouter.shared.schemeUrl) {
+                SchemeRouter.shared.handle(urlString: pageUrl, vc: self)
+            }else {
+                let webVc = H5ViewController()
+                webVc.pageUrl = pageUrl
+                self.navigationController?.pushViewController(webVc, animated: true)
+            }
+        }
+        
         self.mineView.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
             Task { [weak self] in
                 await self?.getMineInfo()

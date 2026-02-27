@@ -31,3 +31,10 @@
 "Secure loan services" = "Secure loan services";
 "cn_desc_lo_image" = "cn_desc_lo_image";
 "cn_oc_image" = "cn_oc_image";
+
+// MARK: - SETTING_MESSAGE
+
+"Settings" = "Settings";
+"Version" = "Version";
+"Log out" = "Log out";
+"log_out_image" = "log_out_image";

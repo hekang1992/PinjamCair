@@ -11,6 +11,8 @@ import SnapKit
 class MineView: BaseView {
     
     var modelArray: [dorsallyModel] = []
+    
+    var tapBlock: ((String) -> Void)?
 
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()
@@ -140,5 +142,10 @@ extension MineView: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = modelArray[indexPath.row]
+        let pageUrl = model.openarium ?? ""
+        self.tapBlock?(pageUrl)
+    }
     
 }

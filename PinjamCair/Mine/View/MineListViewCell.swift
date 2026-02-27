@@ -49,6 +49,7 @@ class MineListViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
         contentView.addSubview(bgView)
         bgView.addSubview(logoImageView)
         bgView.addSubview(aImageView)

@@ -21,21 +21,21 @@ class AppTabBarController: UITabBarController {
         
         let homeVC = HomeViewController()
         homeVC.tabBarItem = createTabBarItem(
-            title: "Loans",
+            title: LocalStr("Loans"),
             imageName: "loan_nor_image",
             selectedImageName: "loan_sel_image"
         )
         
         let orderVC = OrderViewController()
         orderVC.tabBarItem = createTabBarItem(
-            title: "Orders",
+            title: LocalStr("Orders"),
             imageName: "oc_nor_image",
             selectedImageName: "oc_sel_image"
         )
         
         let mineVC = MineViewController()
         mineVC.tabBarItem = createTabBarItem(
-            title: "Account",
+            title: LocalStr("Account"),
             imageName: "cn_nor_image",
             selectedImageName: "cn_sel_image"
         )
