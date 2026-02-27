@@ -8,6 +8,8 @@
 import UIKit
 
 class UploadImageViewController: BaseViewController {
+    
+    var cardModel: spergiceModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,6 +13,11 @@ import Kingfisher
 import RxSwift
 import RxCocoa
 
+enum ClickType {
+    case next
+    case cell
+}
+
 class ProductDetailViewController: BaseViewController {
     
     var productId: String = ""
@@ -135,9 +140,10 @@ class ProductDetailViewController: BaseViewController {
             .throttle(.microseconds(200), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
+                if let clickModel = self.model?.casia?.stagn {
+                    clickToVc(model: clickModel, type: .next)
+                }
             }).disposed(by: disposeBag)
-        
-        
         
     }
     
@@ -252,7 +258,31 @@ extension ProductDetailViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = self.model?.casia?.mrer?[indexPath.row]
+        if let model = self.model?.casia?.mrer?[indexPath.row] {
+            clickToVc(model: model, type: .cell)
+        }
+    }
+    
+}
+
+extension ProductDetailViewController {
+    
+    private func clickToVc(model: mrerModel, type: ClickType) {
+        switch type {
+        case .next:
+            let ommfic = model.ommfic ?? ""
+            if ommfic == "afterency" {
+                let listVc = UploadImageViewController()
+                if let cardModel = self.model?.casia?.spergice {
+                    listVc.cardModel = cardModel
+                }
+                self.navigationController?.pushViewController(listVc, animated: true)
+            }
+            
+        case .cell:
+            break
+        
+        }
     }
     
 }
