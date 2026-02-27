@@ -72,10 +72,8 @@ class SchemeRouter {
 extension SchemeRouter {
     
     private func navigate(to route: RouteType, vc: UIViewController) {
-        
 
         let nav = vc.navigationController
-        
         
         switch route {
             

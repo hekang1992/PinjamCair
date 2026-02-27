@@ -81,6 +81,7 @@ class LoginView: BaseView {
         phoneFiled.attributedPlaceholder = attrString
         phoneFiled.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         phoneFiled.textColor = UIColor.init(hexString: "#333332")
+        phoneFiled.text = LoginManager.shared.getPhone()
         return phoneFiled
     }()
     

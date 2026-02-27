@@ -32,7 +32,7 @@
 		7349CEAF2F4D882200B0EB0F /* CustomDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7349CEAE2F4D882200B0EB0F /* CustomDatePickerView.swift */; };
 		7365C5982F4D8EEA00240451 /* UploadImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5972F4D8EEA00240451 /* UploadImageViewController.swift */; };
 		7365C59E2F4D8F1800240451 /* MineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C59D2F4D8F1800240451 /* MineView.swift */; };
-		7365C5A22F4D8F3200240451 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5A12F4D8F3200240451 /* HomeView.swift */; };
+		7365C5A22F4D8F3200240451 /* EnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5A12F4D8F3200240451 /* EnView.swift */; };
 		7365C5A42F4D8F4700240451 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5A32F4D8F4700240451 /* OrderView.swift */; };
 		7365C5A92F4D900100240451 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5A82F4D900100240451 /* WalletViewController.swift */; };
 		7365C5AB2F4D900A00240451 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5AA2F4D900A00240451 /* ContactViewController.swift */; };
@@ -48,6 +48,8 @@
 		73E0C77E2F5133D400BBFE9C /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C77D2F5133D400BBFE9C /* ProductDetailViewController.swift */; };
 		73E0C7802F5145B400BBFE9C /* DeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C77F2F5145B400BBFE9C /* DeleteView.swift */; };
 		73E0C7822F514C0600BBFE9C /* LogouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7812F514C0600BBFE9C /* LogouView.swift */; };
+		73E0C7842F5162AE00BBFE9C /* EndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7832F5162AE00BBFE9C /* EndView.swift */; };
+		73E0C7862F516A3C00BBFE9C /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7852F516A3C00BBFE9C /* CardListView.swift */; };
 		F463F6921760B25883AA1E1A /* Pods_PinjamCair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,7 +84,7 @@
 		7349CEAE2F4D882200B0EB0F /* CustomDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerView.swift; sourceTree = "<group>"; };
 		7365C5972F4D8EEA00240451 /* UploadImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageViewController.swift; sourceTree = "<group>"; };
 		7365C59D2F4D8F1800240451 /* MineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineView.swift; sourceTree = "<group>"; };
-		7365C5A12F4D8F3200240451 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7365C5A12F4D8F3200240451 /* EnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnView.swift; sourceTree = "<group>"; };
 		7365C5A32F4D8F4700240451 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		7365C5A82F4D900100240451 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		7365C5AA2F4D900A00240451 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,8 @@
 		73E0C77D2F5133D400BBFE9C /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		73E0C77F2F5145B400BBFE9C /* DeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteView.swift; sourceTree = "<group>"; };
 		73E0C7812F514C0600BBFE9C /* LogouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogouView.swift; sourceTree = "<group>"; };
+		73E0C7832F5162AE00BBFE9C /* EndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndView.swift; sourceTree = "<group>"; };
+		73E0C7852F516A3C00BBFE9C /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
 		DBB41FD14F8919C034DEC0D7 /* Pods-PinjamCair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.release.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.release.xcconfig"; sourceTree = "<group>"; };
 		E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinjamCair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE4C731136F1CFC9E2A724A /* Pods-PinjamCair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.debug.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.debug.xcconfig"; sourceTree = "<group>"; };
@@ -336,7 +340,9 @@
 		7365C5A02F4D8F2700240451 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7365C5A12F4D8F3200240451 /* HomeView.swift */,
+				7365C5A12F4D8F3200240451 /* EnView.swift */,
+				73E0C7832F5162AE00BBFE9C /* EndView.swift */,
+				73E0C7852F516A3C00BBFE9C /* CardListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -523,6 +529,7 @@
 				73E0C77B2F51338300BBFE9C /* SettingViewController.swift in Sources */,
 				7349CE8E2F4D730C00B0EB0F /* AppViewModel.swift in Sources */,
 				73E0C7792F5132C100BBFE9C /* SchemeRouter.swift in Sources */,
+				73E0C7842F5162AE00BBFE9C /* EndView.swift in Sources */,
 				73E0C7802F5145B400BBFE9C /* DeleteView.swift in Sources */,
 				7349CE902F4D732500B0EB0F /* HttpModel.swift in Sources */,
 				7365C5982F4D8EEA00240451 /* UploadImageViewController.swift in Sources */,
@@ -537,7 +544,7 @@
 				7349CE9C2F4D751900B0EB0F /* LoginView.swift in Sources */,
 				73E0C7752F512D3E00BBFE9C /* H5ViewController.swift in Sources */,
 				7349CE962F4D74FA00B0EB0F /* HomeViewController.swift in Sources */,
-				7365C5A22F4D8F3200240451 /* HomeView.swift in Sources */,
+				7365C5A22F4D8F3200240451 /* EnView.swift in Sources */,
 				7365C5AB2F4D900A00240451 /* ContactViewController.swift in Sources */,
 				7365C59E2F4D8F1800240451 /* MineView.swift in Sources */,
 				7365C5A92F4D900100240451 /* WalletViewController.swift in Sources */,
@@ -550,6 +557,7 @@
 				7365C5AF2F4D9F9F00240451 /* AppLanguage.swift in Sources */,
 				736D7C542F4E9AC500CD6F14 /* NetworkMonitor.swift in Sources */,
 				7349CE812F4D6FDE00B0EB0F /* AppNavigationController.swift in Sources */,
+				73E0C7862F516A3C00BBFE9C /* CardListView.swift in Sources */,
 				7349CE982F4D750100B0EB0F /* MineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

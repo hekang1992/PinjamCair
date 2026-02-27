@@ -170,3 +170,48 @@ extension AppViewModel {
     }
     
 }
+
+extension AppViewModel {
+    
+    // MARK: - MINE_INFO
+    
+    func getHomeInfo() async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.get("/nemaite/casia")
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+}
+
+extension AppViewModel {
+    
+    // MARK: - CLICK_INFO
+    
+    func clickProductInfo(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.post("/nemaite/omphalacle", parameters: parameters)
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+}
+

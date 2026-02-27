@@ -33,8 +33,10 @@ class casiaModel: Codable {
     var sagacain: String?
     var station: String?
     var maliion: String?
+    var feliee: String?
     var sorb: sorbModel?
     var dorsally: [dorsallyModel]?
+    var dipsiauous: [dipsiauousModel]?
 }
 
 class sorbModel: Codable {
@@ -48,4 +50,22 @@ class dorsallyModel: Codable {
     var rusbadior: String?
     var genlike: String?
     var openarium: String?
+}
+
+class dipsiauousModel: Codable {
+    var emesive: String?
+    var notdropality: [notdropalityModel]?
+}
+
+class notdropalityModel: Codable {
+    var stochacity: Int?
+    var shareian: String?
+    var adduous: String?
+    var employeesome: String?
+    var phrenious: String?
+    var autoesque: String?
+    var nauo: String?
+    var manthamericanible: String?
+    var townaire: String?
+    var multatule: String?
 }

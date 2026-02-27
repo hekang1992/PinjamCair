@@ -30,7 +30,7 @@ class LoginManager {
     }
     
     func deleteLoginInfo() {
-        UserDefaults.standard.removeObject(forKey: phoneKey)
+//        UserDefaults.standard.removeObject(forKey: phoneKey)
         UserDefaults.standard.removeObject(forKey: tokenKey)
         UserDefaults.standard.synchronize()
     }
