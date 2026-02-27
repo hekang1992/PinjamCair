@@ -77,7 +77,7 @@ class EnView: BaseView {
         applyBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         applyBtn.setBackgroundImage(UIImage(named: "app_home_me_image"), for: .normal)
         applyBtn.isUserInteractionEnabled = false
-        applyBtn.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
+        applyBtn.titleEdgeInsets = UIEdgeInsets(top: 5.pix(), left: 0, bottom: 0, right: 0)
         return applyBtn
     }()
     

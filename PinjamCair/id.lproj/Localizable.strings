@@ -38,3 +38,7 @@
 "Version" = "Versi";
 "Log out" = "Keluar";
 "log_out_image" = "ldog_out_image";
+
+// MARK: - PRODUCT_MESSAGE
+
+"Certification" = "Sertifikasi";

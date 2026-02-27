@@ -213,5 +213,22 @@ extension AppViewModel {
             throw error
         }
     }
+    
+    func productDetailInfo(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.post("/nemaite/ogile", parameters: parameters)
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
 }
 

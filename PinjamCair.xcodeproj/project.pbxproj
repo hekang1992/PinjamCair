@@ -41,6 +41,7 @@
 		7365C5B22F4DA22600240451 /* AppCommonParas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5B12F4DA22600240451 /* AppCommonParas.swift */; };
 		7365C5B42F4DA27A00240451 /* IDFVKeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365C5B32F4DA27A00240451 /* IDFVKeychainManager.swift */; };
 		736D7C542F4E9AC500CD6F14 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736D7C532F4E9AC500CD6F14 /* NetworkMonitor.swift */; };
+		738B54752F5183280032F831 /* StepViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B54742F5183280032F831 /* StepViewCell.swift */; };
 		73E0C7752F512D3E00BBFE9C /* H5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7742F512D3E00BBFE9C /* H5ViewController.swift */; };
 		73E0C7772F512D5A00BBFE9C /* AppHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7762F512D5A00BBFE9C /* AppHeadView.swift */; };
 		73E0C7792F5132C100BBFE9C /* SchemeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7782F5132C100BBFE9C /* SchemeRouter.swift */; };
@@ -93,6 +94,7 @@
 		7365C5B12F4DA22600240451 /* AppCommonParas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommonParas.swift; sourceTree = "<group>"; };
 		7365C5B32F4DA27A00240451 /* IDFVKeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFVKeychainManager.swift; sourceTree = "<group>"; };
 		736D7C532F4E9AC500CD6F14 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		738B54742F5183280032F831 /* StepViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepViewCell.swift; sourceTree = "<group>"; };
 		73E0C7742F512D3E00BBFE9C /* H5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H5ViewController.swift; sourceTree = "<group>"; };
 		73E0C7762F512D5A00BBFE9C /* AppHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeadView.swift; sourceTree = "<group>"; };
 		73E0C7782F5132C100BBFE9C /* SchemeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeRouter.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 		73E0C77C2F5133C400BBFE9C /* List */ = {
 			isa = PBXGroup;
 			children = (
+				738B54742F5183280032F831 /* StepViewCell.swift */,
 				73E0C77D2F5133D400BBFE9C /* ProductDetailViewController.swift */,
 			);
 			path = List;
@@ -556,6 +559,7 @@
 				7365C5A42F4D8F4700240451 /* OrderView.swift in Sources */,
 				7365C5AF2F4D9F9F00240451 /* AppLanguage.swift in Sources */,
 				736D7C542F4E9AC500CD6F14 /* NetworkMonitor.swift in Sources */,
+				738B54752F5183280032F831 /* StepViewCell.swift in Sources */,
 				7349CE812F4D6FDE00B0EB0F /* AppNavigationController.swift in Sources */,
 				73E0C7862F516A3C00BBFE9C /* CardListView.swift in Sources */,
 				7349CE982F4D750100B0EB0F /* MineViewController.swift in Sources */,
