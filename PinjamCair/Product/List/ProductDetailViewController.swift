@@ -270,18 +270,21 @@ extension ProductDetailViewController {
     private func clickToVc(model: mrerModel, type: ClickType) {
         switch type {
         case .next:
-            let ommfic = model.ommfic ?? ""
-            if ommfic == "afterency" {
-                let listVc = UploadImageViewController()
-                if let cardModel = self.model?.casia?.spergice {
-                    listVc.cardModel = cardModel
-                }
-                self.navigationController?.pushViewController(listVc, animated: true)
+            if let cardModel = self.model?.casia?.spergice {
+                self.goNextAuthVc(stepModel: model, cardModel: cardModel)
             }
             
         case .cell:
-            break
-        
+            let tergiosity = model.tergiosity ?? 0
+            if tergiosity == 1 {
+                if let cardModel = self.model?.casia?.spergice {
+                    self.goNextAuthVc(stepModel: model, cardModel: cardModel)
+                }
+            }else {
+                if let clickModel = self.model?.casia?.stagn {
+                    clickToVc(model: clickModel, type: .next)
+                }
+            }
         }
     }
     

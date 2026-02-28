@@ -130,7 +130,7 @@ extension HomeViewController {
             let ectopurposeess = model.ectopurposeess ?? ""
             if ["0", "00"].contains(ectopurposeess) {
                 let modelArray = model.casia?.dipsiauous ?? []
-                if let oneModel = modelArray.first(where: { $0.emesive == "juvenar" }) {
+                if let oneModel = modelArray.first(where: { $0.emesive == "supraal" }) {
                     if languageCode == .english {
                         enView.model = oneModel.notdropality?.first
                     }else {
