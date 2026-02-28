@@ -325,21 +325,6 @@ extension UploadImageViewController {
         }
     }
     
-    private func getDetailInfo() async {
-        do {
-            let parameters = ["hoplcy": cardModel?.stochacity ?? ""]
-            let model = try await viewModel.productDetailInfo(parameters: parameters)
-            let ectopurposeess = model.ectopurposeess ?? ""
-            if ["0", "00"].contains(ectopurposeess) {
-                if let stepModel = model.casia?.stagn, let cardModel = model.casia?.spergice {
-                    self.goNextAuthVc(stepModel: stepModel, cardModel: cardModel)
-                }
-            }
-        } catch {
-            
-        }
-    }
-    
     private func popKtpView(with model: casiaModel) {
         let popView = KtpView(frame: self.view.bounds)
         popView.model = model
@@ -403,4 +388,22 @@ extension UploadImageViewController {
         }
     }
     
+}
+
+extension UploadImageViewController {
+    
+    private func getDetailInfo() async {
+        do {
+            let parameters = ["hoplcy": cardModel?.stochacity ?? ""]
+            let model = try await viewModel.productDetailInfo(parameters: parameters)
+            let ectopurposeess = model.ectopurposeess ?? ""
+            if ["0", "00"].contains(ectopurposeess) {
+                if let stepModel = model.casia?.stagn, let cardModel = model.casia?.spergice {
+                    self.goNextAuthVc(stepModel: stepModel, cardModel: cardModel)
+                }
+            }
+        } catch {
+            
+        }
+    }
 }

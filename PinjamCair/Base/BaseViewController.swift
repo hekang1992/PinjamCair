@@ -53,10 +53,10 @@ extension BaseViewController {
             self.navigationController?.pushViewController(personalVc, animated: true)
             
         case "goldenSunr":
-            let workVc = WorkViewController()
-            workVc.cardModel = cardModel
-            workVc.stepModel = stepModel
-            self.navigationController?.pushViewController(workVc, animated: true)
+            let workerVc = WorkerViewController()
+            workerVc.cardModel = cardModel
+            workerVc.stepModel = stepModel
+            self.navigationController?.pushViewController(workerVc, animated: true)
             
         case "stereably":
             break

@@ -323,3 +323,41 @@ extension AppViewModel {
     }
     
 }
+
+extension AppViewModel {
+    
+    func getWorkerInfo(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.post("/nemaite/feli", parameters: parameters)
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+    
+    func saveWorkerInfo(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.post("/nemaite/irian", parameters: parameters)
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+    
+}

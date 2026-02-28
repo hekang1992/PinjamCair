@@ -1,8 +1,8 @@
 //
-//  WorkViewController.swift
+//  WorkerViewController.swift
 //  PinjamCair
 //
-//  Created by hekang on 2026/2/28.
+//  Created by hekang on 2026/2/24.
 //
 
 import UIKit
@@ -12,7 +12,7 @@ import RxCocoa
 import MJRefresh
 import TYAlertController
 
-class WorkViewController: BaseViewController {
+class WorkerViewController: BaseViewController {
     
     var cardModel: spergiceModel?
     var stepModel: mrerModel? {
@@ -58,7 +58,7 @@ class WorkViewController: BaseViewController {
     
     lazy var stepImageView: UIImageView = {
         let stepImageView = UIImageView()
-        stepImageView.image = UIImage(named: "two_step_image")
+        stepImageView.image = UIImage(named: "three_step_image")
         stepImageView.contentMode = .scaleAspectFit
         return stepImageView
     }()
@@ -135,6 +135,27 @@ class WorkViewController: BaseViewController {
             .throttle(.microseconds(200), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
+                let modelArray = self.model?.casia?.die ?? []
+                var parameters = ["hoplcy": cardModel?.stochacity ?? ""]
+                for model in modelArray {
+                    let key = model.ectopurposeess ?? ""
+                    let value = model.emesive ?? ""
+                    parameters[key] = value
+                }
+                
+                Task {
+                    do {
+                        let model = try await self.viewModel.saveWorkerInfo(parameters: parameters)
+                        let ectopurposeess = model.ectopurposeess ?? ""
+                        if ["0", "00"].contains(ectopurposeess) {
+                            await self.getDetailInfo()
+                        }else {
+                            ToastManager.showLocalMessage(model.urgth ?? "")
+                        }
+                    } catch {
+                        
+                    }
+                }
                 
             }).disposed(by: disposeBag)
         
@@ -144,18 +165,18 @@ class WorkViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         Task {
-            await self.getPersonalInfo()
+            await self.getWorkerInfo()
         }
     }
     
 }
 
-extension WorkViewController {
+extension WorkerViewController {
     
-    private func getPersonalInfo() async {
+    private func getWorkerInfo() async {
         do {
             let parameters = ["hoplcy": cardModel?.stochacity ?? ""]
-            let model = try await viewModel.getPersonalInfo(parameters: parameters)
+            let model = try await viewModel.getWorkerInfo(parameters: parameters)
             let ectopurposeess = model.ectopurposeess ?? ""
             if ["0", "00"].contains(ectopurposeess) {
                 self.model = model
@@ -167,7 +188,7 @@ extension WorkViewController {
     }
 }
 
-extension WorkViewController: UITableViewDelegate, UITableViewDataSource {
+extension WorkerViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.model?.casia?.die?.count ?? 0
@@ -185,6 +206,7 @@ extension WorkViewController: UITableViewDelegate, UITableViewDataSource {
             cell.model = model
             cell.clickTapBlock = { [weak self] in
                 if let self = self, let model = model {
+                    self.view.endEditing(true)
                     self.tapCellInfo(with: model, cell: cell)
                 }
             }
@@ -223,4 +245,22 @@ extension WorkViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
+}
+
+extension WorkerViewController {
+    
+    private func getDetailInfo() async {
+        do {
+            let parameters = ["hoplcy": cardModel?.stochacity ?? ""]
+            let model = try await viewModel.productDetailInfo(parameters: parameters)
+            let ectopurposeess = model.ectopurposeess ?? ""
+            if ["0", "00"].contains(ectopurposeess) {
+                if let stepModel = model.casia?.stagn, let cardModel = model.casia?.spergice {
+                    self.goNextAuthVc(stepModel: stepModel, cardModel: cardModel)
+                }
+            }
+        } catch {
+            
+        }
+    }
 }

@@ -136,6 +136,27 @@ class PersonalViewController: BaseViewController {
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
                 let modelArray = self.model?.casia?.die ?? []
+                var parameters = ["hoplcy": cardModel?.stochacity ?? ""]
+                for model in modelArray {
+                    let key = model.ectopurposeess ?? ""
+                    let value = model.emesive ?? ""
+                    parameters[key] = value
+                }
+                
+                Task {
+                    do {
+                        let model = try await self.viewModel.savePersonalInfo(parameters: parameters)
+                        let ectopurposeess = model.ectopurposeess ?? ""
+                        if ["0", "00"].contains(ectopurposeess) {
+                            await self.getDetailInfo()
+                        }else {
+                            ToastManager.showLocalMessage(model.urgth ?? "")
+                        }
+                    } catch {
+                        
+                    }
+                }
+                
             }).disposed(by: disposeBag)
         
         
@@ -185,6 +206,7 @@ extension PersonalViewController: UITableViewDelegate, UITableViewDataSource {
             cell.model = model
             cell.clickTapBlock = { [weak self] in
                 if let self = self, let model = model {
+                    self.view.endEditing(true)
                     self.tapCellInfo(with: model, cell: cell)
                 }
             }
@@ -223,4 +245,22 @@ extension PersonalViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
+}
+
+extension PersonalViewController {
+    
+    private func getDetailInfo() async {
+        do {
+            let parameters = ["hoplcy": cardModel?.stochacity ?? ""]
+            let model = try await viewModel.productDetailInfo(parameters: parameters)
+            let ectopurposeess = model.ectopurposeess ?? ""
+            if ["0", "00"].contains(ectopurposeess) {
+                if let stepModel = model.casia?.stagn, let cardModel = model.casia?.spergice {
+                    self.goNextAuthVc(stepModel: stepModel, cardModel: cardModel)
+                }
+            }
+        } catch {
+            
+        }
+    }
 }

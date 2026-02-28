@@ -50,7 +50,7 @@
 		73D808532F52CA67006F53C1 /* CoachViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D808522F52CA67006F53C1 /* CoachViewCell.swift */; };
 		73D808552F52D349006F53C1 /* PopAutnEnumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D808542F52D349006F53C1 /* PopAutnEnumView.swift */; };
 		73D808572F52D396006F53C1 /* AuthListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D808562F52D396006F53C1 /* AuthListViewCell.swift */; };
-		73D8085A2F52D89C006F53C1 /* WorkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D808592F52D89C006F53C1 /* WorkViewController.swift */; };
+		73D8085A2F52D89C006F53C1 /* WorkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D808592F52D89C006F53C1 /* WorkerViewController.swift */; };
 		73E0C7752F512D3E00BBFE9C /* H5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7742F512D3E00BBFE9C /* H5ViewController.swift */; };
 		73E0C7772F512D5A00BBFE9C /* AppHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7762F512D5A00BBFE9C /* AppHeadView.swift */; };
 		73E0C7792F5132C100BBFE9C /* SchemeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7782F5132C100BBFE9C /* SchemeRouter.swift */; };
@@ -112,7 +112,7 @@
 		73D808522F52CA67006F53C1 /* CoachViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachViewCell.swift; sourceTree = "<group>"; };
 		73D808542F52D349006F53C1 /* PopAutnEnumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAutnEnumView.swift; sourceTree = "<group>"; };
 		73D808562F52D396006F53C1 /* AuthListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthListViewCell.swift; sourceTree = "<group>"; };
-		73D808592F52D89C006F53C1 /* WorkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkViewController.swift; sourceTree = "<group>"; };
+		73D808592F52D89C006F53C1 /* WorkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerViewController.swift; sourceTree = "<group>"; };
 		73E0C7742F512D3E00BBFE9C /* H5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H5ViewController.swift; sourceTree = "<group>"; };
 		73E0C7762F512D5A00BBFE9C /* AppHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeadView.swift; sourceTree = "<group>"; };
 		73E0C7782F5132C100BBFE9C /* SchemeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeRouter.swift; sourceTree = "<group>"; };
@@ -275,7 +275,7 @@
 		7349CEA92F4D87EA00B0EB0F /* Work */ = {
 			isa = PBXGroup;
 			children = (
-				73D808592F52D89C006F53C1 /* WorkViewController.swift */,
+				73D808592F52D89C006F53C1 /* WorkerViewController.swift */,
 			);
 			path = Work;
 			sourceTree = "<group>";
@@ -585,7 +585,7 @@
 				73E0C7752F512D3E00BBFE9C /* H5ViewController.swift in Sources */,
 				73D808552F52D349006F53C1 /* PopAutnEnumView.swift in Sources */,
 				73D808512F52CA57006F53C1 /* ChanelViewCell.swift in Sources */,
-				73D8085A2F52D89C006F53C1 /* WorkViewController.swift in Sources */,
+				73D8085A2F52D89C006F53C1 /* WorkerViewController.swift in Sources */,
 				7349CE962F4D74FA00B0EB0F /* HomeViewController.swift in Sources */,
 				7365C5A22F4D8F3200240451 /* EnView.swift in Sources */,
 				7365C5AB2F4D900A00240451 /* ContactViewController.swift in Sources */,
