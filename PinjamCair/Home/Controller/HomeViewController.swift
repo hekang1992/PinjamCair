@@ -168,6 +168,14 @@ extension HomeViewController {
                     webVc.pageUrl = pageUrl
                     self.navigationController?.pushViewController(webVc, animated: true)
                 }
+            }else if ectopurposeess == "-2" {
+                await MainActor.run {
+                    ToastManager.showLocalMessage(model.urgth ?? "")
+                    LoginManager.shared.deleteLoginInfo()
+                    NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil)
+                }
+            }else {
+                ToastManager.showLocalMessage(model.urgth ?? "")
             }
         } catch {
             

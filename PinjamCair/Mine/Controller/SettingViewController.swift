@@ -188,6 +188,8 @@ class SettingViewController: BaseViewController {
             self?.navigationController?.popToRootViewController(animated: true)
         }
         
+        deleteLabel.isHidden = LanguageManager.shared.currentType == .indonesian
+        
         bindTap()
     }
     

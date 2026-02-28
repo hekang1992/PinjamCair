@@ -18,6 +18,13 @@ class StepViewCell: UITableViewCell {
             logoImageView.kf.setImage(with: URL(string: logoUrl))
             nameLabel.text = model.rusbadior ?? ""
             descLabel.text = model.larggovernmenton ?? ""
+            
+            let tergiosity = model.tergiosity ?? 0
+            bgView.backgroundColor = tergiosity == 1 ? UIColor.init(hexString: "#E7FDE3") : UIColor.init(hexString: "#1DBC79")
+            
+            typeLabel.isHidden = tergiosity == 1 ? true : false
+            typeImageView.isHidden = tergiosity == 1 ? false : true
+            
         }
     }
     
@@ -68,7 +75,16 @@ class StepViewCell: UITableViewCell {
         typeLabel.textColor = UIColor.white
         typeLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         typeLabel.text = LocalStr("Go")
+        typeLabel.isHidden = true
         return typeLabel
+    }()
+    
+    lazy var typeImageView: UIImageView = {
+        let typeImageView = UIImageView()
+        typeImageView.image = UIImage(named: "com_cam_image")
+        typeImageView.contentMode = .scaleAspectFit
+        typeImageView.isHidden = true
+        return typeImageView
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -81,6 +97,7 @@ class StepViewCell: UITableViewCell {
         whiteView.addSubview(nameLabel)
         whiteView.addSubview(descLabel)
         bgView.addSubview(typeLabel)
+        bgView.addSubview(typeImageView)
         bgView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview()
@@ -109,6 +126,12 @@ class StepViewCell: UITableViewCell {
         }
         
         descLabel.snp.makeConstraints { make in
+            make.top.equalTo(nameLabel.snp.bottom).offset(8)
+            make.left.equalTo(logoImageView.snp.right).offset(16)
+            make.right.equalToSuperview().offset(-5)
+        }
+        
+        typeImageView.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom).offset(8)
             make.left.equalTo(logoImageView.snp.right).offset(16)
             make.right.equalToSuperview().offset(-5)

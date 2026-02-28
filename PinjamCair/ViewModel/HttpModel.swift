@@ -42,6 +42,7 @@ class casiaModel: Codable {
     var spergice: spergiceModel?
     var occurot: occurotModel?
     var proliosity: occurotModel?
+    var ischoolul: Int?
 }
 
 class sorbModel: Codable {

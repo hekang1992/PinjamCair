@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class AppViewModel {
     
@@ -241,6 +242,23 @@ extension AppViewModel {
         
         do {
             let response: BaseModel = try await NetworkManager.shared.get("/nemaite/medicaluous", parameters: parameters)
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+    
+    func uploadImageInfo(parameters: [String: String], data: Data) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.uploadImage("/nemaite/participantry", imageData: data, parameters: parameters)
             return response
             
         } catch {

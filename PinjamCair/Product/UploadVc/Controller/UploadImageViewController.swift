@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import MJRefresh
 import TYAlertController
+internal import AVFoundation
 
 class UploadImageViewController: BaseViewController {
     
@@ -25,6 +26,8 @@ class UploadImageViewController: BaseViewController {
     private let viewModel = AppViewModel()
     
     private var model: BaseModel?
+    
+    private let camera = SystemCameraManager()
     
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
@@ -222,6 +225,14 @@ extension UploadImageViewController {
             let ectopurposeess = model.ectopurposeess ?? ""
             if ["0", "00"].contains(ectopurposeess) {
                 self.model = model
+                let card = model.casia?.occurot?.feliee ?? ""
+                let face = model.casia?.proliosity?.feliee ?? ""
+                if !card.isEmpty {
+                    self.oneView.typeImageView.image = UIImage(named: "com_cam_image")
+                }
+                if !face.isEmpty {
+                    self.twoView.typeImageView.image = UIImage(named: "com_cam_image")
+                }
             }
             await self.scrollView.mj_header?.endRefreshing()
         } catch {
@@ -242,6 +253,13 @@ extension UploadImageViewController {
         popView.sureBlock = { [weak self] in
             guard let self = self else { return }
             self.dismiss(animated: true)
+            camera.openCamera(from: self) { data in
+                Task {
+                    if let data = data {
+                        await self.uploadImageInfo(type: "11", data: data)
+                    }
+                }
+            }
         }
     }
     
@@ -258,6 +276,58 @@ extension UploadImageViewController {
         popView.sureBlock = { [weak self] in
             guard let self = self else { return }
             self.dismiss(animated: true)
+            camera.openCamera(from: self, cameraPosition: .front) { data in
+                Task {
+                    if let data = data {
+                        await self.uploadImageInfo(type: "10", data: data)
+                    }
+                }
+            }
+        }
+    }
+    
+    private func uploadImageInfo(type: String, data: Data) async {
+        do {
+            let parameters = ["emesive": type,
+                              "scabiocompareette": "2",
+                              "marwhoeur": "",
+                              "weaponify": "1"]
+            let model = try await viewModel.uploadImageInfo(parameters: parameters, data: data)
+            let ectopurposeess = model.ectopurposeess ?? ""
+            let ischoolul = model.casia?.ischoolul ?? 0
+            if ["0", "00"].contains(ectopurposeess) {
+                Task {
+                    await self.getMessageInfo()
+                    if ischoolul == 0 {
+                        // no alert
+                    }else {
+                        // alert
+                    }
+                    
+                    if type == "10" {
+                        await self.getDetailInfo()
+                    }
+                }
+            }else {
+                ToastManager.showLocalMessage(model.urgth ?? "")
+            }
+        } catch {
+            
+        }
+    }
+    
+    private func getDetailInfo() async {
+        do {
+            let parameters = ["hoplcy": cardModel?.stochacity ?? ""]
+            let model = try await viewModel.productDetailInfo(parameters: parameters)
+            let ectopurposeess = model.ectopurposeess ?? ""
+            if ["0", "00"].contains(ectopurposeess) {
+                if let stepModel = model.casia?.stagn, let cardModel = model.casia?.spergice {
+                    self.goNextAuthVc(stepModel: stepModel, cardModel: cardModel)
+                }
+            }
+        } catch {
+            
         }
     }
     

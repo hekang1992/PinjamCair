@@ -47,7 +47,11 @@ extension BaseViewController {
             self.navigationController?.pushViewController(uplistVc, animated: true)
             
         case "developally":
-            break
+            let personalVc = PersonalViewController()
+            personalVc.cardModel = cardModel
+            personalVc.stepModel = stepModel
+            self.navigationController?.pushViewController(personalVc, animated: true)
+            
         case "goldenSunr":
             break
         case "stereably":

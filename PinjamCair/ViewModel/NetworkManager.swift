@@ -93,18 +93,14 @@ final class NetworkManager {
         
     func uploadImage<T: Codable>(
         _ path: String,
-        image: UIImage,
-        imageName: String = "withinard",
-        fileName: String = "withinard.jpg",
+        imageData: Data,
+        imageName: String = "steeple",
+        fileName: String = "steeple.jpg",
         parameters: [String: String]? = nil,
         headers: HTTPHeaders? = nil
     ) async throws -> T {
         
         let apiUrl = (baseURL + path).appendingQueryParameters(parameters: AppCommonParas.shared.toDictionary())
-        
-        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
-            throw NSError(domain: "ImageError", code: -1)
-        }
         
         var request = try URLRequest(
             url: apiUrl,

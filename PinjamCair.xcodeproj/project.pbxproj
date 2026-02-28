@@ -44,6 +44,8 @@
 		738B54752F5183280032F831 /* StepViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B54742F5183280032F831 /* StepViewCell.swift */; };
 		73D808492F527FAD006F53C1 /* UploadImageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D808482F527FAD006F53C1 /* UploadImageListView.swift */; };
 		73D8084B2F528D1F006F53C1 /* UploadIntroduceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D8084A2F528D1F006F53C1 /* UploadIntroduceView.swift */; };
+		73D8084D2F52935B006F53C1 /* SystemCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D8084C2F52935B006F53C1 /* SystemCameraManager.swift */; };
+		73D8084F2F52B257006F53C1 /* KtpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D8084E2F52B257006F53C1 /* KtpView.swift */; };
 		73E0C7752F512D3E00BBFE9C /* H5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7742F512D3E00BBFE9C /* H5ViewController.swift */; };
 		73E0C7772F512D5A00BBFE9C /* AppHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7762F512D5A00BBFE9C /* AppHeadView.swift */; };
 		73E0C7792F5132C100BBFE9C /* SchemeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7782F5132C100BBFE9C /* SchemeRouter.swift */; };
@@ -99,6 +101,8 @@
 		738B54742F5183280032F831 /* StepViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepViewCell.swift; sourceTree = "<group>"; };
 		73D808482F527FAD006F53C1 /* UploadImageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageListView.swift; sourceTree = "<group>"; };
 		73D8084A2F528D1F006F53C1 /* UploadIntroduceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadIntroduceView.swift; sourceTree = "<group>"; };
+		73D8084C2F52935B006F53C1 /* SystemCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemCameraManager.swift; sourceTree = "<group>"; };
+		73D8084E2F52B257006F53C1 /* KtpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtpView.swift; sourceTree = "<group>"; };
 		73E0C7742F512D3E00BBFE9C /* H5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H5ViewController.swift; sourceTree = "<group>"; };
 		73E0C7762F512D5A00BBFE9C /* AppHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeadView.swift; sourceTree = "<group>"; };
 		73E0C7782F5132C100BBFE9C /* SchemeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeRouter.swift; sourceTree = "<group>"; };
@@ -282,9 +286,11 @@
 		7349CEAB2F4D880900B0EB0F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				73D8084C2F52935B006F53C1 /* SystemCameraManager.swift */,
 				7349CEAE2F4D882200B0EB0F /* CustomDatePickerView.swift */,
 				73D808482F527FAD006F53C1 /* UploadImageListView.swift */,
 				73D8084A2F528D1F006F53C1 /* UploadIntroduceView.swift */,
+				73D8084E2F52B257006F53C1 /* KtpView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -560,8 +566,10 @@
 				7365C59E2F4D8F1800240451 /* MineView.swift in Sources */,
 				7365C5A92F4D900100240451 /* WalletViewController.swift in Sources */,
 				7349CE7B2F4D6FA700B0EB0F /* BaseViewController.swift in Sources */,
+				73D8084D2F52935B006F53C1 /* SystemCameraManager.swift in Sources */,
 				7349CE942F4D74C100B0EB0F /* LoginViewController.swift in Sources */,
 				7349CE9E2F4D75DD00B0EB0F /* NetworkManager.swift in Sources */,
+				73D8084F2F52B257006F53C1 /* KtpView.swift in Sources */,
 				73E0C7822F514C0600BBFE9C /* LogouView.swift in Sources */,
 				73E0C7772F512D5A00BBFE9C /* AppHeadView.swift in Sources */,
 				7365C5A42F4D8F4700240451 /* OrderView.swift in Sources */,

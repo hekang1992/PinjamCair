@@ -243,7 +243,7 @@ class LoginView: BaseView {
             make.left.equalToSuperview().offset(24)
         }
         clickMentBtn.snp.makeConstraints { make in
-            make.top.equalTo(sureAgmBtn)
+            make.centerY.equalTo(sureAgmBtn)
             make.left.equalTo(sureAgmBtn.snp.right).offset(5)
         }
         

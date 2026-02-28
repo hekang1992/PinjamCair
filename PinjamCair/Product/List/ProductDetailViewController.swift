@@ -160,7 +160,8 @@ extension ProductDetailViewController {
     
     private func getDetailInfo() async {
         do {
-            let parameters = ["hoplcy": productId, "wholing": Device.current.systemVersion ?? ""]
+            let parameters = ["hoplcy": productId,
+                              "wholing": Device.current.systemVersion ?? ""]
             let model = try await viewModel.productDetailInfo(parameters: parameters)
             let ectopurposeess = model.ectopurposeess ?? ""
             if ["0", "00"].contains(ectopurposeess) {
