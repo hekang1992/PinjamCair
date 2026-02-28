@@ -13,7 +13,7 @@ class SystemCameraManager: NSObject {
     private var imagePicker: UIImagePickerController?
     private var completion: ((Data?) -> Void)?
     
-    private let maxByteSize = 700
+    private let maxByteSize = 500
     
     func openCamera(from viewController: UIViewController,
                     cameraPosition: AVCaptureDevice.Position = .back,

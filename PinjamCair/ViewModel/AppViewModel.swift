@@ -266,5 +266,23 @@ extension AppViewModel {
         }
     }
     
+    func saveImageInfo(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        let pageUrl = LanguageManager.shared.currentType == .indonesian ? "/nemaite/event" : "/nemaite/metatic"
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.post(pageUrl, parameters: parameters)
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
 }
 

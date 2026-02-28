@@ -49,3 +49,12 @@
 "en_cam_image" = "edn_cam_image";
 "en_ktp_image" = "edn_ktp_image";
 "uen_face_image" = "uedn_face_image";
+"Confirm again" = "Konfirmasi lagi";
+"Confirm" = "Mengonfirmasi";
+"Real name" = "Nama lengkap";
+"PAN number" = "Nomor KTP";
+"Date of birth" = "Tanggal lahir";
+"Select date" = "Pilih tanggal";
+"Day" = "Hari";
+"Month" = "Bulan";
+"Year" = "Tahun";

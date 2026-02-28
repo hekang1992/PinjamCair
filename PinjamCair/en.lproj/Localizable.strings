@@ -49,3 +49,12 @@
 "en_cam_image" = "en_cam_image";
 "en_ktp_image" = "en_ktp_image";
 "uen_face_image" = "uen_face_image";
+"Confirm again" = "Confirm again";
+"Confirm" = "Confirm";
+"Real name" = "Real name";
+"PAN number" = "PAN number";
+"Date of birth" = "Date of birth";
+"Select date" = "Select date";
+"Day" = "Day";
+"Month" = "Month";
+"Year" = "Year";

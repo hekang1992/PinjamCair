@@ -43,6 +43,9 @@ class casiaModel: Codable {
     var occurot: occurotModel?
     var proliosity: occurotModel?
     var ischoolul: Int?
+    var throwality: String?
+    var supportsion: String?
+    var languageate: String?
 }
 
 class sorbModel: Codable {

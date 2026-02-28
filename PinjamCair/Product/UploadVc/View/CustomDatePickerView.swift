@@ -65,7 +65,7 @@ class CustomDatePickerView: UIView {
         }
         
         // Title
-        titleLabel.text = "Select date"
+        titleLabel.text = LocalStr("Select date")
         titleLabel.font = UIFont.boldSystemFont(ofSize: 22)
         titleLabel.textAlignment = .left
         
@@ -94,9 +94,9 @@ class CustomDatePickerView: UIView {
             headerStack.addArrangedSubview($0)
         }
         
-        dayHeaderLabel.text = "Day"
-        monthHeaderLabel.text = "Month"
-        yearHeaderLabel.text = "Year"
+        dayHeaderLabel.text = LocalStr("Day")
+        monthHeaderLabel.text = LocalStr("Month")
+        yearHeaderLabel.text = LocalStr("Year")
         
         // MARK: - Picker
         pickerView.delegate = self
@@ -110,7 +110,7 @@ class CustomDatePickerView: UIView {
         }
         
         // MARK: - Confirm Button
-        confirmButton.setTitle("Confirm", for: .normal)
+        confirmButton.setTitle(LocalStr("Confirm"), for: .normal)
         confirmButton.backgroundColor = UIColor.systemGreen
         confirmButton.setTitleColor(.white, for: .normal)
         confirmButton.layer.cornerRadius = 25
@@ -134,7 +134,7 @@ class CustomDatePickerView: UIView {
             return
         }
         
-        let components = dateString.split(separator: "-")
+        let components = dateString.split(separator: "/")
         
         if components.count == 3 {
             let day = String(components[0])
@@ -174,7 +174,7 @@ class CustomDatePickerView: UIView {
     
     // MARK: - Action
     @objc private func confirmTapped() {
-        let result = "\(selectedDay)-\(selectedMonth)-\(selectedYear)"
+        let result = "\(selectedDay)/\(selectedMonth)/\(selectedYear)"
         onConfirm?(result)
         self.removeFromSuperview()
     }

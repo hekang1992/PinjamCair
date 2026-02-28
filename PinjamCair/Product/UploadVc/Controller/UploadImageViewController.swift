@@ -198,6 +198,9 @@ class UploadImageViewController: BaseViewController {
                         self.uploadTwoImageInfo(model: model, type: .next)
                         return
                     }
+                    Task {
+                        await self.getDetailInfo()
+                    }
                 }
             }).disposed(by: disposeBag)
         
@@ -296,18 +299,24 @@ extension UploadImageViewController {
             let ectopurposeess = model.ectopurposeess ?? ""
             let ischoolul = model.casia?.ischoolul ?? 0
             if ["0", "00"].contains(ectopurposeess) {
-                Task {
-                    await self.getMessageInfo()
+                
+                if type == "10" {
+                    await self.getDetailInfo()
+                }
+                
+                if type == "11" {
                     if ischoolul == 0 {
                         // no alert
+                        await self.getMessageInfo()
+                        
                     }else {
                         // alert
-                    }
-                    
-                    if type == "10" {
-                        await self.getDetailInfo()
+                        if let casiaModel = model.casia {
+                            self.popKtpView(with: casiaModel)
+                        }
                     }
                 }
+                
             }else {
                 ToastManager.showLocalMessage(model.urgth ?? "")
             }
@@ -327,6 +336,69 @@ extension UploadImageViewController {
                 }
             }
         } catch {
+            
+        }
+    }
+    
+    private func popKtpView(with model: casiaModel) {
+        let popView = KtpView(frame: self.view.bounds)
+        popView.model = model
+        let alertVc = TYAlertController(alert: popView, preferredStyle: .actionSheet)
+        self.present(alertVc!, animated: true)
+        
+        popView.cancelBlock = { [weak self] in
+            self?.dismiss(animated: true)
+        }
+        
+        popView.timeBlock = { tx in
+            let selectTime = tx.text ?? ""
+            let dateView = CustomDatePickerView(initialDate: selectTime)
+            
+            dateView.onConfirm = { dateString in
+                tx.text = dateString
+            }
+            
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let window = windowScene.windows.first(where: { $0.isKeyWindow }) {
+                window.addSubview(dateView)
+                dateView.snp.makeConstraints { make in
+                    make.edges.equalToSuperview()
+                }
+            }
+        }
+        
+        popView.sureBlock = { [weak self] in
+            guard let self = self else { return }
+            let name = popView.oneFiled.text ?? ""
+            let number = popView.twoFiled.text ?? ""
+            let time = popView.threeFiled.text ?? ""
+            let phone = LoginManager.shared.getPhone()
+            let orderID = cardModel?.weightfier ?? ""
+            let productID = cardModel?.stochacity ?? ""
+            
+            Task {
+                do {
+                    var parameters = ["throwality": name,
+                                      "languageate": number,
+                                      "supportsion": time,
+                                      "trueuous": phone,
+                                      "readyize": orderID,
+                                      "hoplcy": productID]
+                    if LanguageManager.shared.currentType == .english {
+                        parameters["emesive"] = "13"
+                    }
+                    let model = try await self.viewModel.saveImageInfo(parameters: parameters)
+                    let ectopurposeess = model.ectopurposeess ?? ""
+                    if ["0", "00"].contains(ectopurposeess) {
+                        self.dismiss(animated: true)
+                        await self.getMessageInfo()
+                    }else {
+                        ToastManager.showLocalMessage(model.urgth ?? "")
+                    }
+                } catch {
+                    
+                }
+            }
             
         }
     }

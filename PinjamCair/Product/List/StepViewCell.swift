@@ -81,8 +81,8 @@ class StepViewCell: UITableViewCell {
     
     lazy var typeImageView: UIImageView = {
         let typeImageView = UIImageView()
-        typeImageView.image = UIImage(named: "com_cam_image")
-        typeImageView.contentMode = .scaleAspectFit
+        typeImageView.image = UIImage(named: "type_cel_ac_image")
+        typeImageView.contentMode = .center
         typeImageView.isHidden = true
         return typeImageView
     }()
@@ -132,9 +132,8 @@ class StepViewCell: UITableViewCell {
         }
         
         typeImageView.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(8)
-            make.left.equalTo(logoImageView.snp.right).offset(16)
-            make.right.equalToSuperview().offset(-5)
+            make.top.bottom.right.equalToSuperview()
+            make.left.equalTo(whiteView.snp.right)
         }
         
     }

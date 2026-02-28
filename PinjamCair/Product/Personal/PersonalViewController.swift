@@ -7,6 +7,10 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
+import MJRefresh
+import TYAlertController
 
 class PersonalViewController: BaseViewController {
     
@@ -52,11 +56,11 @@ class PersonalViewController: BaseViewController {
     
     lazy var stepImageView: UIImageView = {
         let stepImageView = UIImageView()
-        stepImageView.image = UIImage(named: "one_step_image")
+        stepImageView.image = UIImage(named: "two_step_image")
         stepImageView.contentMode = .scaleAspectFit
         return stepImageView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,10 +87,10 @@ class PersonalViewController: BaseViewController {
         view.addSubview(bgView)
         bgView.snp.makeConstraints { make in
             make.top.equalTo(stepImageView.snp.bottom).offset(14)
-            make.left.right.bottom.equalToSuperview()
+            make.left.bottom.right.equalToSuperview()
         }
         
-        bgView.addSubview(nextBtn)
+        view.addSubview(nextBtn)
         nextBtn.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-10)
             make.centerX.equalToSuperview()
@@ -98,6 +102,17 @@ class PersonalViewController: BaseViewController {
             self.toProductDetailVc()
         }
         
+        nextBtn
+            .rx
+            .tap
+            .throttle(.microseconds(200), scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] in
+                guard let self = self else { return }
+                
+            }).disposed(by: disposeBag)
+        
+        
     }
-
+    
 }
+
