@@ -76,10 +76,10 @@ class UploadImageViewController: BaseViewController {
         scrollView.backgroundColor = .clear
         return scrollView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        //        view.backgroundColor = .white
         view.addSubview(bgImageView)
         bgImageView.snp.makeConstraints { make in
             make.top.leading.right.equalToSuperview()
@@ -100,6 +100,12 @@ class UploadImageViewController: BaseViewController {
             make.size.equalTo(CGSize(width: 343.pix(), height: 62.pix()))
         }
         
+        view.addSubview(bgView)
+        bgView.snp.makeConstraints { make in
+            make.top.equalTo(stepImageView.snp.bottom).offset(14)
+            make.left.bottom.right.equalToSuperview()
+        }
+        
         view.addSubview(nextBtn)
         nextBtn.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-10)
@@ -107,16 +113,10 @@ class UploadImageViewController: BaseViewController {
             make.size.equalTo(CGSize(width: 343.pix(), height: 60.pix()))
         }
         
-        view.addSubview(bgView)
-        bgView.snp.makeConstraints { make in
-            make.top.equalTo(stepImageView.snp.bottom).offset(14)
-            make.left.right.equalToSuperview()
-            make.bottom.equalTo(nextBtn.snp.top).offset(-5)
-        }
-        
         bgView.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.left.right.equalToSuperview()
+            make.bottom.equalTo(nextBtn.snp.top).offset(-5)
         }
         
         scrollView.addSubview(oneView)
@@ -140,6 +140,38 @@ class UploadImageViewController: BaseViewController {
             self.toProductDetailVc()
         }
         
+        oneView.tapClickBlock = {
+            ToastManager.showLocalMessage("1")
+        }
+        
+        twoView.tapClickBlock = {
+            ToastManager.showLocalMessage("2")
+        }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Task { [weak self] in
+            await self?.getMessageInfo()
+        }
+    }
+    
+}
 
+extension UploadImageViewController {
+    
+    private func getMessageInfo() async {
+        do {
+            let hoplcy = cardModel?.stochacity ?? ""
+            let parameters = ["hoplcy": hoplcy]
+            let model = try await viewModel.getMessageInfo(parameters: parameters)
+            let ectopurposeess = model.ectopurposeess ?? ""
+            if ["0", "00"].contains(ectopurposeess) {
+                
+            }
+        } catch {
+            
+        }
+    }
+    
 }

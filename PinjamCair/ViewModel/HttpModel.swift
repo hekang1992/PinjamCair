@@ -40,6 +40,8 @@ class casiaModel: Codable {
     var mrer: [mrerModel]?
     var stagn: mrerModel?
     var spergice: spergiceModel?
+    var occurot: occurotModel?
+    var proliosity: occurotModel?
 }
 
 class sorbModel: Codable {
@@ -101,4 +103,8 @@ class canousModel: Codable {
 class antitureModel: Codable {
     var rusbadior: String?
     var herself: String?
+}
+
+class occurotModel: Codable {
+    var feliee: String?
 }

@@ -7,8 +7,13 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
+import RxGesture
 
 class UploadImageListView: BaseView {
+    
+    var tapClickBlock: (() -> Void)?
     
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
@@ -22,7 +27,7 @@ class UploadImageListView: BaseView {
         typeImageView.contentMode = .scaleAspectFit
         return typeImageView
     }()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(bgImageView)
@@ -39,6 +44,16 @@ class UploadImageListView: BaseView {
             make.left.equalToSuperview().inset(24)
             make.top.equalToSuperview().offset(98)
         }
+        
+        bgImageView
+            .rx
+            .tapGesture()
+            .throttle(.milliseconds(200), scheduler: MainScheduler.instance)
+            .when(.recognized)
+            .bind(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.tapClickBlock?()
+            }).disposed(by: disposeBag)
     }
     
     @MainActor required init?(coder: NSCoder) {

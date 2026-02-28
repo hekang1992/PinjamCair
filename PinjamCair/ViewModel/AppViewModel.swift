@@ -230,5 +230,23 @@ extension AppViewModel {
             throw error
         }
     }
+    
+    func getMessageInfo(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.get("/nemaite/medicaluous", parameters: parameters)
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+    
 }
 
