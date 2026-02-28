@@ -46,6 +46,7 @@ class casiaModel: Codable {
     var throwality: String?
     var supportsion: String?
     var languageate: String?
+    var die: [dieModel]?
 }
 
 class sorbModel: Codable {
@@ -111,4 +112,38 @@ class antitureModel: Codable {
 
 class occurotModel: Codable {
     var feliee: String?
+}
+
+class dieModel: Codable {
+    var rusbadior: String?
+    var larggovernmenton: String?
+    var ectopurposeess: String?
+    var scienceile: String?
+    var tvarium: String?
+    var emesive: String?
+    var autoivity: String?
+    var drawie: [drawieModel]?
+}
+
+class drawieModel: Codable {
+    var throwality: String?
+    var emesive: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case throwality, emesive
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        throwality = try container.decodeIfPresent(String.self, forKey: .throwality)
+        
+        if let stringValue = try? container.decode(String.self, forKey: .emesive) {
+            emesive = stringValue
+        } else if let intValue = try? container.decode(Int.self, forKey: .emesive) {
+            emesive = String(intValue)
+        } else {
+            emesive = nil
+        }
+    }
+    
 }

@@ -46,6 +46,11 @@
 		73D8084B2F528D1F006F53C1 /* UploadIntroduceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D8084A2F528D1F006F53C1 /* UploadIntroduceView.swift */; };
 		73D8084D2F52935B006F53C1 /* SystemCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D8084C2F52935B006F53C1 /* SystemCameraManager.swift */; };
 		73D8084F2F52B257006F53C1 /* KtpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D8084E2F52B257006F53C1 /* KtpView.swift */; };
+		73D808512F52CA57006F53C1 /* ChanelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D808502F52CA57006F53C1 /* ChanelViewCell.swift */; };
+		73D808532F52CA67006F53C1 /* CoachViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D808522F52CA67006F53C1 /* CoachViewCell.swift */; };
+		73D808552F52D349006F53C1 /* PopAutnEnumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D808542F52D349006F53C1 /* PopAutnEnumView.swift */; };
+		73D808572F52D396006F53C1 /* AuthListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D808562F52D396006F53C1 /* AuthListViewCell.swift */; };
+		73D8085A2F52D89C006F53C1 /* WorkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D808592F52D89C006F53C1 /* WorkViewController.swift */; };
 		73E0C7752F512D3E00BBFE9C /* H5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7742F512D3E00BBFE9C /* H5ViewController.swift */; };
 		73E0C7772F512D5A00BBFE9C /* AppHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7762F512D5A00BBFE9C /* AppHeadView.swift */; };
 		73E0C7792F5132C100BBFE9C /* SchemeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7782F5132C100BBFE9C /* SchemeRouter.swift */; };
@@ -103,6 +108,11 @@
 		73D8084A2F528D1F006F53C1 /* UploadIntroduceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadIntroduceView.swift; sourceTree = "<group>"; };
 		73D8084C2F52935B006F53C1 /* SystemCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemCameraManager.swift; sourceTree = "<group>"; };
 		73D8084E2F52B257006F53C1 /* KtpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KtpView.swift; sourceTree = "<group>"; };
+		73D808502F52CA57006F53C1 /* ChanelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChanelViewCell.swift; sourceTree = "<group>"; };
+		73D808522F52CA67006F53C1 /* CoachViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachViewCell.swift; sourceTree = "<group>"; };
+		73D808542F52D349006F53C1 /* PopAutnEnumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAutnEnumView.swift; sourceTree = "<group>"; };
+		73D808562F52D396006F53C1 /* AuthListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthListViewCell.swift; sourceTree = "<group>"; };
+		73D808592F52D89C006F53C1 /* WorkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkViewController.swift; sourceTree = "<group>"; };
 		73E0C7742F512D3E00BBFE9C /* H5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H5ViewController.swift; sourceTree = "<group>"; };
 		73E0C7762F512D5A00BBFE9C /* AppHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeadView.swift; sourceTree = "<group>"; };
 		73E0C7782F5132C100BBFE9C /* SchemeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeRouter.swift; sourceTree = "<group>"; };
@@ -167,7 +177,7 @@
 				7349CE672F4D6F1800B0EB0F /* AppDelegate.swift */,
 				7349CE6B2F4D6F1800B0EB0F /* LaunchScreen.storyboard */,
 				7349CE8C2F4D72FD00B0EB0F /* ViewModel */,
-				7349CEA92F4D87EA00B0EB0F /* Product */,
+				73D808582F52D864006F53C1 /* Product */,
 				7349CE882F4D72BF00B0EB0F /* Order */,
 				7349CE872F4D72B900B0EB0F /* Mine */,
 				7349CE862F4D72B200B0EB0F /* Home */,
@@ -262,16 +272,12 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		7349CEA92F4D87EA00B0EB0F /* Product */ = {
+		7349CEA92F4D87EA00B0EB0F /* Work */ = {
 			isa = PBXGroup;
 			children = (
-				73E0C77C2F5133C400BBFE9C /* List */,
-				7365C5A72F4D8FE200240451 /* Wallet */,
-				7365C5A62F4D8FD300240451 /* Contact */,
-				7365C5A52F4D8FC900240451 /* Personal */,
-				7349CEAA2F4D87F700B0EB0F /* UploadVc */,
+				73D808592F52D89C006F53C1 /* WorkViewController.swift */,
 			);
-			path = Product;
+			path = Work;
 			sourceTree = "<group>";
 		};
 		7349CEAA2F4D87F700B0EB0F /* UploadVc */ = {
@@ -364,7 +370,11 @@
 		7365C5A52F4D8FC900240451 /* Personal */ = {
 			isa = PBXGroup;
 			children = (
+				73D808522F52CA67006F53C1 /* CoachViewCell.swift */,
+				73D808502F52CA57006F53C1 /* ChanelViewCell.swift */,
 				7365C5AC2F4D901500240451 /* PersonalViewController.swift */,
+				73D808542F52D349006F53C1 /* PopAutnEnumView.swift */,
+				73D808562F52D396006F53C1 /* AuthListViewCell.swift */,
 			);
 			path = Personal;
 			sourceTree = "<group>";
@@ -394,6 +404,19 @@
 				7365C5B32F4DA27A00240451 /* IDFVKeychainManager.swift */,
 			);
 			path = ComParas;
+			sourceTree = "<group>";
+		};
+		73D808582F52D864006F53C1 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				73E0C77C2F5133C400BBFE9C /* List */,
+				7365C5A72F4D8FE200240451 /* Wallet */,
+				7365C5A62F4D8FD300240451 /* Contact */,
+				7349CEA92F4D87EA00B0EB0F /* Work */,
+				7365C5A52F4D8FC900240451 /* Personal */,
+				7349CEAA2F4D87F700B0EB0F /* UploadVc */,
+			);
+			path = Product;
 			sourceTree = "<group>";
 		};
 		73E0C77C2F5133C400BBFE9C /* List */ = {
@@ -560,11 +583,15 @@
 				7349CE832F4D720000B0EB0F /* AppLaunchViewController.swift in Sources */,
 				7349CE9C2F4D751900B0EB0F /* LoginView.swift in Sources */,
 				73E0C7752F512D3E00BBFE9C /* H5ViewController.swift in Sources */,
+				73D808552F52D349006F53C1 /* PopAutnEnumView.swift in Sources */,
+				73D808512F52CA57006F53C1 /* ChanelViewCell.swift in Sources */,
+				73D8085A2F52D89C006F53C1 /* WorkViewController.swift in Sources */,
 				7349CE962F4D74FA00B0EB0F /* HomeViewController.swift in Sources */,
 				7365C5A22F4D8F3200240451 /* EnView.swift in Sources */,
 				7365C5AB2F4D900A00240451 /* ContactViewController.swift in Sources */,
 				7365C59E2F4D8F1800240451 /* MineView.swift in Sources */,
 				7365C5A92F4D900100240451 /* WalletViewController.swift in Sources */,
+				73D808532F52CA67006F53C1 /* CoachViewCell.swift in Sources */,
 				7349CE7B2F4D6FA700B0EB0F /* BaseViewController.swift in Sources */,
 				73D8084D2F52935B006F53C1 /* SystemCameraManager.swift in Sources */,
 				7349CE942F4D74C100B0EB0F /* LoginViewController.swift in Sources */,
@@ -574,6 +601,7 @@
 				73E0C7772F512D5A00BBFE9C /* AppHeadView.swift in Sources */,
 				7365C5A42F4D8F4700240451 /* OrderView.swift in Sources */,
 				7365C5AF2F4D9F9F00240451 /* AppLanguage.swift in Sources */,
+				73D808572F52D396006F53C1 /* AuthListViewCell.swift in Sources */,
 				736D7C542F4E9AC500CD6F14 /* NetworkMonitor.swift in Sources */,
 				738B54752F5183280032F831 /* StepViewCell.swift in Sources */,
 				7349CE812F4D6FDE00B0EB0F /* AppNavigationController.swift in Sources */,

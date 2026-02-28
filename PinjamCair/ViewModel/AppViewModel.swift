@@ -286,3 +286,40 @@ extension AppViewModel {
     }
 }
 
+extension AppViewModel {
+    
+    func getPersonalInfo(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.post("/nemaite/viscosee", parameters: parameters)
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+    
+    func savePersonalInfo(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.post("/nemaite/mustsion", parameters: parameters)
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+    
+}

@@ -9,23 +9,23 @@ import UIKit
 import RxSwift
 
 class BaseViewController: UIViewController {
-
+    
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor.init(hexString: "#1DBC79")
     }
-
+    
 }
 
 extension BaseViewController {
     
     func toProductDetailVc() {
         guard let nav = navigationController else { return }
-
+        
         if let vc = nav.viewControllers.compactMap({ $0 as? ProductDetailViewController }).first {
             nav.popToViewController(vc, animated: true)
         } else {
@@ -53,7 +53,11 @@ extension BaseViewController {
             self.navigationController?.pushViewController(personalVc, animated: true)
             
         case "goldenSunr":
-            break
+            let workVc = WorkViewController()
+            workVc.cardModel = cardModel
+            workVc.stepModel = stepModel
+            self.navigationController?.pushViewController(workVc, animated: true)
+            
         case "stereably":
             break
         case "pavidization":

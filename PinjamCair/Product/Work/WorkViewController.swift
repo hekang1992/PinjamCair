@@ -1,8 +1,8 @@
 //
-//  PersonalViewController.swift
+//  WorkViewController.swift
 //  PinjamCair
 //
-//  Created by hekang on 2026/2/24.
+//  Created by hekang on 2026/2/28.
 //
 
 import UIKit
@@ -12,7 +12,7 @@ import RxCocoa
 import MJRefresh
 import TYAlertController
 
-class PersonalViewController: BaseViewController {
+class WorkViewController: BaseViewController {
     
     var cardModel: spergiceModel?
     var stepModel: mrerModel? {
@@ -135,7 +135,7 @@ class PersonalViewController: BaseViewController {
             .throttle(.microseconds(200), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
-                let modelArray = self.model?.casia?.die ?? []
+                
             }).disposed(by: disposeBag)
         
         
@@ -150,7 +150,7 @@ class PersonalViewController: BaseViewController {
     
 }
 
-extension PersonalViewController {
+extension WorkViewController {
     
     private func getPersonalInfo() async {
         do {
@@ -167,7 +167,7 @@ extension PersonalViewController {
     }
 }
 
-extension PersonalViewController: UITableViewDelegate, UITableViewDataSource {
+extension WorkViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.model?.casia?.die?.count ?? 0
