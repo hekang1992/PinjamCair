@@ -43,6 +43,7 @@
 		736D7C542F4E9AC500CD6F14 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736D7C532F4E9AC500CD6F14 /* NetworkMonitor.swift */; };
 		738B54752F5183280032F831 /* StepViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B54742F5183280032F831 /* StepViewCell.swift */; };
 		73D808492F527FAD006F53C1 /* UploadImageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D808482F527FAD006F53C1 /* UploadImageListView.swift */; };
+		73D8084B2F528D1F006F53C1 /* UploadIntroduceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D8084A2F528D1F006F53C1 /* UploadIntroduceView.swift */; };
 		73E0C7752F512D3E00BBFE9C /* H5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7742F512D3E00BBFE9C /* H5ViewController.swift */; };
 		73E0C7772F512D5A00BBFE9C /* AppHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7762F512D5A00BBFE9C /* AppHeadView.swift */; };
 		73E0C7792F5132C100BBFE9C /* SchemeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7782F5132C100BBFE9C /* SchemeRouter.swift */; };
@@ -97,6 +98,7 @@
 		736D7C532F4E9AC500CD6F14 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		738B54742F5183280032F831 /* StepViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepViewCell.swift; sourceTree = "<group>"; };
 		73D808482F527FAD006F53C1 /* UploadImageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageListView.swift; sourceTree = "<group>"; };
+		73D8084A2F528D1F006F53C1 /* UploadIntroduceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadIntroduceView.swift; sourceTree = "<group>"; };
 		73E0C7742F512D3E00BBFE9C /* H5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H5ViewController.swift; sourceTree = "<group>"; };
 		73E0C7762F512D5A00BBFE9C /* AppHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeadView.swift; sourceTree = "<group>"; };
 		73E0C7782F5132C100BBFE9C /* SchemeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeRouter.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 			children = (
 				7349CEAE2F4D882200B0EB0F /* CustomDatePickerView.swift */,
 				73D808482F527FAD006F53C1 /* UploadImageListView.swift */,
+				73D8084A2F528D1F006F53C1 /* UploadIntroduceView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				7365C5B22F4DA22600240451 /* AppCommonParas.swift in Sources */,
 				7365C5B42F4DA27A00240451 /* IDFVKeychainManager.swift in Sources */,
 				73E0C77E2F5133D400BBFE9C /* ProductDetailViewController.swift in Sources */,
+				73D8084B2F528D1F006F53C1 /* UploadIntroduceView.swift in Sources */,
 				7349CE7D2F4D6FB300B0EB0F /* BaseView.swift in Sources */,
 				73D808492F527FAD006F53C1 /* UploadImageListView.swift in Sources */,
 				7349CE7F2F4D6FCC00B0EB0F /* AppTabBarController.swift in Sources */,

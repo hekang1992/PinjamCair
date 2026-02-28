@@ -7,6 +7,10 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
+import MJRefresh
+import TYAlertController
 
 class UploadImageViewController: BaseViewController {
     
@@ -19,6 +23,8 @@ class UploadImageViewController: BaseViewController {
     }
     
     private let viewModel = AppViewModel()
+    
+    private var model: BaseModel?
     
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
@@ -79,7 +85,7 @@ class UploadImageViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        view.backgroundColor = .white
+        
         view.addSubview(bgImageView)
         bgImageView.snp.makeConstraints { make in
             make.top.leading.right.equalToSuperview()
@@ -140,20 +146,68 @@ class UploadImageViewController: BaseViewController {
             self.toProductDetailVc()
         }
         
-        oneView.tapClickBlock = {
-            ToastManager.showLocalMessage("1")
+        oneView.tapClickBlock = { [weak self] in
+            guard let self = self else { return }
+            if let model = self.model {
+                let card = model.casia?.occurot?.feliee ?? ""
+                let face = model.casia?.proliosity?.feliee ?? ""
+                if card.isEmpty {
+                    self.uploadOneImageInfo(model: model, type: .cell)
+                    return
+                }
+                if face.isEmpty {
+                    self.uploadTwoImageInfo(model: model, type: .cell)
+                    return
+                }
+            }
         }
         
-        twoView.tapClickBlock = {
-            ToastManager.showLocalMessage("2")
+        twoView.tapClickBlock = { [weak self] in
+            guard let self = self else { return }
+            if let model = self.model {
+                let card = model.casia?.occurot?.feliee ?? ""
+                let face = model.casia?.proliosity?.feliee ?? ""
+                if card.isEmpty {
+                    self.uploadOneImageInfo(model: model, type: .cell)
+                    return
+                }
+                if face.isEmpty {
+                    self.uploadTwoImageInfo(model: model, type: .cell)
+                    return
+                }
+            }
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        
+        nextBtn
+            .rx
+            .tap
+            .throttle(.microseconds(200), scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] in
+                guard let self = self else { return }
+                if let model = self.model {
+                    let card = model.casia?.occurot?.feliee ?? ""
+                    let face = model.casia?.proliosity?.feliee ?? ""
+                    if card.isEmpty {
+                        self.uploadOneImageInfo(model: model, type: .next)
+                        return
+                    }
+                    if face.isEmpty {
+                        self.uploadTwoImageInfo(model: model, type: .next)
+                        return
+                    }
+                }
+            }).disposed(by: disposeBag)
+        
         Task { [weak self] in
             await self?.getMessageInfo()
         }
+        
+        self.scrollView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
+            Task {
+                await self?.getMessageInfo()
+            }
+        })
+        
     }
     
 }
@@ -167,10 +221,43 @@ extension UploadImageViewController {
             let model = try await viewModel.getMessageInfo(parameters: parameters)
             let ectopurposeess = model.ectopurposeess ?? ""
             if ["0", "00"].contains(ectopurposeess) {
-                
+                self.model = model
             }
+            await self.scrollView.mj_header?.endRefreshing()
         } catch {
-            
+            await self.scrollView.mj_header?.endRefreshing()
+        }
+    }
+    
+    private func uploadOneImageInfo(model: BaseModel, type: ClickType) {
+        let popView = UploadIntroduceView(frame: self.view.bounds)
+        popView.bgImageView.image = UIImage(named: LocalStr("en_ktp_image"))
+        let alertVc = TYAlertController(alert: popView, preferredStyle: .alert)
+        self.present(alertVc!, animated: true)
+        
+        popView.cancelBlock = { [weak self] in
+            self?.dismiss(animated: true)
+        }
+        
+        popView.sureBlock = { [weak self] in
+            guard let self = self else { return }
+            self.dismiss(animated: true)
+        }
+    }
+    
+    private func uploadTwoImageInfo(model: BaseModel, type: ClickType) {
+        let popView = UploadIntroduceView(frame: self.view.bounds)
+        popView.bgImageView.image = UIImage(named: LocalStr("uen_face_image"))
+        let alertVc = TYAlertController(alert: popView, preferredStyle: .alert)
+        self.present(alertVc!, animated: true)
+        
+        popView.cancelBlock = { [weak self] in
+            self?.dismiss(animated: true)
+        }
+        
+        popView.sureBlock = { [weak self] in
+            guard let self = self else { return }
+            self.dismiss(animated: true)
         }
     }
     
