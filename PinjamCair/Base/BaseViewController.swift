@@ -59,9 +59,17 @@ extension BaseViewController {
             self.navigationController?.pushViewController(workerVc, animated: true)
             
         case "stereably":
-            break
+            let contactVc = ContactViewController()
+            contactVc.cardModel = cardModel
+            contactVc.stepModel = stepModel
+            self.navigationController?.pushViewController(contactVc, animated: true)
+            
         case "pavidization":
-            break
+            let walletVc = WalletViewController()
+            walletVc.cardModel = cardModel
+            walletVc.stepModel = stepModel
+            self.navigationController?.pushViewController(walletVc, animated: true)
+            
         default:
             break
         }

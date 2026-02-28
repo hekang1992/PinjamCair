@@ -361,3 +361,96 @@ extension AppViewModel {
     }
     
 }
+
+extension AppViewModel {
+    
+    func getContactInfo(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.post("/nemaite/genlike", parameters: parameters)
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+    
+    func saveContactInfo(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.post("/nemaite/openarium", parameters: parameters)
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+    
+    func uploadContactInfo(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.post("/nemaite/autoesque", parameters: parameters)
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+    
+}
+
+extension AppViewModel {
+    
+    func getWalletInfo(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.post("/nemaite/dipsiauous", parameters: parameters)
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+    
+    func saveWalletInfo(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.post("/nemaite/emesive", parameters: parameters)
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+    
+}

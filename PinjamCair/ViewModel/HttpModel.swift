@@ -47,6 +47,7 @@ class casiaModel: Codable {
     var supportsion: String?
     var languageate: String?
     var die: [dieModel]?
+    var crucful: crucfulModel?
 }
 
 class sorbModel: Codable {
@@ -65,6 +66,16 @@ class dorsallyModel: Codable {
 class dipsiauousModel: Codable {
     var emesive: String?
     var notdropality: [notdropalityModel]?
+    var flatvoice: [drawieModel]?
+    var aviitious: String?
+    var throwality: String?
+    var trueuous: String?
+    var vollcenter: String?
+    var herself: String?
+    var relationship_title: String?
+    var relationship_placeholder: String?
+    var contact_title: String?
+    var contact_placeholder: String?
 }
 
 class notdropalityModel: Codable {
@@ -146,4 +157,8 @@ class drawieModel: Codable {
         }
     }
     
+}
+
+class crucfulModel: Codable {
+    var dipsiauous: [dipsiauousModel]?
 }

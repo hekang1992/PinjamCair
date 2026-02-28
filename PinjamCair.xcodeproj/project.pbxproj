@@ -51,6 +51,7 @@
 		73D808552F52D349006F53C1 /* PopAutnEnumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D808542F52D349006F53C1 /* PopAutnEnumView.swift */; };
 		73D808572F52D396006F53C1 /* AuthListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D808562F52D396006F53C1 /* AuthListViewCell.swift */; };
 		73D8085A2F52D89C006F53C1 /* WorkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D808592F52D89C006F53C1 /* WorkerViewController.swift */; };
+		73D8085C2F52E513006F53C1 /* ContactViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D8085B2F52E513006F53C1 /* ContactViewCell.swift */; };
 		73E0C7752F512D3E00BBFE9C /* H5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7742F512D3E00BBFE9C /* H5ViewController.swift */; };
 		73E0C7772F512D5A00BBFE9C /* AppHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7762F512D5A00BBFE9C /* AppHeadView.swift */; };
 		73E0C7792F5132C100BBFE9C /* SchemeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7782F5132C100BBFE9C /* SchemeRouter.swift */; };
@@ -113,6 +114,7 @@
 		73D808542F52D349006F53C1 /* PopAutnEnumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAutnEnumView.swift; sourceTree = "<group>"; };
 		73D808562F52D396006F53C1 /* AuthListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthListViewCell.swift; sourceTree = "<group>"; };
 		73D808592F52D89C006F53C1 /* WorkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerViewController.swift; sourceTree = "<group>"; };
+		73D8085B2F52E513006F53C1 /* ContactViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewCell.swift; sourceTree = "<group>"; };
 		73E0C7742F512D3E00BBFE9C /* H5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H5ViewController.swift; sourceTree = "<group>"; };
 		73E0C7762F512D5A00BBFE9C /* AppHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeadView.swift; sourceTree = "<group>"; };
 		73E0C7782F5132C100BBFE9C /* SchemeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeRouter.swift; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 		7365C5A62F4D8FD300240451 /* Contact */ = {
 			isa = PBXGroup;
 			children = (
+				73D8085B2F52E513006F53C1 /* ContactViewCell.swift */,
 				7365C5AA2F4D900A00240451 /* ContactViewController.swift */,
 			);
 			path = Contact;
@@ -607,6 +610,7 @@
 				7349CE812F4D6FDE00B0EB0F /* AppNavigationController.swift in Sources */,
 				73E0C7862F516A3C00BBFE9C /* CardListView.swift in Sources */,
 				7349CE982F4D750100B0EB0F /* MineViewController.swift in Sources */,
+				73D8085C2F52E513006F53C1 /* ContactViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
