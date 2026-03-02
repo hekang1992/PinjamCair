@@ -94,6 +94,7 @@ class OrderViewController: BaseViewController {
         tableView.estimatedRowHeight = 80
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.isHidden = true
         tableView.showsVerticalScrollIndicator = false
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.rowHeight = UITableView.automaticDimension
@@ -102,6 +103,11 @@ class OrderViewController: BaseViewController {
             tableView.sectionHeaderTopPadding = 0
         }
         return tableView
+    }()
+    
+    lazy var emptyView: EmptyView = {
+        let emptyView = EmptyView(frame: .zero)
+        return emptyView
     }()
     
     private var tabViews: [OrderListView] {
@@ -138,11 +144,24 @@ extension OrderViewController {
             let model = try await viewModel.orderListInfo(parameters: parameters)
             let ectopurposeess = model.ectopurposeess ?? ""
             if ["0", "00"].contains(ectopurposeess) {
-                self.modelArray = model.casia?.dipsiauous ?? []
+                let modelArray = model.casia?.dipsiauous ?? []
+                self.modelArray = modelArray
                 self.tableView.reloadData()
+                if modelArray.isEmpty || modelArray.count == 0 {
+                    self.tableView.isHidden = true
+                    self.emptyView.isHidden = false
+                }else {
+                    self.tableView.isHidden = false
+                    self.emptyView.isHidden = true
+                }
+            }else {
+                self.tableView.isHidden = true
+                self.emptyView.isHidden = false
             }
             await self.tableView.mj_header?.endRefreshing()
         } catch {
+            self.tableView.isHidden = true
+            self.emptyView.isHidden = false
             await self.tableView.mj_header?.endRefreshing()
         }
     }
@@ -180,10 +199,17 @@ extension OrderViewController {
             make.bottom.leading.right.equalToSuperview()
         }
         
+        footView.addSubview(emptyView)
+        emptyView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         footView.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        
         
         self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
             guard let self = self else { return }
