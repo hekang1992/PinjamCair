@@ -10,6 +10,7 @@ import WebKit
 import SnapKit
 import RxSwift
 import RxCocoa
+import StoreKit
 
 class H5ViewController: BaseViewController {
     
@@ -49,7 +50,6 @@ class H5ViewController: BaseViewController {
         config.userContentController = userContentController
         
         let webView = WKWebView(frame: .zero, configuration: config)
-        webView.navigationDelegate = self
         return webView
     }()
     
@@ -141,10 +141,6 @@ extension H5ViewController {
     }
 }
 
-extension H5ViewController: WKNavigationDelegate {
-    
-}
-
 extension H5ViewController: WKScriptMessageHandler {
     
     func userContentController(_ userContentController: WKUserContentController,
@@ -178,26 +174,71 @@ extension H5ViewController: WKScriptMessageHandler {
 extension H5ViewController {
     
     func acuarian(_ body: Any) {
-        // TODO: 实现
+        let listArray = body as? [String] ?? []
+        let productID = listArray.first ?? ""
+        let orderID = listArray.last ?? ""
+        
+        print("listArray======\(listArray)")
     }
     
     func schemling(_ body: Any) {
-        // TODO: 实现
+        guard let pageUrl = body as? String, !pageUrl.isEmpty else {
+            return
+        }
+        if pageUrl.contains(SchemeRouter.shared.schemeUrl) {
+            SchemeRouter.shared.handle(urlString: pageUrl, vc: self)
+        }else {
+            let webVc = H5ViewController()
+            webVc.pageUrl = pageUrl
+            self.navigationController?.pushViewController(webVc, animated: true)
+        }
     }
     
     func aud(_ body: Any) {
-        // TODO: 实现
+        self.navigationController?.popViewController(animated: true)
     }
     
     func passer(_ body: Any) {
-        // TODO: 实现
+        NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil)
     }
     
     func not(_ body: Any) {
-        // TODO: 实现
+        guard let email = body as? String,
+              !email.isEmpty else {
+            return
+        }
+        
+        let phone = LoginManager.shared.getPhone()
+        let message = "Pinjam Cair: \(phone)"
+        
+        var components = URLComponents()
+        components.scheme = "mailto"
+        components.path = email
+        components.queryItems = [
+            URLQueryItem(name: "body", value: message)
+        ]
+        
+        guard let url = components.url,
+              UIApplication.shared.canOpenURL(url) else {
+            return
+        }
+        
+        UIApplication.shared.open(url)
     }
     
     func diation(_ body: Any) {
-        // TODO: 实现
+        self.toRankAppStore()
     }
+}
+
+extension H5ViewController {
+    
+    func toRankAppStore() {
+        guard #available(iOS 14.0, *),
+              let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+            return
+        }
+        SKStoreReviewController.requestReview(in: windowScene)
+    }
+    
 }
