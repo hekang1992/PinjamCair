@@ -63,6 +63,9 @@
 		73E0C7842F5162AE00BBFE9C /* EndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7832F5162AE00BBFE9C /* EndView.swift */; };
 		73E0C7862F516A3C00BBFE9C /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7852F516A3C00BBFE9C /* CardListView.swift */; };
 		73E1E2842F551E48008574D9 /* EndMaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1E2832F551E48008574D9 /* EndMaxView.swift */; };
+		73E1E2862F5520D7008574D9 /* CardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1E2852F5520D7008574D9 /* CardViewCell.swift */; };
+		73E1E2882F552A4D008574D9 /* AppBannerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1E2872F552A4D008574D9 /* AppBannerViewCell.swift */; };
+		73E1E28A2F552C47008574D9 /* MaxProductViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1E2892F552C47008574D9 /* MaxProductViewCell.swift */; };
 		F463F6921760B25883AA1E1A /* Pods_PinjamCair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +131,9 @@
 		73E0C7832F5162AE00BBFE9C /* EndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndView.swift; sourceTree = "<group>"; };
 		73E0C7852F516A3C00BBFE9C /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
 		73E1E2832F551E48008574D9 /* EndMaxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndMaxView.swift; sourceTree = "<group>"; };
+		73E1E2852F5520D7008574D9 /* CardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewCell.swift; sourceTree = "<group>"; };
+		73E1E2872F552A4D008574D9 /* AppBannerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBannerViewCell.swift; sourceTree = "<group>"; };
+		73E1E2892F552C47008574D9 /* MaxProductViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxProductViewCell.swift; sourceTree = "<group>"; };
 		DBB41FD14F8919C034DEC0D7 /* Pods-PinjamCair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.release.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.release.xcconfig"; sourceTree = "<group>"; };
 		E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinjamCair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE4C731136F1CFC9E2A724A /* Pods-PinjamCair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.debug.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.debug.xcconfig"; sourceTree = "<group>"; };
@@ -370,6 +376,9 @@
 				73E0C7832F5162AE00BBFE9C /* EndView.swift */,
 				73E0C7852F516A3C00BBFE9C /* CardListView.swift */,
 				73E1E2832F551E48008574D9 /* EndMaxView.swift */,
+				73E1E2852F5520D7008574D9 /* CardViewCell.swift */,
+				73E1E2872F552A4D008574D9 /* AppBannerViewCell.swift */,
+				73E1E2892F552C47008574D9 /* MaxProductViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -583,6 +592,7 @@
 				7349CE902F4D732500B0EB0F /* HttpModel.swift in Sources */,
 				7365C5982F4D8EEA00240451 /* UploadImageViewController.swift in Sources */,
 				7349CEA02F4D78EE00B0EB0F /* LoadingView.swift in Sources */,
+				73E1E2882F552A4D008574D9 /* AppBannerViewCell.swift in Sources */,
 				73097B5D2F502B64008DDA52 /* MineListViewCell.swift in Sources */,
 				7349CE712F4D6F1800B0EB0F /* AppDelegate.swift in Sources */,
 				7349CEAF2F4D882200B0EB0F /* CustomDatePickerView.swift in Sources */,
@@ -594,6 +604,7 @@
 				73E0C7752F512D3E00BBFE9C /* H5ViewController.swift in Sources */,
 				73D808552F52D349006F53C1 /* PopAutnEnumView.swift in Sources */,
 				73D808512F52CA57006F53C1 /* ChanelViewCell.swift in Sources */,
+				73E1E2862F5520D7008574D9 /* CardViewCell.swift in Sources */,
 				73D8085A2F52D89C006F53C1 /* WorkerViewController.swift in Sources */,
 				7349CE962F4D74FA00B0EB0F /* HomeViewController.swift in Sources */,
 				7365C5A22F4D8F3200240451 /* EnView.swift in Sources */,
@@ -610,6 +621,7 @@
 				73D8084F2F52B257006F53C1 /* KtpView.swift in Sources */,
 				73E0C7822F514C0600BBFE9C /* LogouView.swift in Sources */,
 				73E0C7772F512D5A00BBFE9C /* AppHeadView.swift in Sources */,
+				73E1E28A2F552C47008574D9 /* MaxProductViewCell.swift in Sources */,
 				7365C5A42F4D8F4700240451 /* OrderView.swift in Sources */,
 				7365C5AF2F4D9F9F00240451 /* AppLanguage.swift in Sources */,
 				73D808572F52D396006F53C1 /* AuthListViewCell.swift in Sources */,

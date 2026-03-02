@@ -89,6 +89,7 @@ class notdropalityModel: Codable {
     var manthamericanible: String?
     var townaire: String?
     var multatule: String?
+    var sense: String?
 }
 
 class mrerModel: Codable {

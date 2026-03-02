@@ -104,6 +104,12 @@ class HomeViewController: BaseViewController {
             }
         }
         
+        maxView.tapProductBlock = { [weak self] productId in
+            Task {
+                await self?.clickCardProductInfo(productID: productId)
+            }
+        }
+        
         enView.scrollView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
             Task { [weak self] in
                 await self?.homeInfo()
@@ -111,6 +117,12 @@ class HomeViewController: BaseViewController {
         })
         
         endView.scrollView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
+            Task { [weak self] in
+                await self?.homeInfo()
+            }
+        })
+        
+        maxView.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
             Task { [weak self] in
                 await self?.homeInfo()
             }
@@ -135,6 +147,7 @@ extension HomeViewController {
             await MainActor.run {
                 self.enView.scrollView.mj_header?.endRefreshing()
                 self.endView.scrollView.mj_header?.endRefreshing()
+                self.maxView.tableView.mj_header?.endRefreshing()
             }
             let ectopurposeess = model.ectopurposeess ?? ""
             if ["0", "00"].contains(ectopurposeess) {
@@ -159,6 +172,7 @@ extension HomeViewController {
             await MainActor.run {
                 self.enView.scrollView.mj_header?.endRefreshing()
                 self.endView.scrollView.mj_header?.endRefreshing()
+                self.maxView.tableView.mj_header?.endRefreshing()
             }
         }
     }
