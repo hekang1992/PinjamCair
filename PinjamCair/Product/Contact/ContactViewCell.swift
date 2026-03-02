@@ -11,14 +11,29 @@ import RxSwift
 import RxCocoa
 
 class ContactViewCell: UITableViewCell {
-
+    
     var model: dipsiauousModel? {
         didSet {
             guard let model = model else { return }
-            oneLabel.text = model.herself ?? ""
-            oneFiled.placeholder = model.relationship_placeholder ?? ""
-            twoFiled.placeholder = model.contact_placeholder ?? ""
             
+            oneLabel.text = model.herself
+            oneFiled.placeholder = model.relationship_placeholder
+            twoFiled.placeholder = model.contact_placeholder
+            
+            guard let aviitious = model.aviitious,
+                  let modelArray = model.flatvoice else { return }
+            
+            if let matchedModel = modelArray.first(where: { $0.emesive == aviitious }) {
+                oneFiled.text = matchedModel.throwality
+            }
+            
+            let phone = model.trueuous ?? ""
+            let name = model.throwality ?? ""
+            if phone.isEmpty || name.isEmpty {
+                twoFiled.text = ""
+            }else {
+                twoFiled.text = String(format: "%@ - %@", name, phone)
+            }
         }
     }
     

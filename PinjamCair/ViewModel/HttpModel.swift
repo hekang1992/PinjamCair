@@ -109,6 +109,7 @@ class spergiceModel: Codable {
     var musicfic: String?
     var employeesome: String?
     var classsion: Int?
+    var oedate: Int?
     var canous: canousModel?
 }
 
@@ -134,6 +135,50 @@ class dieModel: Codable {
     var emesive: String?
     var autoivity: String?
     var drawie: [drawieModel]?
+    
+    enum CodingKeys: String, CodingKey {
+        case rusbadior
+        case larggovernmenton
+        case ectopurposeess
+        case scienceile
+        case tvarium
+        case emesive
+        case autoivity
+        case drawie
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        rusbadior = try container.decodeIfPresent(String.self, forKey: .rusbadior)
+        larggovernmenton = try container.decodeIfPresent(String.self, forKey: .larggovernmenton)
+        ectopurposeess = try container.decodeIfPresent(String.self, forKey: .ectopurposeess)
+        scienceile = try container.decodeIfPresent(String.self, forKey: .scienceile)
+        tvarium = try container.decodeIfPresent(String.self, forKey: .tvarium)
+        emesive = try container.decodeIfPresent(String.self, forKey: .emesive)
+        drawie = try container.decodeIfPresent([drawieModel].self, forKey: .drawie)
+        
+        if let stringValue = try? container.decode(String.self, forKey: .autoivity) {
+            autoivity = stringValue
+        } else if let intValue = try? container.decode(Int.self, forKey: .autoivity) {
+            autoivity = String(intValue)
+        } else {
+            autoivity = nil
+        }
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encodeIfPresent(rusbadior, forKey: .rusbadior)
+        try container.encodeIfPresent(larggovernmenton, forKey: .larggovernmenton)
+        try container.encodeIfPresent(ectopurposeess, forKey: .ectopurposeess)
+        try container.encodeIfPresent(scienceile, forKey: .scienceile)
+        try container.encodeIfPresent(tvarium, forKey: .tvarium)
+        try container.encodeIfPresent(emesive, forKey: .emesive)
+        try container.encodeIfPresent(autoivity, forKey: .autoivity)
+        try container.encodeIfPresent(drawie, forKey: .drawie)
+    }
 }
 
 class drawieModel: Codable {

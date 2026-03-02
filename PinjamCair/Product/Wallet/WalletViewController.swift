@@ -58,7 +58,7 @@ class WalletViewController: BaseViewController {
     
     lazy var stepImageView: UIImageView = {
         let stepImageView = UIImageView()
-        stepImageView.image = UIImage(named: "three_step_image")
+        stepImageView.image = UIImage(named: "fv_step_image")
         stepImageView.contentMode = .scaleAspectFit
         return stepImageView
     }()
@@ -255,7 +255,8 @@ extension WalletViewController {
             let model = try await viewModel.productDetailInfo(parameters: parameters)
             let ectopurposeess = model.ectopurposeess ?? ""
             if ["0", "00"].contains(ectopurposeess) {
-                if let stepModel = model.casia?.stagn, let cardModel = model.casia?.spergice {
+                if let cardModel = model.casia?.spergice {
+                    let stepModel = model.casia?.stagn ?? mrerModel()
                     self.goNextAuthVc(stepModel: stepModel, cardModel: cardModel)
                 }
             }

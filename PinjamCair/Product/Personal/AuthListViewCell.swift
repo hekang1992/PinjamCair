@@ -47,11 +47,12 @@ class AuthListViewCell: UITableViewCell {
             make.top.equalToSuperview()
             make.left.equalToSuperview().offset(16)
             make.height.equalTo(48)
-            make.bottom.equalToSuperview().offset(-18)
+            make.bottom.equalToSuperview().offset(-16.pix())
         }
         nameLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.height.equalTo(40)
             make.left.equalToSuperview().offset(16)
-            make.top.bottom.equalToSuperview()
             make.centerY.equalToSuperview()
         }
         

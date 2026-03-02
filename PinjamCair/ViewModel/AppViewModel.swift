@@ -400,12 +400,6 @@ extension AppViewModel {
     
     func uploadContactInfo(parameters: [String: String]) async throws -> BaseModel {
         
-        LoadingView.shared.show()
-        
-        defer {
-            LoadingView.shared.hide()
-        }
-        
         do {
             let response: BaseModel = try await NetworkManager.shared.post("/nemaite/autoesque", parameters: parameters)
             return response
@@ -453,4 +447,24 @@ extension AppViewModel {
         }
     }
     
+}
+
+extension AppViewModel {
+    
+    func reallyApplyInfo(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.post("/nemaite/notdropality", parameters: parameters)
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
 }

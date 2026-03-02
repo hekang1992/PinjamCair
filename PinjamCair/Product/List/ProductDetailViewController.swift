@@ -139,9 +139,8 @@ class ProductDetailViewController: BaseViewController {
             .throttle(.microseconds(200), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
-                if let clickModel = self.model?.casia?.stagn {
-                    clickToVc(model: clickModel, type: .next)
-                }
+                let clickModel = self.model?.casia?.stagn ?? mrerModel()
+                clickToVc(model: clickModel, type: .next)
             }).disposed(by: disposeBag)
         
     }

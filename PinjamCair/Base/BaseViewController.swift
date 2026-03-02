@@ -70,8 +70,47 @@ extension BaseViewController {
             walletVc.stepModel = stepModel
             self.navigationController?.pushViewController(walletVc, animated: true)
             
+        case "":
+            let orderID = cardModel.weightfier ?? ""
+            let cisain = cardModel.cisain ?? ""
+            let musicfic = cardModel.musicfic ?? ""
+            let oedate = String(cardModel.oedate ?? 0)
+            let usuallyable = LoginManager.shared.getPhone()
+            let pediern = UIDevice.current.name
+            let parameters = ["readyize": orderID,
+                              "cisain": cisain,
+                              "musicfic": musicfic,
+                              "oedate": oedate,
+                              "usuallyable": usuallyable,
+                              "pediern": pediern]
+            self.reallyClickInfo(parameters: parameters)
+            
         default:
             break
+        }
+    }
+    
+    private func reallyClickInfo(parameters: [String: String]) {
+        Task {
+            do {
+                let viewModel = AppViewModel()
+                let model = try await viewModel.reallyApplyInfo(parameters: parameters)
+                let ectopurposeess = model.ectopurposeess ?? ""
+                if ["0", "00"].contains(ectopurposeess) {
+                    let pageUrl = model.casia?.feliee ?? ""
+                    if pageUrl.contains(SchemeRouter.shared.schemeUrl) {
+                        SchemeRouter.shared.handle(urlString: pageUrl, vc: self)
+                    }else {
+                        let webVc = H5ViewController()
+                        webVc.pageUrl = pageUrl
+                        self.navigationController?.pushViewController(webVc, animated: true)
+                    }
+                }else {
+                    ToastManager.showLocalMessage(model.urgth ?? "")
+                }
+            } catch {
+                
+            }
         }
     }
     
