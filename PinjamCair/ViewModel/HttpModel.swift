@@ -79,6 +79,7 @@ class dipsiauousModel: Codable {
     var adduous: String?
     var shareian: String?
     var singfy: [singfyModel]?
+    var ciliwhichery: String?
 }
 
 class singfyModel: Codable {

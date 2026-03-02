@@ -286,4 +286,16 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = self.modelArray[indexPath.row]
+        let pageUrl = model.ciliwhichery ?? ""
+        if pageUrl.contains(SchemeRouter.shared.schemeUrl) {
+            SchemeRouter.shared.handle(urlString: pageUrl, vc: self)
+        }else {
+            let webVc = H5ViewController()
+            webVc.pageUrl = pageUrl
+            self.navigationController?.pushViewController(webVc, animated: true)
+        }
+    }
+    
 }
