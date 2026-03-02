@@ -19,6 +19,8 @@ class HomeViewController: BaseViewController {
     private let crimeo = "1000"
     private let myrithoughtature = "1000"
     
+    private let locationManager = AppLocationManager()
+    
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
         bgImageView.image = UIImage(named: "home_head_bg_image")
@@ -127,6 +129,10 @@ class HomeViewController: BaseViewController {
                 await self?.homeInfo()
             }
         })
+        
+        locationManager.requestLocation { result in
+            print("result==\(result)")
+        }
         
     }
     

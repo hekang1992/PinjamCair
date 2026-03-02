@@ -69,6 +69,7 @@
 		73E1E28E2F555295008574D9 /* OrderListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1E28D2F555295008574D9 /* OrderListViewCell.swift */; };
 		73E1E2902F556A9A008574D9 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1E28F2F556A9A008574D9 /* EmptyView.swift */; };
 		73E1E2922F5578B2008574D9 /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1E2912F5578B2008574D9 /* OrderListViewController.swift */; };
+		73E1E2942F559130008574D9 /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1E2932F559130008574D9 /* AppLocationManager.swift */; };
 		F463F6921760B25883AA1E1A /* Pods_PinjamCair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,7 @@
 		73E1E28D2F555295008574D9 /* OrderListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewCell.swift; sourceTree = "<group>"; };
 		73E1E28F2F556A9A008574D9 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		73E1E2912F5578B2008574D9 /* OrderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
+		73E1E2932F559130008574D9 /* AppLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocationManager.swift; sourceTree = "<group>"; };
 		DBB41FD14F8919C034DEC0D7 /* Pods-PinjamCair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.release.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.release.xcconfig"; sourceTree = "<group>"; };
 		E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinjamCair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE4C731136F1CFC9E2A724A /* Pods-PinjamCair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.debug.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.debug.xcconfig"; sourceTree = "<group>"; };
@@ -201,7 +203,7 @@
 				7349CE862F4D72B200B0EB0F /* Home */,
 				7349CE852F4D72AC00B0EB0F /* Login */,
 				7349CE792F4D6F8F00B0EB0F /* Base */,
-				7365C5B02F4DA1AD00240451 /* ComParas */,
+				7365C5B02F4DA1AD00240451 /* Paras */,
 			);
 			path = PinjamCair;
 			sourceTree = "<group>";
@@ -422,15 +424,16 @@
 			path = Wallet;
 			sourceTree = "<group>";
 		};
-		7365C5B02F4DA1AD00240451 /* ComParas */ = {
+		7365C5B02F4DA1AD00240451 /* Paras */ = {
 			isa = PBXGroup;
 			children = (
 				736D7C532F4E9AC500CD6F14 /* NetworkMonitor.swift */,
 				7365C5AE2F4D9F9F00240451 /* AppLanguage.swift */,
 				7365C5B12F4DA22600240451 /* AppCommonParas.swift */,
 				7365C5B32F4DA27A00240451 /* IDFVKeychainManager.swift */,
+				73E1E2932F559130008574D9 /* AppLocationManager.swift */,
 			);
-			path = ComParas;
+			path = Paras;
 			sourceTree = "<group>";
 		};
 		73D808582F52D864006F53C1 /* Product */ = {
@@ -613,6 +616,7 @@
 				73E0C7752F512D3E00BBFE9C /* H5ViewController.swift in Sources */,
 				73D808552F52D349006F53C1 /* PopAutnEnumView.swift in Sources */,
 				73D808512F52CA57006F53C1 /* ChanelViewCell.swift in Sources */,
+				73E1E2942F559130008574D9 /* AppLocationManager.swift in Sources */,
 				73E1E2862F5520D7008574D9 /* CardViewCell.swift in Sources */,
 				73E1E28E2F555295008574D9 /* OrderListViewCell.swift in Sources */,
 				73D8085A2F52D89C006F53C1 /* WorkerViewController.swift in Sources */,
