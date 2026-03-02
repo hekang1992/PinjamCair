@@ -76,6 +76,14 @@ class dipsiauousModel: Codable {
     var relationship_placeholder: String?
     var contact_title: String?
     var contact_placeholder: String?
+    var adduous: String?
+    var shareian: String?
+    var singfy: [singfyModel]?
+}
+
+class singfyModel: Codable {
+    var herself: String?
+    var tvarium: String?
 }
 
 class notdropalityModel: Codable {

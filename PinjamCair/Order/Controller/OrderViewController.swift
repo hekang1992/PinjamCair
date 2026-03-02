@@ -88,7 +88,7 @@ class OrderViewController: BaseViewController {
     }()
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
+        let tableView = UITableView(frame: .zero, style: .plain)
         tableView.separatorStyle = .none
         tableView.backgroundColor = .white
         tableView.estimatedRowHeight = 80
@@ -276,11 +276,13 @@ extension OrderViewController {
 extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.modelArray.count ?? 0
+        return self.modelArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderListViewCell", for: indexPath) as! OrderListViewCell
+        let model = self.modelArray[indexPath.row]
+        cell.model = model
         return cell
     }
     
