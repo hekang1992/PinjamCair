@@ -67,6 +67,30 @@ class MineView: BaseView {
         return tableView
     }()
     
+    lazy var oneBtn: UIButton = {
+        let oneBtn = UIButton(type: .custom)
+        oneBtn.backgroundColor = .red
+        return oneBtn
+    }()
+    
+    lazy var twoBtn: UIButton = {
+        let twoBtn = UIButton(type: .custom)
+        twoBtn.backgroundColor = .red
+        return twoBtn
+    }()
+    
+    lazy var threeBtn: UIButton = {
+        let threeBtn = UIButton(type: .custom)
+        threeBtn.backgroundColor = .red
+        return threeBtn
+    }()
+    
+    lazy var fourBtn: UIButton = {
+        let fourBtn = UIButton(type: .custom)
+        fourBtn.backgroundColor = .red
+        return fourBtn
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(headImageView)
@@ -122,12 +146,40 @@ extension MineView: UITableViewDelegate, UITableViewDataSource {
         let bgImageView = UIImageView()
         bgImageView.image = UIImage(named: LocalStr("cn_oc_image"))
         bgImageView.contentMode = .scaleAspectFill
+        bgImageView.isUserInteractionEnabled = true
         headView.addSubview(bgImageView)
         bgImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(20)
             make.size.equalTo(CGSize(width: 324.pix(), height: 74.pix()))
         }
+        bgImageView.addSubview(oneBtn)
+        bgImageView.addSubview(twoBtn)
+        bgImageView.addSubview(threeBtn)
+        bgImageView.addSubview(fourBtn)
+        
+        oneBtn.snp.makeConstraints { make in
+            make.left.top.bottom.equalToSuperview()
+            make.width.equalTo(55)
+        }
+        twoBtn.snp.makeConstraints { make in
+            make.left.equalTo(oneBtn.snp.right).offset(12)
+            make.top.bottom.equalToSuperview()
+            make.width.equalTo(90)
+        }
+        
+        threeBtn.snp.makeConstraints { make in
+            make.left.equalTo(twoBtn.snp.right).offset(12)
+            make.top.bottom.equalToSuperview()
+            make.width.equalTo(90)
+        }
+        
+        fourBtn.snp.makeConstraints { make in
+            make.left.equalTo(threeBtn.snp.right).offset(12)
+            make.top.bottom.equalToSuperview()
+            make.width.equalTo(55)
+        }
+        
         return headView
     }
     

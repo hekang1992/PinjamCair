@@ -128,7 +128,6 @@ class OrderViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         Task {
-            self.type = "4"
             await self.orderListInfo()
         }
     }
