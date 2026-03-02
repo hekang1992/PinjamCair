@@ -468,3 +468,23 @@ extension AppViewModel {
         }
     }
 }
+
+extension AppViewModel {
+    
+    func orderListInfo(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingView.shared.show()
+        
+        defer {
+            LoadingView.shared.hide()
+        }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.post("/nemaite/feliee", parameters: parameters)
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+}

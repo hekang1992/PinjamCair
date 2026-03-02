@@ -14,6 +14,10 @@ class OrderViewController: BaseViewController {
     
     private let viewModel = AppViewModel()
     
+    private var type: String = "4"
+    
+    private var modelArray: [dipsiauousModel] = []
+    
     // MARK: - UI
     lazy var headImageView: UIImageView = {
         let imageView = UIImageView()
@@ -83,6 +87,23 @@ class OrderViewController: BaseViewController {
         return view
     }()
     
+    lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .white
+        tableView.estimatedRowHeight = 80
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.showsVerticalScrollIndicator = false
+        tableView.contentInsetAdjustmentBehavior = .never
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(OrderListViewCell.self, forCellReuseIdentifier: "OrderListViewCell")
+        if #available(iOS 15.0, *) {
+            tableView.sectionHeaderTopPadding = 0
+        }
+        return tableView
+    }()
+    
     private var tabViews: [OrderListView] {
         return [oneView, twoView, threeView, fourView]
     }
@@ -97,9 +118,34 @@ class OrderViewController: BaseViewController {
         
         updateSelectedView(oneView)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Task {
+            self.type = "4"
+            await self.orderListInfo()
+        }
+    }
 }
 
 extension OrderViewController {
+    
+    private func orderListInfo() async {
+        do {
+            let parameters = ["carcinpickward": type,
+                              "cacohood": "1",
+                              "seatster": "100"]
+            let model = try await viewModel.orderListInfo(parameters: parameters)
+            let ectopurposeess = model.ectopurposeess ?? ""
+            if ["0", "00"].contains(ectopurposeess) {
+                self.modelArray = model.casia?.dipsiauous ?? []
+                self.tableView.reloadData()
+            }
+            await self.tableView.mj_header?.endRefreshing()
+        } catch {
+            await self.tableView.mj_header?.endRefreshing()
+        }
+    }
     
     private func setupUI() {
         view.addSubview(headImageView)
@@ -133,6 +179,18 @@ extension OrderViewController {
             make.top.equalTo(bgView.snp.bottom).offset(12)
             make.bottom.leading.right.equalToSuperview()
         }
+        
+        footView.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
+            guard let self = self else { return }
+            Task {
+                await self.orderListInfo()
+            }
+        })
     }
 }
 
@@ -167,20 +225,37 @@ extension OrderViewController {
         }
         
         oneView.tapClick = { [weak self] _ in
+            self?.type = "4"
             self?.updateSelectedView(self?.oneView)
+            Task {
+                await self?.orderListInfo()
+            }
         }
         
         twoView.tapClick = { [weak self] _ in
+            self?.type = "7"
             self?.updateSelectedView(self?.twoView)
+            Task {
+                await self?.orderListInfo()
+            }
         }
         
         threeView.tapClick = { [weak self] _ in
+            self?.type = "6"
             self?.updateSelectedView(self?.threeView)
+            Task {
+                await self?.orderListInfo()
+            }
         }
         
         fourView.tapClick = { [weak self] _ in
+            self?.type = "5"
             self?.updateSelectedView(self?.fourView)
+            Task {
+                await self?.orderListInfo()
+            }
         }
+        
     }
     
     private func updateSelectedView(_ selectedView: OrderListView?) {
@@ -196,4 +271,17 @@ extension OrderViewController {
             }
         }
     }
+}
+
+extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.modelArray.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderListViewCell", for: indexPath) as! OrderListViewCell
+        return cell
+    }
+    
 }
