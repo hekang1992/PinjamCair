@@ -50,6 +50,12 @@ class HomeViewController: BaseViewController {
         return endView
     }()
     
+    lazy var maxView: EndMaxView = {
+        let maxView = EndMaxView(frame: .zero)
+        maxView.isHidden = true
+        return maxView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -80,8 +86,11 @@ class HomeViewController: BaseViewController {
             make.left.right.bottom.equalToSuperview()
         }
         
-        enView.isHidden = languageCode != .english
-        endView.isHidden = languageCode == .english
+        view.addSubview(maxView)
+        maxView.snp.makeConstraints { make in
+            make.top.equalTo(messageListView.snp.bottom).offset(5)
+            make.left.right.bottom.equalToSuperview()
+        }
         
         enView.tapProductBlock = { [weak self] productId in
             Task {
@@ -136,7 +145,14 @@ extension HomeViewController {
                     }else {
                         endView.model = oneModel.notdropality?.first
                     }
-                    return
+                    self.maxView.isHidden = true
+                    enView.isHidden = languageCode != .english
+                    endView.isHidden = languageCode == .english
+                }else if let _ = modelArray.first(where: { $0.emesive == "emetolawyeran" }) {
+                    self.enView.isHidden = true
+                    self.endView.isHidden = true
+                    self.maxView.isHidden = false
+                    self.maxView.model = model
                 }
             }
         } catch {
