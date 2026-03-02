@@ -80,7 +80,7 @@ class MineView: BaseView {
             make.height.equalTo(280.pix())
         }
         tipsLabel.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(5)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(10)
             make.left.equalToSuperview().offset(24)
             make.height.equalTo(21)
         }
