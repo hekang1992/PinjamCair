@@ -7,13 +7,17 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class MineView: BaseView {
     
     var modelArray: [dorsallyModel] = []
     
     var tapBlock: ((String) -> Void)?
-
+    
+    var ocTapBlock: ((String) -> Void)?
+    
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()
         headImageView.image = UIImage(named: "login_head_image")
@@ -67,30 +71,6 @@ class MineView: BaseView {
         return tableView
     }()
     
-    lazy var oneBtn: UIButton = {
-        let oneBtn = UIButton(type: .custom)
-        oneBtn.backgroundColor = .red
-        return oneBtn
-    }()
-    
-    lazy var twoBtn: UIButton = {
-        let twoBtn = UIButton(type: .custom)
-        twoBtn.backgroundColor = .red
-        return twoBtn
-    }()
-    
-    lazy var threeBtn: UIButton = {
-        let threeBtn = UIButton(type: .custom)
-        threeBtn.backgroundColor = .red
-        return threeBtn
-    }()
-    
-    lazy var fourBtn: UIButton = {
-        let fourBtn = UIButton(type: .custom)
-        fourBtn.backgroundColor = .red
-        return fourBtn
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(headImageView)
@@ -142,6 +122,12 @@ extension MineView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let oneBtn = UIButton(type: .custom)
+        let twoBtn = UIButton(type: .custom)
+        let threeBtn = UIButton(type: .custom)
+        let fourBtn = UIButton(type: .custom)
+        
         let headView = UIView()
         let bgImageView = UIImageView()
         bgImageView.image = UIImage(named: LocalStr("cn_oc_image"))
@@ -153,6 +139,7 @@ extension MineView: UITableViewDelegate, UITableViewDataSource {
             make.top.equalToSuperview().offset(20)
             make.size.equalTo(CGSize(width: 324.pix(), height: 74.pix()))
         }
+        
         bgImageView.addSubview(oneBtn)
         bgImageView.addSubview(twoBtn)
         bgImageView.addSubview(threeBtn)
@@ -179,6 +166,42 @@ extension MineView: UITableViewDelegate, UITableViewDataSource {
             make.top.bottom.equalToSuperview()
             make.width.equalTo(55)
         }
+        
+        oneBtn
+            .rx
+            .tap
+            .throttle(.microseconds(200), scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.ocTapBlock?(LocalStr("All"))
+            }).disposed(by: disposeBag)
+        
+        twoBtn
+            .rx
+            .tap
+            .throttle(.microseconds(200), scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.ocTapBlock?(LocalStr("In progress"))
+            }).disposed(by: disposeBag)
+        
+        threeBtn
+            .rx
+            .tap
+            .throttle(.microseconds(200), scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.ocTapBlock?(LocalStr("Repayment"))
+            }).disposed(by: disposeBag)
+        
+        fourBtn
+            .rx
+            .tap
+            .throttle(.microseconds(200), scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.ocTapBlock?(LocalStr("Finished"))
+            }).disposed(by: disposeBag)
         
         return headView
     }

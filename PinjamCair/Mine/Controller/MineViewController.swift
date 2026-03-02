@@ -43,6 +43,13 @@ class MineViewController: BaseViewController {
                 await self?.getMineInfo()
             }
         })
+        
+        self.mineView.ocTapBlock = { [weak self] name in
+            guard let self = self else { return }
+            let listVc = OrderListViewController()
+            listVc.name = name
+            self.navigationController?.pushViewController(listVc, animated: true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

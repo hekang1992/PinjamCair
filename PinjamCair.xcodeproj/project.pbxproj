@@ -68,6 +68,7 @@
 		73E1E28A2F552C47008574D9 /* MaxProductViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1E2892F552C47008574D9 /* MaxProductViewCell.swift */; };
 		73E1E28E2F555295008574D9 /* OrderListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1E28D2F555295008574D9 /* OrderListViewCell.swift */; };
 		73E1E2902F556A9A008574D9 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1E28F2F556A9A008574D9 /* EmptyView.swift */; };
+		73E1E2922F5578B2008574D9 /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1E2912F5578B2008574D9 /* OrderListViewController.swift */; };
 		F463F6921760B25883AA1E1A /* Pods_PinjamCair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +139,7 @@
 		73E1E2892F552C47008574D9 /* MaxProductViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxProductViewCell.swift; sourceTree = "<group>"; };
 		73E1E28D2F555295008574D9 /* OrderListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewCell.swift; sourceTree = "<group>"; };
 		73E1E28F2F556A9A008574D9 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		73E1E2912F5578B2008574D9 /* OrderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
 		DBB41FD14F8919C034DEC0D7 /* Pods-PinjamCair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.release.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.release.xcconfig"; sourceTree = "<group>"; };
 		E8CCE9BF663AD7553D1F7A6D /* Pods_PinjamCair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinjamCair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE4C731136F1CFC9E2A724A /* Pods-PinjamCair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamCair.debug.xcconfig"; path = "Target Support Files/Pods-PinjamCair/Pods-PinjamCair.debug.xcconfig"; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				7349CE992F4D750800B0EB0F /* OrderViewController.swift */,
+				73E1E2912F5578B2008574D9 /* OrderListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				73E0C7772F512D5A00BBFE9C /* AppHeadView.swift in Sources */,
 				73E1E28A2F552C47008574D9 /* MaxProductViewCell.swift in Sources */,
 				7365C5A42F4D8F4700240451 /* OrderListView.swift in Sources */,
+				73E1E2922F5578B2008574D9 /* OrderListViewController.swift in Sources */,
 				7365C5AF2F4D9F9F00240451 /* AppLanguage.swift in Sources */,
 				73D808572F52D396006F53C1 /* AuthListViewCell.swift in Sources */,
 				736D7C542F4E9AC500CD6F14 /* NetworkMonitor.swift in Sources */,
