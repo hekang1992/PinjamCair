@@ -10,7 +10,7 @@ import SnapKit
 
 class MineMessageView: BaseView {
     
-    var serviceBlock: (() -> Void)?
+    var serviceBlock: ((String) -> Void)?
     
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
@@ -82,7 +82,7 @@ class MineMessageView: BaseView {
 extension MineMessageView {
     
     @objc func serviceBtnClick() {
-        self.serviceBlock?()
+        self.serviceBlock?(base_h5_url + "/cephalward")
     }
     
 }

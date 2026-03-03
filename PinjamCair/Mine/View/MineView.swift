@@ -18,6 +18,10 @@ class MineView: BaseView {
     
     var ocTapBlock: ((String) -> Void)?
     
+    var serviceBlock: ((String) -> Void)?
+    
+    var loanBlock: ((String) -> Void)?
+    
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()
         headImageView.image = UIImage(named: "login_head_image")
@@ -43,6 +47,7 @@ class MineView: BaseView {
         let loanServiceBtn = UIButton(type: .custom)
         loanServiceBtn.setBackgroundImage(UIImage(named: LocalStr("cn_desc_lo_image")), for: .normal)
         loanServiceBtn.adjustsImageWhenHighlighted = false
+        loanServiceBtn.addTarget(self, action: #selector(loanServiceBtnClick), for: .touchUpInside)
         return loanServiceBtn
     }()
     
@@ -107,10 +112,27 @@ class MineView: BaseView {
             make.top.leading.right.equalToSuperview()
             make.bottom.equalTo(safeAreaLayoutGuide)
         }
+        
+        bindTap()
     }
     
     @MainActor required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
+extension MineView {
+    
+    private func bindTap() {
+        messageListView.serviceBlock = { [weak self] pageUrl in
+            guard let self = self else { return }
+            self.serviceBlock?(pageUrl)
+        }
+    }
+    
+    @objc func loanServiceBtnClick() {
+        self.loanBlock?(base_h5_url + "/volael")
     }
     
 }

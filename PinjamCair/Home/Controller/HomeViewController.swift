@@ -147,6 +147,13 @@ class HomeViewController: BaseViewController {
             }
         })
         
+        messageListView.serviceBlock = { [weak self] pageUrl in
+            guard let self = self else { return }
+            let webVc = H5ViewController()
+            webVc.pageUrl = pageUrl
+            self.navigationController?.pushViewController(webVc, animated: true)
+        }
+        
         if LoginManager.shared.isLoggedIn() {
             locationManager.requestLocation { result in
                 print("result==\(result)")
