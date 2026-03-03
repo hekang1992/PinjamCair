@@ -206,6 +206,11 @@ class ContactViewController: BaseViewController {
         }
     }
     
+    @MainActor
+    deinit {
+        print("ContactViewController-----deinit")
+    }
+    
 }
 
 extension ContactViewController {

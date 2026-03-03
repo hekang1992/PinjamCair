@@ -183,6 +183,11 @@ class PersonalViewController: BaseViewController {
         }
     }
     
+    @MainActor
+    deinit {
+        print("PersonalViewController-----deinit")
+    }
+    
 }
 
 extension PersonalViewController {

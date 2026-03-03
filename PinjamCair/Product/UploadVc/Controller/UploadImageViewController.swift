@@ -271,7 +271,8 @@ extension UploadImageViewController {
         popView.sureBlock = { [weak self] in
             guard let self = self else { return }
             self.dismiss(animated: true)
-            camera.openCamera(from: self) { data in
+            camera.openCamera(from: self) { [weak self] data in
+                guard let self = self else { return }
                 Task {
                     if let data = data {
                         await self.uploadImageInfo(type: "11", data: data)
@@ -296,7 +297,8 @@ extension UploadImageViewController {
         popView.sureBlock = { [weak self] in
             guard let self = self else { return }
             self.dismiss(animated: true)
-            camera.openCamera(from: self, cameraPosition: .front) { data in
+            camera.openCamera(from: self, cameraPosition: .front) { [weak self] data in
+                guard let self = self else { return }
                 Task {
                     if let data = data {
                         await self.uploadImageInfo(type: "10", data: data)
@@ -340,7 +342,7 @@ extension UploadImageViewController {
                         Task {
                             await self.getMessageInfo()
                         }
-
+                        
                         Task {
                             await self.ptwo()
                         }
@@ -414,7 +416,7 @@ extension UploadImageViewController {
                         Task {
                             await self.getMessageInfo()
                         }
-
+                        
                         Task {
                             await self.ptwo()
                         }
