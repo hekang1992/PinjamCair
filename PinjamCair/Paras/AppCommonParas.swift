@@ -27,6 +27,7 @@ final class AppCommonParas {
         dict["vicesimhang"] = "appstore-uagki"
         dict["maliion"] = LoginManager.shared.getToken()
         dict["sagacain"] = currentLanguageCode()
+        dict["animal"] = IDFVKeychainManager.shared.getIDFA()
         return dict
     }
 }

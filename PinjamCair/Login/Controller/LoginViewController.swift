@@ -17,6 +17,8 @@ class LoginViewController: BaseViewController {
     
     private var remainingSeconds: Int = 60
     
+    private let locationManager = AppLocationManager()
+    
     lazy var loginView: LoginView = {
         let loginView = LoginView(frame: .zero)
         return loginView
@@ -56,6 +58,8 @@ class LoginViewController: BaseViewController {
         
         let onetime = String(Int(Date().timeIntervalSince1970))
         UserDefaults.standard.set(onetime, forKey: "onetime")
+        
+        locationManager.requestLocation { result in }
         
     }
     

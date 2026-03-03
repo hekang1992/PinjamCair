@@ -41,9 +41,9 @@ extension AppLocationManager: CLLocationManagerDelegate {
             manager.startUpdatingLocation()
             
         case .denied, .restricted:
-            if LanguageManager.shared.currentType == .indonesian {
-                ShowAlertManager.showAlert()
-            }
+//            if LanguageManager.shared.currentType == .indonesian {
+//                ShowAlertManager.showAlert()
+//            }
             completion?([:])
             
         case .notDetermined:
@@ -88,15 +88,29 @@ extension AppLocationManager: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager,
                          didFailWithError error: Error) {
-        print("error: \(error.localizedDescription)")
+        if !LoginManager.shared.isLoggedIn() {
+            let loginVc = LoginViewController()
+            let navVc = AppNavigationController(rootViewController: loginVc)
+            navVc.modalPresentationStyle = .overFullScreen
+            
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let rootVC = windowScene.windows.first?.rootViewController else {
+                return
+            }
+            rootVC.present(navVc, animated: true)
+        }
     }
 }
 
-
-
 class ShowAlertManager {
     
+    private static let lastShownDateKey = "LastAlertShownDate"
+    
     static func showAlert() {
+        if wasAlertShownToday() {
+            return
+        }
+        
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let rootVC = windowScene.windows.first?.rootViewController else {
             return
@@ -117,6 +131,20 @@ class ShowAlertManager {
         }))
         
         rootVC.present(alert, animated: true)
+        
+        saveLastShownDate()
+    }
+    
+    private static func wasAlertShownToday() -> Bool {
+        guard let lastShownDate = UserDefaults.standard.object(forKey: lastShownDateKey) as? Date else {
+            return false
+        }
+        
+        return Calendar.current.isDateInToday(lastShownDate)
+    }
+    
+    private static func saveLastShownDate() {
+        UserDefaults.standard.set(Date(), forKey: lastShownDateKey)
     }
     
 }

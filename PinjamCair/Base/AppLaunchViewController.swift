@@ -10,6 +10,7 @@ import DeviceKit
 import SnapKit
 import RxCocoa
 import RxSwift
+import FBSDKCoreKit
 
 class AppLaunchViewController: BaseViewController {
     
@@ -98,6 +99,9 @@ extension AppLaunchViewController {
             if ["0", "00"].contains(ectopurposeess) {
                 let languaceCode = model.casia?.sagacain ?? ""
                 LanguageManager.shared.configure(with: languaceCode)
+                if let sorbModel = model.casia?.sorb {
+                    self.configFacebookSDK(with: sorbModel)
+                }
                 await MainActor.run {
                     NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil)
                 }
@@ -119,6 +123,17 @@ extension AppLaunchViewController {
         } catch {
             
         }
+    }
+    
+    func configFacebookSDK(with model: sorbModel) {
+        Settings.shared.appID = model.hearability ?? ""
+        Settings.shared.clientToken = model.narren ?? ""
+        Settings.shared.displayName = model.subjectatory ?? ""
+        Settings.shared.appURLSchemeSuffix = model.transress ?? ""
+        ApplicationDelegate.shared.application(
+            UIApplication.shared,
+            didFinishLaunchingWithOptions: nil
+        )
     }
     
 }
