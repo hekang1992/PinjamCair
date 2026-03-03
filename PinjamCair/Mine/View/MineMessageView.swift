@@ -10,6 +10,8 @@ import SnapKit
 
 class MineMessageView: BaseView {
     
+    var serviceBlock: (() -> Void)?
+    
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
         bgImageView.image = UIImage(named: "cn_p_logo_image")
@@ -20,7 +22,8 @@ class MineMessageView: BaseView {
         let nameLabel = UILabel()
         nameLabel.textAlignment = .left
         let phone = LoginManager.shared.getPhone()
-        nameLabel.text = "\(LocalStr("Hi"))，\(phone)"
+        let token = LoginManager.shared.getToken()
+        nameLabel.text = "\(LocalStr("Hi"))，\(token.isEmpty ? LocalStr("Please log in") : phone)"
         nameLabel.textColor = UIColor.init(hexString: "#FFFFFF")
         nameLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         return nameLabel
@@ -38,6 +41,7 @@ class MineMessageView: BaseView {
     lazy var serviceBtn: UIButton = {
         let serviceBtn = UIButton(type: .custom)
         serviceBtn.setBackgroundImage(UIImage(named: "cn_ser_image"), for: .normal)
+        serviceBtn.addTarget(self, action: #selector(serviceBtnClick), for: .touchUpInside)
         return serviceBtn
     }()
 
@@ -71,6 +75,14 @@ class MineMessageView: BaseView {
     
     @MainActor required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
+extension MineMessageView {
+    
+    @objc func serviceBtnClick() {
+        self.serviceBlock?()
     }
     
 }

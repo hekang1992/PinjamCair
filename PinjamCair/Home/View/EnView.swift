@@ -16,6 +16,8 @@ class EnView: BaseView {
     
     var tapProductBlock: ((String) -> Void)?
     
+    var tapTermsBlock: ((String) -> Void)?
+    
     var model: notdropalityModel? {
         didSet {
             guard let model = model else { return }
@@ -236,7 +238,7 @@ class EnView: BaseView {
 extension EnView {
     
     @objc func loanTermsTapped() {
-        ToastManager.showLocalMessage("Loan Terms tapped")
+        self.tapTermsBlock?(base_h5_url + "/volael")
     }
     
 }

@@ -7,8 +7,6 @@
 
 import UIKit
 import SnapKit
-import FBSDKCoreKit
-import AppTrackingTransparency
 import DeviceKit
 
 class LoginViewController: BaseViewController {
@@ -44,14 +42,29 @@ class LoginViewController: BaseViewController {
             }
         }
         
+        loginView.backBlock = { [weak self] in
+            guard let self = self else { return }
+            self.dismiss(animated: true)
+        }
+        
+        loginView.oneBlock = { [weak self] pageUrl in
+            guard let self = self else { return }
+            let webVc = H5ViewController()
+            webVc.pageUrl = pageUrl
+            self.navigationController?.pushViewController(webVc, animated: true)
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.loginView.phoneFiled.becomeFirstResponder()
-        Task {
-            await self.getAppIDFA()
-        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.loginView.codeFiled.resignFirstResponder()
+        self.loginView.phoneFiled.resignFirstResponder()
     }
     
     @MainActor
@@ -62,64 +75,7 @@ class LoginViewController: BaseViewController {
     
 }
 
-// MARK: - IDFA_INFO
-
-extension LoginViewController {
-    
-    private func getAppIDFA() async {
-        guard #available(iOS 14, *) else { return }
-        
-        try? await Task.sleep(nanoseconds: 1_000_000_000)
-        let status = await ATTrackingManager.requestTrackingAuthorization()
-        
-        switch status {
-        case .authorized, .denied, .notDetermined:
-            Task {
-                await uploadIDFAInfo()
-            }
-            
-        case .restricted:
-            break
-            
-        @unknown default:
-            break
-        }
-        
-    }
-    
-    private func uploadIDFAInfo() async {
-        let idfaStr = IDFVKeychainManager.shared.getIDFA()
-        let idfvStr = IDFVKeychainManager.shared.getIDFV()
-        let itselfion = Device.current.cpu.description
-        let parameters = ["healtheous": idfvStr, "animal": idfaStr, "itselfion": itselfion]
-        do {
-            let model = try await viewModel.uploadGoogleInfo(parameters: parameters)
-            let ectopurposeess = model.ectopurposeess ?? ""
-            if ["0", "00"].contains(ectopurposeess) {
-                if let sorbModel = model.casia?.sorb {
-                    self.configFacebookSDK(with: sorbModel)
-                }
-            }
-        } catch {
-            
-        }
-    }
-    
-    func configFacebookSDK(with model: sorbModel) {
-        Settings.shared.appID = model.hearability ?? ""
-        Settings.shared.clientToken = model.narren ?? ""
-        Settings.shared.displayName = model.subjectatory ?? ""
-        Settings.shared.appURLSchemeSuffix = model.transress ?? ""
-        ApplicationDelegate.shared.application(
-            UIApplication.shared,
-            didFinishLaunchingWithOptions: nil
-        )
-    }
-    
-}
-
 // MARK: - LOGIN_INFO
-
 extension LoginViewController {
     
     private func login() async {

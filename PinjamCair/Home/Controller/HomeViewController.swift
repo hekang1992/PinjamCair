@@ -8,6 +8,9 @@
 import UIKit
 import SnapKit
 import MJRefresh
+import AppTrackingTransparency
+import FBSDKCoreKit
+import DeviceKit
 
 class HomeViewController: BaseViewController {
     
@@ -100,6 +103,20 @@ class HomeViewController: BaseViewController {
             }
         }
         
+        enView.tapTermsBlock = { [weak self] pageUrl in
+            guard let self = self else { return }
+            if LoginManager.shared.isLoggedIn() {
+                let webVc = H5ViewController()
+                webVc.pageUrl = pageUrl
+                self.navigationController?.pushViewController(webVc, animated: true)
+            }else {
+                let loginVc = LoginViewController()
+                let rootVc = AppNavigationController(rootViewController: loginVc)
+                rootVc.modalPresentationStyle = .overFullScreen
+                self.present(rootVc, animated: true)
+            }
+        }
+            
         endView.tapProductBlock = { [weak self] productId in
             Task {
                 await self?.clickCardProductInfo(productID: productId)
@@ -130,19 +147,21 @@ class HomeViewController: BaseViewController {
             }
         })
         
-        locationManager.requestLocation { result in
-            print("result==\(result)")
-        }
-        
-        DeviceInfoManager.shared.buildFullDeviceJSON { json in
-            do {
-                let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
-                let base64String = jsonData.base64EncodedString()
-                print("Base64=====\(base64String)")
-            } catch {
-                print("JSON: \(error)")
+        if LoginManager.shared.isLoggedIn() {
+            locationManager.requestLocation { result in
+                print("result==\(result)")
             }
         }
+        
+//        DeviceInfoManager.shared.buildFullDeviceJSON { json in
+//            do {
+//                let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
+//                let base64String = jsonData.base64EncodedString()
+//                print("Base64=====\(base64String)")
+//            } catch {
+//                print("JSON: \(error)")
+//            }
+//        }
         
     }
     
@@ -150,6 +169,13 @@ class HomeViewController: BaseViewController {
         super.viewWillAppear(animated)
         Task { [weak self] in
             await self?.homeInfo()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Task {
+            await self.getAppIDFA()
         }
     }
     
@@ -198,6 +224,15 @@ extension HomeViewController {
 extension HomeViewController {
     
     private func clickCardProductInfo(productID: String) async {
+        
+        if LoginManager.shared.isLoggedIn() == false {
+            let loginVc = LoginViewController()
+            let rootVc = AppNavigationController(rootViewController: loginVc)
+            rootVc.modalPresentationStyle = .overFullScreen
+            self.present(rootVc, animated: true)
+            return
+        }
+        
         do {
             let parameters = ["judicianeity": judicianeity,
                               "crimeo": crimeo,
@@ -226,6 +261,60 @@ extension HomeViewController {
         } catch {
             
         }
+    }
+    
+}
+
+extension HomeViewController {
+    
+    private func getAppIDFA() async {
+        guard #available(iOS 14, *) else { return }
+        
+        try? await Task.sleep(nanoseconds: 1_000_000_000)
+        let status = await ATTrackingManager.requestTrackingAuthorization()
+        
+        switch status {
+        case .authorized, .denied, .notDetermined:
+            Task {
+                await uploadIDFAInfo()
+            }
+            
+        case .restricted:
+            break
+            
+        @unknown default:
+            break
+        }
+        
+    }
+    
+    private func uploadIDFAInfo() async {
+        let idfaStr = IDFVKeychainManager.shared.getIDFA()
+        let idfvStr = IDFVKeychainManager.shared.getIDFV()
+        let itselfion = Device.current.cpu.description
+        let parameters = ["healtheous": idfvStr, "animal": idfaStr, "itselfion": itselfion]
+        do {
+            let model = try await viewModel.uploadGoogleInfo(parameters: parameters)
+            let ectopurposeess = model.ectopurposeess ?? ""
+            if ["0", "00"].contains(ectopurposeess) {
+                if let sorbModel = model.casia?.sorb {
+                    self.configFacebookSDK(with: sorbModel)
+                }
+            }
+        } catch {
+            
+        }
+    }
+    
+    func configFacebookSDK(with model: sorbModel) {
+        Settings.shared.appID = model.hearability ?? ""
+        Settings.shared.clientToken = model.narren ?? ""
+        Settings.shared.displayName = model.subjectatory ?? ""
+        Settings.shared.appURLSchemeSuffix = model.transress ?? ""
+        ApplicationDelegate.shared.application(
+            UIApplication.shared,
+            didFinishLaunchingWithOptions: nil
+        )
     }
     
 }

@@ -16,6 +16,10 @@ class LoginView: BaseView {
     
     var loginBlock: (() -> Void)?
     
+    var backBlock: (() -> Void)?
+    
+    var oneBlock: ((String) -> Void)?
+    
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()
         headImageView.image = UIImage(named: "login_head_image")
@@ -150,9 +154,16 @@ class LoginView: BaseView {
         return clickMentBtn
     }()
     
+    lazy var backBtn: UIButton = {
+        let backBtn = UIButton(type: .custom)
+        backBtn.setImage(UIImage(named: "login_back_image"), for: .normal)
+        return backBtn
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(headImageView)
+        addSubview(backBtn)
         addSubview(descImageView)
         addSubview(enImageView)
         addSubview(bgView)
@@ -177,9 +188,14 @@ class LoginView: BaseView {
             make.top.leading.right.equalToSuperview()
             make.height.equalTo(280.pix())
         }
+        backBtn.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(5)
+            make.left.equalToSuperview().offset(8)
+            make.width.height.equalTo(24.pix())
+        }
         descImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(25.pix())
+            make.top.equalTo(backBtn.snp.bottom).offset(5.pix())
             make.size.equalTo(CGSize(width: 318.pix(), height: 117.pix()))
         }
         enImageView.snp.makeConstraints { make in
@@ -262,7 +278,7 @@ class LoginView: BaseView {
             .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
-                ToastManager.showLocalMessage("123")
+                self.oneBlock?(base_h5_url + "/decaan")
             }).disposed(by: disposeBag)
         
         codeBtn
@@ -281,6 +297,15 @@ class LoginView: BaseView {
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
                 self.loginBlock?()
+            }).disposed(by: disposeBag)
+        
+        backBtn
+            .rx
+            .tap
+            .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.backBlock?()
             }).disposed(by: disposeBag)
         
     }

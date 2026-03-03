@@ -37,11 +37,14 @@ extension AppDelegate {
     }
     
     @objc func changeRootVc(_ noti: Notification) {
-        if LoginManager.shared.isLoggedIn() {
-            window?.rootViewController = AppTabBarController()
-        }else {
-            window?.rootViewController = AppNavigationController(rootViewController: LoginViewController())
-        }
+        
+        window?.rootViewController = AppTabBarController()
+        
+//        if LoginManager.shared.isLoggedIn() {
+//            window?.rootViewController = AppTabBarController()
+//        }else {
+//            window?.rootViewController = AppNavigationController(rootViewController: LoginViewController())
+//        }
         
 //        for familyName in UIFont.familyNames {
 //            print("Family: \(familyName)")
