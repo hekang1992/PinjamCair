@@ -16,6 +16,8 @@ class EndView: BaseView {
     
     var tapProductBlock: ((String) -> Void)?
     
+    var privacyBlock: ((String) -> Void)?
+    
     var model: notdropalityModel? {
         didSet {
             guard let model = model else { return }
@@ -160,6 +162,16 @@ class EndView: BaseView {
                 guard let self = self, let model = model else { return }
                 let productId = String(model.stochacity ?? 0)
                 self.tapProductBlock?(productId)
+            }).disposed(by: disposeBag)
+        
+        threeImageView
+            .rx
+            .tapGesture()
+            .throttle(.microseconds(300), scheduler: MainScheduler.instance)
+            .when(.recognized)
+            .bind(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.privacyBlock?(base_h5_url + "/decaan")
             }).disposed(by: disposeBag)
         
     }

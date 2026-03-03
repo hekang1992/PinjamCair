@@ -116,6 +116,34 @@ class HomeViewController: BaseViewController {
                 self.present(rootVc, animated: true)
             }
         }
+        
+        enView.privacyBlock = { [weak self] pageUrl in
+            guard let self = self else { return }
+            if LoginManager.shared.isLoggedIn() {
+                let webVc = H5ViewController()
+                webVc.pageUrl = pageUrl
+                self.navigationController?.pushViewController(webVc, animated: true)
+            }else {
+                let loginVc = LoginViewController()
+                let rootVc = AppNavigationController(rootViewController: loginVc)
+                rootVc.modalPresentationStyle = .overFullScreen
+                self.present(rootVc, animated: true)
+            }
+        }
+        
+        endView.privacyBlock = { [weak self] pageUrl in
+            guard let self = self else { return }
+            if LoginManager.shared.isLoggedIn() {
+                let webVc = H5ViewController()
+                webVc.pageUrl = pageUrl
+                self.navigationController?.pushViewController(webVc, animated: true)
+            }else {
+                let loginVc = LoginViewController()
+                let rootVc = AppNavigationController(rootViewController: loginVc)
+                rootVc.modalPresentationStyle = .overFullScreen
+                self.present(rootVc, animated: true)
+            }
+        }
             
         endView.tapProductBlock = { [weak self] productId in
             Task {

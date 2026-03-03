@@ -18,6 +18,8 @@ class EnView: BaseView {
     
     var tapTermsBlock: ((String) -> Void)?
     
+    var privacyBlock: ((String) -> Void)?
+    
     var model: notdropalityModel? {
         didSet {
             guard let model = model else { return }
@@ -200,6 +202,15 @@ class EnView: BaseView {
             make.top.equalTo(termsLabel.snp.bottom).offset(8.pix())
             make.size.equalTo(CGSize(width: 305.pix(), height: 64.pix()))
         }
+        
+        fourImageView
+            .rx
+            .tapGesture()
+            .when(.recognized)
+            .bind(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.privacyBlock?(base_h5_url + "/decaan")
+            }).disposed(by: disposeBag)
     }
     
     private func setupGestures() {
