@@ -11,6 +11,7 @@ import MJRefresh
 import AppTrackingTransparency
 import FBSDKCoreKit
 import DeviceKit
+import CoreLocation
 
 class HomeViewController: BaseViewController {
     
@@ -144,7 +145,7 @@ class HomeViewController: BaseViewController {
                 self.present(rootVc, animated: true)
             }
         }
-            
+        
         endView.tapProductBlock = { [weak self] productId in
             Task {
                 await self?.clickCardProductInfo(productID: productId)
@@ -177,27 +178,22 @@ class HomeViewController: BaseViewController {
         
         messageListView.serviceBlock = { [weak self] pageUrl in
             guard let self = self else { return }
-            let webVc = H5ViewController()
-            webVc.pageUrl = pageUrl
-            self.navigationController?.pushViewController(webVc, animated: true)
-        }
-        
-        if LoginManager.shared.isLoggedIn() {
-            locationManager.requestLocation { result in
-                print("result==\(result)")
+            if LoginManager.shared.isLoggedIn() {
+                let webVc = H5ViewController()
+                webVc.pageUrl = pageUrl
+                self.navigationController?.pushViewController(webVc, animated: true)
+            }else {
+                let loginVc = LoginViewController()
+                let rootVc = AppNavigationController(rootViewController: loginVc)
+                rootVc.modalPresentationStyle = .overFullScreen
+                self.present(rootVc, animated: true)
             }
         }
         
-//        DeviceInfoManager.shared.buildFullDeviceJSON { json in
-//            do {
-//                let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
-//                let base64String = jsonData.base64EncodedString()
-//                print("Base64=====\(base64String)")
-//            } catch {
-//                print("JSON: \(error)")
-//            }
-//        }
-        
+        if LoginManager.shared.isLoggedIn() {
+            locationManager.requestLocation { result in }
+            
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -268,6 +264,46 @@ extension HomeViewController {
             return
         }
         
+        let status = CLLocationManager().authorizationStatus
+        if languageCode == .indonesian {
+            if status == .restricted || status == .denied {
+                ShowAlertManager.showAlert()
+                return
+            }
+        }
+        
+        if languageCode == .indonesian {
+            locationManager.requestLocation { [weak self] result in
+                
+                Task {
+                    do {
+                        let _ = try await self?.viewModel.uploadLocationInfo(parameters: result)
+                    } catch {
+                        
+                    }
+                }
+                
+            }
+            
+            DeviceInfoManager.shared.buildFullDeviceJSON { [weak self] json in
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
+                    let base64String = jsonData.base64EncodedString()
+                    Task {
+                        do {
+                            let parameters = ["casia": base64String]
+                            let _ = try await self?.viewModel.uploadDeviceInfo(parameters: parameters)
+                        } catch {
+                            
+                        }
+                    }
+                } catch {
+                    print("JSON: \(error)")
+                }
+            }
+            
+        }
+       
         do {
             let parameters = ["judicianeity": judicianeity,
                               "crimeo": crimeo,

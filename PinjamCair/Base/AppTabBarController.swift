@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class AppTabBarController: UITabBarController {
     
@@ -92,6 +93,14 @@ extension AppTabBarController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if LoginManager.shared.isLoggedIn() {
+            let languageCode = LanguageManager.shared.currentType
+            let status = CLLocationManager().authorizationStatus
+            if languageCode == .indonesian {
+                if status == .restricted || status == .denied {
+                    ShowAlertManager.showAlert()
+                    return false
+                }
+            }
             return true
         }else {
             let loginVc = LoginViewController()

@@ -35,9 +35,22 @@ class AppLocationManager: NSObject {
 extension AppLocationManager: CLLocationManagerDelegate {
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        if manager.authorizationStatus == .authorizedWhenInUse ||
-            manager.authorizationStatus == .authorizedAlways {
+        switch manager.authorizationStatus {
+            
+        case .authorizedWhenInUse, .authorizedAlways:
             manager.startUpdatingLocation()
+            
+        case .denied, .restricted:
+            if LanguageManager.shared.currentType == .indonesian {
+                ShowAlertManager.showAlert()
+            }
+            completion?([:])
+            
+        case .notDetermined:
+            break
+            
+        @unknown default:
+            break
         }
     }
     
@@ -73,4 +86,31 @@ extension AppLocationManager: CLLocationManagerDelegate {
                          didFailWithError error: Error) {
         print("error: \(error.localizedDescription)")
     }
+}
+
+class ShowAlertManager {
+    
+    static func showAlert() {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let rootVC = windowScene.windows.first?.rootViewController else {
+            return
+        }
+        
+        let alert = UIAlertController(
+            title: "权限未开启",
+            message: "请在设置中开启权限",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: LocalStr("Cancel"), style: .cancel))
+        
+        alert.addAction(UIAlertAction(title: LocalStr("Go to Settings"), style: .default, handler: { _ in
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(url)
+            }
+        }))
+        
+        rootVC.present(alert, animated: true)
+    }
+    
 }

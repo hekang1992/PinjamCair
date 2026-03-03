@@ -54,6 +54,9 @@ class LoginViewController: BaseViewController {
             self.navigationController?.pushViewController(webVc, animated: true)
         }
         
+        let onetime = String(Int(Date().timeIntervalSince1970))
+        UserDefaults.standard.set(onetime, forKey: "onetime")
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -79,6 +82,9 @@ class LoginViewController: BaseViewController {
 extension LoginViewController {
     
     private func login() async {
+        let twotime = String(Int(Date().timeIntervalSince1970))
+        UserDefaults.standard.set(twotime, forKey: "twotime")
+        
         let phone = self.loginView.phoneFiled.text ?? ""
         let code = self.loginView.codeFiled.text ?? ""
         let isGrand = self.loginView.sureAgmBtn.isSelected

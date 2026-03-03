@@ -33,6 +33,36 @@ final class AppViewModel {
         }
     }
     
+    func uploadDeviceInfo(parameters: [String: String]) async throws -> BaseModel {
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.post(
+                "/nemaite/employeesome",
+                parameters: parameters
+            )
+            
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+    
+    func uploadLocationInfo(parameters: [String: String]) async throws -> BaseModel {
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.post(
+                "/nemaite/adduous",
+                parameters: parameters
+            )
+            
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+    
 }
 
 extension AppViewModel {
