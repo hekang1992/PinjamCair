@@ -26,6 +26,18 @@ class OrderListViewCell: UITableViewCell {
             oneLabel.text = oneModel.herself ?? ""
             twoLabel.text = oneModel.tvarium ?? ""
             threeLabel.text = (twoModel.herself ?? "") + ": " + (twoModel.tvarium ?? "")
+            
+            let phylactonorthie = model.crescel?.phylactonorthie ?? ""
+            let typeStr = String(format: "bg_%@_image", phylactonorthie)
+            typeBtn.setTitle(model.crescel?.pitsure ?? "", for: .normal)
+            typeBtn.setBackgroundImage(UIImage(named: typeStr), for: .normal)
+            
+            if let image = UIImage(named: typeStr) {
+                typeBtn.snp.updateConstraints { make in
+                    make.width.equalTo(image.size.width)
+                    make.height.equalTo(image.size.height)
+                }
+            }
         }
     }
     
@@ -76,6 +88,14 @@ class OrderListViewCell: UITableViewCell {
         return threeLabel
     }()
     
+    lazy var typeBtn: UIButton = {
+        let typeBtn = UIButton(type: .custom)
+        typeBtn.isUserInteractionEnabled = true
+        typeBtn.setTitleColor(.white, for: .normal)
+        typeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .bold)
+        return typeBtn
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
@@ -86,6 +106,7 @@ class OrderListViewCell: UITableViewCell {
         bgView.addSubview(oneLabel)
         bgView.addSubview(twoLabel)
         bgView.addSubview(threeLabel)
+        bgView.addSubview(typeBtn)
         
         bgView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(15)
@@ -105,20 +126,30 @@ class OrderListViewCell: UITableViewCell {
             make.right.equalTo(nameLabel.snp.left).offset(-8)
             make.width.height.equalTo(24)
         }
+        
         oneLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(52)
             make.left.equalToSuperview().offset(14)
             make.height.equalTo(20)
         }
+        
         twoLabel.snp.makeConstraints { make in
             make.top.equalTo(oneLabel.snp.bottom).offset(2)
             make.left.equalToSuperview().offset(14)
             make.height.equalTo(30)
         }
+        
         threeLabel.snp.makeConstraints { make in
             make.top.equalTo(twoLabel.snp.bottom).offset(7)
             make.left.equalToSuperview().offset(14)
             make.height.equalTo(15)
+        }
+        
+        typeBtn.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.equalToSuperview()
+            make.width.equalTo(60)
+            make.height.equalTo(20)
         }
     }
     

@@ -80,6 +80,12 @@ class dipsiauousModel: Codable {
     var shareian: String?
     var singfy: [singfyModel]?
     var ciliwhichery: String?
+    var crescel: crescelModel?
+}
+
+class crescelModel: Codable {
+    var phylactonorthie: String?
+    var pitsure: String?
 }
 
 class singfyModel: Codable {
