@@ -92,6 +92,8 @@ class ProductDetailViewController: BaseViewController {
         return descLabel
     }()
     
+    private let locationManager = AppLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -142,6 +144,8 @@ class ProductDetailViewController: BaseViewController {
                 let clickModel = self.model?.casia?.stagn ?? mrerModel()
                 clickToVc(model: clickModel, type: .next)
             }).disposed(by: disposeBag)
+        
+        locationManager.requestLocation { result in }
         
     }
     

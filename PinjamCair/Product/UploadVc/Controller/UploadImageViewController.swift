@@ -29,6 +29,8 @@ class UploadImageViewController: BaseViewController {
     
     private let camera = SystemCameraManager()
     
+    private let locationManager = AppLocationManager()
+    
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
         bgImageView.image = UIImage(named: "h5_head_bg_image")
@@ -213,6 +215,8 @@ class UploadImageViewController: BaseViewController {
                 await self?.getMessageInfo()
             }
         })
+        
+        locationManager.requestLocation { result in }
         
     }
     

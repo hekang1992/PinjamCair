@@ -26,6 +26,8 @@ class PersonalViewController: BaseViewController {
     
     private var model: BaseModel?
     
+    private let locationManager = AppLocationManager()
+    
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
         bgImageView.image = UIImage(named: "h5_head_bg_image")
@@ -159,7 +161,7 @@ class PersonalViewController: BaseViewController {
                 
             }).disposed(by: disposeBag)
         
-        
+        locationManager.requestLocation { result in }
     }
     
     override func viewWillAppear(_ animated: Bool) {

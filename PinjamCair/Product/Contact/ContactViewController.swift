@@ -26,6 +26,8 @@ class ContactViewController: BaseViewController {
     
     private var model: BaseModel?
     
+    private let locationManager = AppLocationManager()
+    
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
         bgImageView.image = UIImage(named: "h5_head_bg_image")
@@ -179,10 +181,9 @@ class ContactViewController: BaseViewController {
                     return
                 }
                 
-                
-                
-                
             }).disposed(by: disposeBag)
+        
+        locationManager.requestLocation { result in }
         
     }
     
