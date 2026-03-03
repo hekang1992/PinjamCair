@@ -36,6 +36,10 @@ class H5ViewController: BaseViewController {
         return view
     }()
     
+    private let locationManager = AppLocationManager()
+    
+    private let viewModel = AppViewModel()
+    
     lazy var webView: WKWebView = {
         let config = WKWebViewConfiguration()
         let userContentController = WKUserContentController()
@@ -58,6 +62,11 @@ class H5ViewController: BaseViewController {
         setupUI()
         bindWebView()
         loadURL()
+    }
+    
+    @MainActor
+    deinit {
+        print("H5ViewController-----deinit")
     }
 }
 
@@ -99,7 +108,6 @@ extension H5ViewController {
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }
-        
     }
 }
 
@@ -174,11 +182,26 @@ extension H5ViewController: WKScriptMessageHandler {
 extension H5ViewController {
     
     func acuarian(_ body: Any) {
+        locationManager.requestLocation { result in }
+        
         let listArray = body as? [String] ?? []
         let productID = listArray.first ?? ""
         let orderID = listArray.last ?? ""
         
-        print("listArray======\(listArray)")
+        Task {
+            do {
+                let parameters = ["ennea": productID,
+                                  "ticization": "9",
+                                  "weightfier": orderID,
+                                  "piain": String(Int(Date().timeIntervalSince1970)),
+                                  "managementtic": String(Int(Date().timeIntervalSince1970))]
+                try? await Task.sleep(nanoseconds: 3_000_000_000)
+                let _ = try await viewModel.uploadNamePointInfo(parameters: parameters)
+            } catch {
+                
+            }
+        }
+        
     }
     
     func schemling(_ body: Any) {

@@ -28,6 +28,9 @@ class WorkerViewController: BaseViewController {
     
     private let locationManager = AppLocationManager()
     
+    private var onetime: String = ""
+    private var twotime: String = ""
+    
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
         bgImageView.image = UIImage(named: "h5_head_bg_image")
@@ -137,6 +140,7 @@ class WorkerViewController: BaseViewController {
             .throttle(.microseconds(200), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
+                twotime = String(Int(Date().timeIntervalSince1970))
                 let modelArray = self.model?.casia?.die ?? []
                 var parameters = ["hoplcy": cardModel?.stochacity ?? ""]
                 for model in modelArray {
@@ -150,7 +154,12 @@ class WorkerViewController: BaseViewController {
                         let model = try await self.viewModel.saveWorkerInfo(parameters: parameters)
                         let ectopurposeess = model.ectopurposeess ?? ""
                         if ["0", "00"].contains(ectopurposeess) {
-                            await self.getDetailInfo()
+                            Task {
+                                await self.getDetailInfo()
+                            }
+                            Task {
+                                await self.pfive()
+                            }
                         }else {
                             ToastManager.showLocalMessage(model.urgth ?? "")
                         }
@@ -160,6 +169,8 @@ class WorkerViewController: BaseViewController {
                 }
                 
             }).disposed(by: disposeBag)
+        
+        onetime = String(Int(Date().timeIntervalSince1970))
         
         locationManager.requestLocation { result in }
         
@@ -266,4 +277,18 @@ extension WorkerViewController {
             
         }
     }
+    
+    private func pfive() async {
+        do {
+            let parameters = ["ennea": cardModel?.stochacity ?? "",
+                              "ticization": "5",
+                              "weightfier": cardModel?.weightfier ?? "",
+                              "piain": onetime,
+                              "managementtic": twotime]
+            let _ = try await self.viewModel.uploadNamePointInfo(parameters: parameters)
+        } catch {
+            
+        }
+    }
+    
 }

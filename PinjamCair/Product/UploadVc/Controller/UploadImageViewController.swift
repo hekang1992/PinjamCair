@@ -88,6 +88,10 @@ class UploadImageViewController: BaseViewController {
         return scrollView
     }()
     
+    private var onetime: String = ""
+    private var twotime: String = ""
+    private var threetime: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -216,8 +220,15 @@ class UploadImageViewController: BaseViewController {
             }
         })
         
+        onetime = String(Int(Date().timeIntervalSince1970))
+        
         locationManager.requestLocation { result in }
         
+    }
+    
+    @MainActor
+    deinit {
+        print("UploadImageViewController-----deinit")
     }
     
 }
@@ -271,6 +282,8 @@ extension UploadImageViewController {
     }
     
     private func uploadTwoImageInfo(model: BaseModel, type: ClickType) {
+        locationManager.requestLocation { result in }
+        twotime = String(Int(Date().timeIntervalSince1970))
         let popView = UploadIntroduceView(frame: self.view.bounds)
         popView.bgImageView.image = UIImage(named: LocalStr("uen_face_image"))
         let alertVc = TYAlertController(alert: popView, preferredStyle: .alert)
@@ -305,14 +318,32 @@ extension UploadImageViewController {
             if ["0", "00"].contains(ectopurposeess) {
                 
                 if type == "10" {
-                    await self.getDetailInfo()
+                    threetime = String(Int(Date().timeIntervalSince1970))
+                    Task {
+                        await self.getMessageInfo()
+                    }
+                    
+                    Task {
+                        await self.pthree()
+                    }
+                    
+                    try? await Task.sleep(nanoseconds: 250_000_000)
+                    
+                    Task {
+                        await self.getDetailInfo()
+                    }
                 }
                 
                 if type == "11" {
                     if ischoolul == 0 {
                         // no alert
-                        await self.getMessageInfo()
-                        
+                        Task {
+                            await self.getMessageInfo()
+                        }
+
+                        Task {
+                            await self.ptwo()
+                        }
                     }else {
                         // alert
                         if let casiaModel = model.casia {
@@ -380,7 +411,13 @@ extension UploadImageViewController {
                     let ectopurposeess = model.ectopurposeess ?? ""
                     if ["0", "00"].contains(ectopurposeess) {
                         self.dismiss(animated: true)
-                        await self.getMessageInfo()
+                        Task {
+                            await self.getMessageInfo()
+                        }
+
+                        Task {
+                            await self.ptwo()
+                        }
                     }else {
                         ToastManager.showLocalMessage(model.urgth ?? "")
                     }
@@ -410,4 +447,31 @@ extension UploadImageViewController {
             
         }
     }
+    
+    private func ptwo() async {
+        do {
+            let parameters = ["ennea": cardModel?.stochacity ?? "",
+                              "ticization": "2",
+                              "weightfier": cardModel?.weightfier ?? "",
+                              "piain": onetime,
+                              "managementtic": String(Int(Date().timeIntervalSince1970))]
+            let _ = try await self.viewModel.uploadNamePointInfo(parameters: parameters)
+        } catch {
+            
+        }
+    }
+    
+    private func pthree() async {
+        do {
+            let parameters = ["ennea": cardModel?.stochacity ?? "",
+                              "ticization": "3",
+                              "weightfier": cardModel?.weightfier ?? "",
+                              "piain": twotime,
+                              "managementtic": threetime]
+            let _ = try await self.viewModel.uploadNamePointInfo(parameters: parameters)
+        } catch {
+            
+        }
+    }
+    
 }

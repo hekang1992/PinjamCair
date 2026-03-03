@@ -83,14 +83,16 @@ extension BaseViewController {
                               "oedate": oedate,
                               "usuallyable": usuallyable,
                               "pediern": pediern]
-            self.reallyClickInfo(parameters: parameters)
+            Task {
+                await self.reallyClickInfo(parameters: parameters, cardModel: cardModel)
+            }
             
         default:
             break
         }
     }
     
-    private func reallyClickInfo(parameters: [String: String]) {
+    private func reallyClickInfo(parameters: [String: String], cardModel: spergiceModel) async {
         Task {
             do {
                 let viewModel = AppViewModel()
@@ -105,12 +107,28 @@ extension BaseViewController {
                         webVc.pageUrl = pageUrl
                         self.navigationController?.pushViewController(webVc, animated: true)
                     }
+                    Task {
+                        await self.peig(cardModel: cardModel, viewModel: viewModel)
+                    }
                 }else {
                     ToastManager.showLocalMessage(model.urgth ?? "")
                 }
             } catch {
                 
             }
+        }
+    }
+    
+    private func peig(cardModel: spergiceModel, viewModel: AppViewModel) async {
+        do {
+            let parameters = ["ennea": cardModel.stochacity ?? "",
+                              "ticization": "8",
+                              "weightfier": cardModel.weightfier ?? "",
+                              "piain": String(Int(Date().timeIntervalSince1970)),
+                              "managementtic": String(Int(Date().timeIntervalSince1970))]
+            let _ = try await viewModel.uploadNamePointInfo(parameters: parameters)
+        } catch {
+            
         }
     }
     

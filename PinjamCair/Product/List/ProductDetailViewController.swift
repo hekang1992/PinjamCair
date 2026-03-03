@@ -156,6 +156,11 @@ class ProductDetailViewController: BaseViewController {
         }
     }
     
+    @MainActor
+    deinit {
+        print("ProductDetailViewController-----deinit")
+    }
+    
 }
 
 extension ProductDetailViewController {
