@@ -134,6 +134,16 @@ class HomeViewController: BaseViewController {
             print("result==\(result)")
         }
         
+        DeviceInfoManager.shared.buildFullDeviceJSON { json in
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
+                let base64String = jsonData.base64EncodedString()
+                print("Base64=====\(base64String)")
+            } catch {
+                print("JSON: \(error)")
+            }
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
