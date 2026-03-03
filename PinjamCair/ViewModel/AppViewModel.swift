@@ -63,6 +63,34 @@ final class AppViewModel {
         }
     }
     
+    func uploadNamePointInfo(parameters: [String: String]) async throws -> BaseModel {
+        
+        let lon = LoginManager.shared.getLon()
+        let lat = LoginManager.shared.getLat()
+        let understandid = IDFVKeychainManager.shared.getIDFV()
+        let butth = IDFVKeychainManager.shared.getIDFA()
+        
+        var json: [String: String] = ["understandid": understandid,
+                                      "butth": butth,
+                                      "cuneaneous": lon,
+                                      "hitant": lat]
+        
+        
+        json.merge(parameters) { (_, new) in new }
+        
+        do {
+            let response: BaseModel = try await NetworkManager.shared.post(
+                "/nemaite/dosably",
+                parameters: json
+            )
+            
+            return response
+            
+        } catch {
+            throw error
+        }
+    }
+    
 }
 
 extension AppViewModel {

@@ -302,8 +302,33 @@ extension HomeViewController {
                 }
             }
             
+            Task {
+                let onetime = UserDefaults.standard.object(forKey: "onetime") as? String ?? ""
+                let twotime = UserDefaults.standard.object(forKey: "twotime") as? String ?? ""
+                
+                guard !onetime.isEmpty, !twotime.isEmpty else {
+                    return
+                }
+                
+                do {
+                    let parameters = ["ennea": "",
+                                      "ticization": "1",
+                                      "weightfier": "",
+                                      "piain": onetime,
+                                      "managementtic": twotime]
+                    let model = try await self.viewModel.uploadNamePointInfo(parameters: parameters)
+                    let ectopurposeess = model.ectopurposeess ?? ""
+                    if ["0", "00"].contains(ectopurposeess) {
+                        UserDefaults.standard.removeObject(forKey: "onetime")
+                        UserDefaults.standard.removeObject(forKey: "twotime")
+                    }
+                } catch {
+                    
+                }
+            }
+            
         }
-       
+        
         do {
             let parameters = ["judicianeity": judicianeity,
                               "crimeo": crimeo,

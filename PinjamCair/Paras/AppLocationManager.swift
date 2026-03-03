@@ -61,6 +61,10 @@ extension AppLocationManager: CLLocationManagerDelegate {
         
         manager.stopUpdatingLocation()
         
+        let lon = String(format: "%.10f", location.coordinate.longitude)
+        let lat = String(format: "%.10f", location.coordinate.latitude)
+        LoginManager.shared.saveLocationInfo(lon: lon, lat: lat)
+        
         geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
             
             guard let self = self,
@@ -87,6 +91,8 @@ extension AppLocationManager: CLLocationManagerDelegate {
         print("error: \(error.localizedDescription)")
     }
 }
+
+
 
 class ShowAlertManager {
     

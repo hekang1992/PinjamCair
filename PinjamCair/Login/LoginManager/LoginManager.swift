@@ -15,10 +15,27 @@ class LoginManager {
     private let phoneKey = "user_phone"
     private let tokenKey = "user_token"
     
+    private let latKey = "user_lat"
+    private let lonKey = "user_lon"
+    
     func saveLoginInfo(phone: String, token: String) {
         UserDefaults.standard.set(phone, forKey: phoneKey)
         UserDefaults.standard.set(token, forKey: tokenKey)
         UserDefaults.standard.synchronize()
+    }
+    
+    func saveLocationInfo(lon: String, lat: String) {
+        UserDefaults.standard.set(lon, forKey: lonKey)
+        UserDefaults.standard.set(lat, forKey: latKey)
+        UserDefaults.standard.synchronize()
+    }
+    
+    func getLon() -> String {
+        return UserDefaults.standard.string(forKey: lonKey) ?? ""
+    }
+    
+    func getLat() -> String {
+        return UserDefaults.standard.string(forKey: latKey) ?? ""
     }
     
     func getPhone() -> String {
