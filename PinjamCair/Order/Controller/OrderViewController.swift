@@ -212,7 +212,8 @@ extension OrderViewController {
         
         footView.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.leading.right.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-2)
         }
         
         self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in

@@ -96,9 +96,9 @@ extension SystemCameraManager: UIImagePickerControllerDelegate, UINavigationCont
         
         vc.present(imagePicker!, animated: true)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             if position == .front {
-                self.hidePickerView(pickerView: (self.imagePicker?.view)!)
+                self.hidePickerView(pickerView: (self.imagePicker!.view)!)
             }
         }
         
@@ -179,4 +179,5 @@ extension SystemCameraManager {
             hideFlipButton(subview)
         }
     }
+    
 }

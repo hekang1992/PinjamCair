@@ -153,15 +153,12 @@ extension ContactManager: CNContactPickerDelegate {
             $0.value.stringValue
         }
         
-        if let firstPhone = phones.first {
-            let model = ContactModel(
-                exoality: firstPhone,
-                throwality: fullName
-            )
-            singleSelectCompletion?(model)
-        } else {
-            singleSelectCompletion?(nil)
-        }
+        let model = ContactModel(
+            exoality: phones.first ?? "",
+            throwality: fullName
+        )
+        singleSelectCompletion?(model)
+        
     }
     
     func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
