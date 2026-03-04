@@ -190,9 +190,16 @@ class HomeViewController: BaseViewController {
             }
         }
         
-//        if LoginManager.shared.isLoggedIn() {
-//            locationManager.requestLocation { result in }
-//        }
+        if LoginManager.shared.isLoggedIn() {
+            locationManager.requestLocation { result in }
+            
+            let status = CLLocationManager().authorizationStatus
+            if languageCode == .indonesian {
+                if status == .restricted || status == .denied {
+                    ShowAlertManager.showAlert()
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -255,81 +262,19 @@ extension HomeViewController {
     
     private func clickCardProductInfo(productID: String) async {
         
-        let status = CLLocationManager().authorizationStatus
-        if status == .notDetermined {
-            locationManager.requestLocation { result in
-                if LoginManager.shared.isLoggedIn() == false {
-                    let loginVc = LoginViewController()
-                    let rootVc = AppNavigationController(rootViewController: loginVc)
-                    rootVc.modalPresentationStyle = .overFullScreen
-                    self.present(rootVc, animated: true)
-                }
-            }
+        if LoginManager.shared.isLoggedIn() == false {
+            let loginVc = LoginViewController()
+            let rootVc = AppNavigationController(rootViewController: loginVc)
+            rootVc.modalPresentationStyle = .overFullScreen
+            self.present(rootVc, animated: true)
         }else {
-            if LoginManager.shared.isLoggedIn() == false {
-                let loginVc = LoginViewController()
-                let rootVc = AppNavigationController(rootViewController: loginVc)
-                rootVc.modalPresentationStyle = .overFullScreen
-                self.present(rootVc, animated: true)
-            }else {
-                let status = CLLocationManager().authorizationStatus
-                if languageCode == .indonesian {
-                    if status == .restricted || status == .denied {
-                        ShowAlertManager.showAlert()
-                        return
-                    }
-                }
-                
-                if languageCode == .indonesian {
-                    locationManager.requestLocation { [weak self] result in
-                        
-                        Task {
-                            do {
-                                let _ = try await self?.viewModel.uploadLocationInfo(parameters: result)
-                            } catch {
-                                
-                            }
-                        }
-                        
-                    }
-                    
-                    DeviceInfoManager.shared.buildFullDeviceJSON { [weak self] json in
-                        do {
-                            let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
-                            let base64String = jsonData.base64EncodedString()
-                            Task {
-                                do {
-                                    let parameters = ["casia": base64String]
-                                    let _ = try await self?.viewModel.uploadDeviceInfo(parameters: parameters)
-                                } catch {
-                                    
-                                }
-                            }
-                        } catch {
-                            print("JSON: \(error)")
-                        }
-                    }
+            
+            if languageCode == .indonesian {
+                locationManager.requestLocation { [weak self] result in
                     
                     Task {
-                        let onetime = UserDefaults.standard.object(forKey: "onetime") as? String ?? ""
-                        let twotime = UserDefaults.standard.object(forKey: "twotime") as? String ?? ""
-                        
-                        guard !onetime.isEmpty, !twotime.isEmpty else {
-                            return
-                        }
-                        
                         do {
-                            let parameters = ["ennea": "",
-                                              "ticization": "1",
-                                              "weightfier": "",
-                                              "piain": onetime,
-                                              "managementtic": twotime]
-                            let model = try await self.viewModel.uploadNamePointInfo(parameters: parameters)
-                            let ectopurposeess = model.ectopurposeess ?? ""
-                            if ["0", "00"].contains(ectopurposeess) {
-                                UserDefaults.standard.removeObject(forKey: "onetime")
-                                UserDefaults.standard.removeObject(forKey: "twotime")
-                            }
+                            let _ = try await self?.viewModel.uploadLocationInfo(parameters: result)
                         } catch {
                             
                         }
@@ -337,37 +282,194 @@ extension HomeViewController {
                     
                 }
                 
-                do {
-                    let parameters = ["judicianeity": judicianeity,
-                                      "crimeo": crimeo,
-                                      "myrithoughtature": myrithoughtature,
-                                      "hoplcy": productID]
-                    let model = try await viewModel.clickProductInfo(parameters: parameters)
-                    let ectopurposeess = model.ectopurposeess ?? ""
-                    if ["0", "00"].contains(ectopurposeess) {
-                        let pageUrl = model.casia?.feliee ?? ""
-                        if pageUrl.contains(SchemeRouter.shared.schemeUrl) {
-                            SchemeRouter.shared.handle(urlString: pageUrl, vc: self)
-                        }else {
-                            let webVc = H5ViewController()
-                            webVc.pageUrl = pageUrl
-                            self.navigationController?.pushViewController(webVc, animated: true)
+                DeviceInfoManager.shared.buildFullDeviceJSON { [weak self] json in
+                    do {
+                        let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
+                        let base64String = jsonData.base64EncodedString()
+                        Task {
+                            do {
+                                let parameters = ["casia": base64String]
+                                let _ = try await self?.viewModel.uploadDeviceInfo(parameters: parameters)
+                            } catch {
+                                
+                            }
                         }
-                    }else if ectopurposeess == "-2" {
-                        await MainActor.run {
-                            ToastManager.showLocalMessage(model.urgth ?? "")
-                            LoginManager.shared.deleteLoginInfo()
-                            NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil)
-                        }
-                    }else {
-                        ToastManager.showLocalMessage(model.urgth ?? "")
+                    } catch {
+                        print("JSON: \(error)")
                     }
-                } catch {
-                    
                 }
+                
+                Task {
+                    let onetime = UserDefaults.standard.object(forKey: "onetime") as? String ?? ""
+                    let twotime = UserDefaults.standard.object(forKey: "twotime") as? String ?? ""
+                    
+                    guard !onetime.isEmpty, !twotime.isEmpty else {
+                        return
+                    }
+                    
+                    do {
+                        let parameters = ["ennea": "",
+                                          "ticization": "1",
+                                          "weightfier": "",
+                                          "piain": onetime,
+                                          "managementtic": twotime]
+                        let model = try await self.viewModel.uploadNamePointInfo(parameters: parameters)
+                        let ectopurposeess = model.ectopurposeess ?? ""
+                        if ["0", "00"].contains(ectopurposeess) {
+                            UserDefaults.standard.removeObject(forKey: "onetime")
+                            UserDefaults.standard.removeObject(forKey: "twotime")
+                        }
+                    } catch {
+                        
+                    }
+                }
+                
+            }
+            
+            do {
+                let parameters = ["judicianeity": judicianeity,
+                                  "crimeo": crimeo,
+                                  "myrithoughtature": myrithoughtature,
+                                  "hoplcy": productID]
+                let model = try await viewModel.clickProductInfo(parameters: parameters)
+                let ectopurposeess = model.ectopurposeess ?? ""
+                if ["0", "00"].contains(ectopurposeess) {
+                    let pageUrl = model.casia?.feliee ?? ""
+                    if pageUrl.contains(SchemeRouter.shared.schemeUrl) {
+                        SchemeRouter.shared.handle(urlString: pageUrl, vc: self)
+                    }else {
+                        let webVc = H5ViewController()
+                        webVc.pageUrl = pageUrl
+                        self.navigationController?.pushViewController(webVc, animated: true)
+                    }
+                }else if ectopurposeess == "-2" {
+                    await MainActor.run {
+                        ToastManager.showLocalMessage(model.urgth ?? "")
+                        LoginManager.shared.deleteLoginInfo()
+                        NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil)
+                    }
+                }else {
+                    ToastManager.showLocalMessage(model.urgth ?? "")
+                }
+            } catch {
+                
             }
         }
         
+        
+        
+        //        let status = CLLocationManager().authorizationStatus
+        //        if status == .notDetermined {
+        //            locationManager.requestLocation { result in
+        //                if LoginManager.shared.isLoggedIn() == false {
+        //                    let loginVc = LoginViewController()
+        //                    let rootVc = AppNavigationController(rootViewController: loginVc)
+        //                    rootVc.modalPresentationStyle = .overFullScreen
+        //                    self.present(rootVc, animated: true)
+        //                }
+        //            }
+        //        }else {
+        //            if LoginManager.shared.isLoggedIn() == false {
+        //                let loginVc = LoginViewController()
+        //                let rootVc = AppNavigationController(rootViewController: loginVc)
+        //                rootVc.modalPresentationStyle = .overFullScreen
+        //                self.present(rootVc, animated: true)
+        //            }else {
+        //                let status = CLLocationManager().authorizationStatus
+        //                if languageCode == .indonesian {
+        //                    if status == .restricted || status == .denied {
+        //                        ShowAlertManager.showAlert()
+        //                        return
+        //                    }
+        //                }
+        //
+        //                if languageCode == .indonesian {
+        //                    locationManager.requestLocation { [weak self] result in
+        //
+        //                        Task {
+        //                            do {
+        //                                let _ = try await self?.viewModel.uploadLocationInfo(parameters: result)
+        //                            } catch {
+        //
+        //                            }
+        //                        }
+        //
+        //                    }
+        //
+        //                    DeviceInfoManager.shared.buildFullDeviceJSON { [weak self] json in
+        //                        do {
+        //                            let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
+        //                            let base64String = jsonData.base64EncodedString()
+        //                            Task {
+        //                                do {
+        //                                    let parameters = ["casia": base64String]
+        //                                    let _ = try await self?.viewModel.uploadDeviceInfo(parameters: parameters)
+        //                                } catch {
+        //
+        //                                }
+        //                            }
+        //                        } catch {
+        //                            print("JSON: \(error)")
+        //                        }
+        //                    }
+        //
+        //                    Task {
+        //                        let onetime = UserDefaults.standard.object(forKey: "onetime") as? String ?? ""
+        //                        let twotime = UserDefaults.standard.object(forKey: "twotime") as? String ?? ""
+        //
+        //                        guard !onetime.isEmpty, !twotime.isEmpty else {
+        //                            return
+        //                        }
+        //
+        //                        do {
+        //                            let parameters = ["ennea": "",
+        //                                              "ticization": "1",
+        //                                              "weightfier": "",
+        //                                              "piain": onetime,
+        //                                              "managementtic": twotime]
+        //                            let model = try await self.viewModel.uploadNamePointInfo(parameters: parameters)
+        //                            let ectopurposeess = model.ectopurposeess ?? ""
+        //                            if ["0", "00"].contains(ectopurposeess) {
+        //                                UserDefaults.standard.removeObject(forKey: "onetime")
+        //                                UserDefaults.standard.removeObject(forKey: "twotime")
+        //                            }
+        //                        } catch {
+        //
+        //                        }
+        //                    }
+        //
+        //                }
+        //
+        //                do {
+        //                    let parameters = ["judicianeity": judicianeity,
+        //                                      "crimeo": crimeo,
+        //                                      "myrithoughtature": myrithoughtature,
+        //                                      "hoplcy": productID]
+        //                    let model = try await viewModel.clickProductInfo(parameters: parameters)
+        //                    let ectopurposeess = model.ectopurposeess ?? ""
+        //                    if ["0", "00"].contains(ectopurposeess) {
+        //                        let pageUrl = model.casia?.feliee ?? ""
+        //                        if pageUrl.contains(SchemeRouter.shared.schemeUrl) {
+        //                            SchemeRouter.shared.handle(urlString: pageUrl, vc: self)
+        //                        }else {
+        //                            let webVc = H5ViewController()
+        //                            webVc.pageUrl = pageUrl
+        //                            self.navigationController?.pushViewController(webVc, animated: true)
+        //                        }
+        //                    }else if ectopurposeess == "-2" {
+        //                        await MainActor.run {
+        //                            ToastManager.showLocalMessage(model.urgth ?? "")
+        //                            LoginManager.shared.deleteLoginInfo()
+        //                            NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil)
+        //                        }
+        //                    }else {
+        //                        ToastManager.showLocalMessage(model.urgth ?? "")
+        //                    }
+        //                } catch {
+        //
+        //                }
+        //            }
+        //        }
     }
     
 }
@@ -383,7 +485,7 @@ extension HomeViewController {
         switch status {
         case .authorized, .denied, .notDetermined:
             Task {
-//                await uploadIDFAInfo()
+                //                await uploadIDFAInfo()
             }
             
         case .restricted:

@@ -59,13 +59,15 @@ class LoginViewController: BaseViewController {
         let onetime = String(Int(Date().timeIntervalSince1970))
         UserDefaults.standard.set(onetime, forKey: "onetime")
         
-        locationManager.requestLocation { result in }
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.loginView.phoneFiled.becomeFirstResponder()
+//        self.loginView.phoneFiled.becomeFirstResponder()
+        Task {
+            try await Task.sleep(nanoseconds: 250_000_000)
+            locationManager.requestLocation { result in }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
