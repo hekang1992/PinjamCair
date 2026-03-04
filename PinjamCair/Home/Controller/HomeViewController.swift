@@ -132,7 +132,64 @@ class HomeViewController: BaseViewController {
             }
         }
         
+        enView.leftBlock = { [weak self] pageUrl in
+            guard let self = self else { return }
+            if LoginManager.shared.isLoggedIn() {
+                let webVc = H5ViewController()
+                webVc.pageUrl = pageUrl
+                self.navigationController?.pushViewController(webVc, animated: true)
+            }else {
+                let loginVc = LoginViewController()
+                let rootVc = AppNavigationController(rootViewController: loginVc)
+                rootVc.modalPresentationStyle = .overFullScreen
+                self.present(rootVc, animated: true)
+            }
+        }
+        
+        enView.rightBlock = { [weak self] pageUrl in
+            guard let self = self else { return }
+            if LoginManager.shared.isLoggedIn() {
+                let webVc = H5ViewController()
+                webVc.pageUrl = pageUrl
+                self.navigationController?.pushViewController(webVc, animated: true)
+            }else {
+                let loginVc = LoginViewController()
+                let rootVc = AppNavigationController(rootViewController: loginVc)
+                rootVc.modalPresentationStyle = .overFullScreen
+                self.present(rootVc, animated: true)
+            }
+        }
+        
+        
         endView.privacyBlock = { [weak self] pageUrl in
+            guard let self = self else { return }
+            if LoginManager.shared.isLoggedIn() {
+                let webVc = H5ViewController()
+                webVc.pageUrl = pageUrl
+                self.navigationController?.pushViewController(webVc, animated: true)
+            }else {
+                let loginVc = LoginViewController()
+                let rootVc = AppNavigationController(rootViewController: loginVc)
+                rootVc.modalPresentationStyle = .overFullScreen
+                self.present(rootVc, animated: true)
+            }
+        }
+        
+        endView.leftBlock = { [weak self] pageUrl in
+            guard let self = self else { return }
+            if LoginManager.shared.isLoggedIn() {
+                let webVc = H5ViewController()
+                webVc.pageUrl = pageUrl
+                self.navigationController?.pushViewController(webVc, animated: true)
+            }else {
+                let loginVc = LoginViewController()
+                let rootVc = AppNavigationController(rootViewController: loginVc)
+                rootVc.modalPresentationStyle = .overFullScreen
+                self.present(rootVc, animated: true)
+            }
+        }
+        
+        endView.rightBlock = { [weak self] pageUrl in
             guard let self = self else { return }
             if LoginManager.shared.isLoggedIn() {
                 let webVc = H5ViewController()
@@ -187,6 +244,17 @@ class HomeViewController: BaseViewController {
                 let rootVc = AppNavigationController(rootViewController: loginVc)
                 rootVc.modalPresentationStyle = .overFullScreen
                 self.present(rootVc, animated: true)
+            }
+        }
+        
+        maxView.tapBannerBlock = { [weak self] pageUrl in
+            guard let self = self else { return }
+            if pageUrl.contains(SchemeRouter.shared.schemeUrl) {
+                SchemeRouter.shared.handle(urlString: pageUrl, vc: self)
+            }else {
+                let webVc = H5ViewController()
+                webVc.pageUrl = pageUrl
+                self.navigationController?.pushViewController(webVc, animated: true)
             }
         }
         

@@ -19,4 +19,5 @@ target 'PinjamCair' do
   pod 'Alamofire'
   pod 'MJRefresh'
   pod 'Toast-Swift'
+  pod 'FSPagerView'
 end

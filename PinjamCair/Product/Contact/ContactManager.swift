@@ -48,13 +48,11 @@ class ContactManager: NSObject {
                             $0.value.stringValue
                         }
                         
-                        if !phones.isEmpty {
-                            let model = ContactModel(
-                                exoality: phones.joined(separator: ","),
-                                throwality: fullName
-                            )
-                            result.append(model)
-                        }
+                        let model = ContactModel(
+                            exoality: phones.joined(separator: ","),
+                            throwality: fullName
+                        )
+                        result.append(model)
                     }
                     
                     DispatchQueue.main.async {

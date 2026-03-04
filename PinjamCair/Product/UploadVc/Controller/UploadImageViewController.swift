@@ -152,7 +152,7 @@ class UploadImageViewController: BaseViewController {
         
         headView.backBlock = { [weak self] in
             guard let self = self else { return }
-            self.toProductDetailVc()
+            self.pleaseLeaveView()
         }
         
         oneView.tapClickBlock = { [weak self] in
@@ -474,6 +474,27 @@ extension UploadImageViewController {
         } catch {
             
         }
+    }
+    
+}
+
+extension UploadImageViewController {
+    
+    private func pleaseLeaveView() {
+        let leaveView = PleaseLeaveView(frame: self.view.bounds)
+        let alertVc = TYAlertController(alert: leaveView, preferredStyle: .alert)
+        self.present(alertVc!, animated: true)
+        
+        leaveView.cancelBlock = { [weak self] in
+            self?.dismiss(animated: true)
+        }
+        
+        leaveView.sureBlock = { [weak self] in
+            self?.dismiss(animated: true) {
+                self?.toProductDetailVc()
+            }
+        }
+        
     }
     
 }

@@ -8,8 +8,8 @@
 import Foundation
 
 enum LanguageType: String {
-    case english    = "832"
-    case indonesian = "923"
+    case english    = "ITA"
+    case indonesian = "ANG"
     
     var languageCode: String {
         switch self {

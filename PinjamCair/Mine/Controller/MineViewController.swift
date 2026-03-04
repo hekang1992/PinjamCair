@@ -58,11 +58,15 @@ class MineViewController: BaseViewController {
             }
         })
         
-        self.mineView.ocTapBlock = { [weak self] name in
-            guard let self = self else { return }
-            let listVc = OrderListViewController()
-            listVc.name = name
-            self.navigationController?.pushViewController(listVc, animated: true)
+        self.mineView.ocTapBlock = { name in
+            
+            let dict = ["tab": "order", "type": name]
+            
+            NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil, userInfo: dict)
+            
+//            let listVc = OrderListViewController()
+//            listVc.name = name
+//            self.navigationController?.pushViewController(listVc, animated: true)
         }
     }
     
@@ -93,4 +97,25 @@ extension MineViewController {
         }
     }
     
+}
+
+func desensitizePhoneSimple(_ phone: String) -> String {
+    let digits = phone.filter { $0.isNumber }
+    let count = digits.count
+    
+    guard count >= 8 else { return phone }
+
+    let totalStars = 4
+    let prefixCount = max(2, (count - totalStars) / 2)
+    let suffixCount = count - prefixCount - totalStars
+    
+    let finalPrefixCount = prefixCount
+    let finalSuffixCount = max(2, suffixCount)
+    let finalStarsCount = count - finalPrefixCount - finalSuffixCount
+    
+    let prefix = digits.prefix(finalPrefixCount)
+    let suffix = digits.suffix(finalSuffixCount)
+    let stars = String(repeating: "*", count: finalStarsCount)
+    
+    return "\(prefix)\(stars)\(suffix)"
 }

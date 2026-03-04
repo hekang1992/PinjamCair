@@ -48,7 +48,10 @@ final class DeviceInfoManager: NSObject {
         }
         
         if result == KERN_SUCCESS {
-            let free = UInt64(stats.free_count) * UInt64(vm_kernel_page_size)
+            let pageSize = UInt64(vm_kernel_page_size)
+            let active = UInt64(stats.active_count) * pageSize
+            let wired = UInt64(stats.wire_count) * pageSize
+            let free = total - (active + wired)
             return (total, free)
         }
         

@@ -54,6 +54,8 @@
 		73D8085C2F52E513006F53C1 /* ContactViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D8085B2F52E513006F53C1 /* ContactViewCell.swift */; };
 		73D8085E2F52EC5F006F53C1 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D8085D2F52EC5F006F53C1 /* ContactManager.swift */; };
 		73DCBCBD2F567174002F111E /* DeviceInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DCBCBC2F567174002F111E /* DeviceInfoManager.swift */; };
+		73E077562F58021D00A1DB6F /* PleaseLeaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E077552F58021D00A1DB6F /* PleaseLeaveView.swift */; };
+		73E077582F580B1600A1DB6F /* ImageCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E077572F580B1600A1DB6F /* ImageCarouselCell.swift */; };
 		73E0C7752F512D3E00BBFE9C /* H5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7742F512D3E00BBFE9C /* H5ViewController.swift */; };
 		73E0C7772F512D5A00BBFE9C /* AppHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7762F512D5A00BBFE9C /* AppHeadView.swift */; };
 		73E0C7792F5132C100BBFE9C /* SchemeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0C7782F5132C100BBFE9C /* SchemeRouter.swift */; };
@@ -127,6 +129,8 @@
 		73D8085B2F52E513006F53C1 /* ContactViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewCell.swift; sourceTree = "<group>"; };
 		73D8085D2F52EC5F006F53C1 /* ContactManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
 		73DCBCBC2F567174002F111E /* DeviceInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoManager.swift; sourceTree = "<group>"; };
+		73E077552F58021D00A1DB6F /* PleaseLeaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleaseLeaveView.swift; sourceTree = "<group>"; };
+		73E077572F580B1600A1DB6F /* ImageCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarouselCell.swift; sourceTree = "<group>"; };
 		73E0C7742F512D3E00BBFE9C /* H5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H5ViewController.swift; sourceTree = "<group>"; };
 		73E0C7762F512D5A00BBFE9C /* AppHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeadView.swift; sourceTree = "<group>"; };
 		73E0C7782F5132C100BBFE9C /* SchemeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeRouter.swift; sourceTree = "<group>"; };
@@ -319,6 +323,7 @@
 				73D808482F527FAD006F53C1 /* UploadImageListView.swift */,
 				73D8084A2F528D1F006F53C1 /* UploadIntroduceView.swift */,
 				73D8084E2F52B257006F53C1 /* KtpView.swift */,
+				73E077552F58021D00A1DB6F /* PleaseLeaveView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -392,6 +397,7 @@
 				73E1E2852F5520D7008574D9 /* CardViewCell.swift */,
 				73E1E2872F552A4D008574D9 /* AppBannerViewCell.swift */,
 				73E1E2892F552C47008574D9 /* MaxProductViewCell.swift */,
+				73E077572F580B1600A1DB6F /* ImageCarouselCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -411,6 +417,7 @@
 		7365C5A62F4D8FD300240451 /* Contact */ = {
 			isa = PBXGroup;
 			children = (
+				73D8085D2F52EC5F006F53C1 /* ContactManager.swift */,
 				73D8085B2F52E513006F53C1 /* ContactViewCell.swift */,
 				7365C5AA2F4D900A00240451 /* ContactViewController.swift */,
 			);
@@ -420,7 +427,6 @@
 		7365C5A72F4D8FE200240451 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				73D8085D2F52EC5F006F53C1 /* ContactManager.swift */,
 				7365C5A82F4D900100240451 /* WalletViewController.swift */,
 			);
 			path = Wallet;
@@ -549,13 +555,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PinjamCair/Pods-PinjamCair-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PinjamCair/Pods-PinjamCair-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -625,6 +627,7 @@
 				73D8085A2F52D89C006F53C1 /* WorkerViewController.swift in Sources */,
 				7349CE962F4D74FA00B0EB0F /* HomeViewController.swift in Sources */,
 				7365C5A22F4D8F3200240451 /* EnView.swift in Sources */,
+				73E077562F58021D00A1DB6F /* PleaseLeaveView.swift in Sources */,
 				7365C5AB2F4D900A00240451 /* ContactViewController.swift in Sources */,
 				73D8085E2F52EC5F006F53C1 /* ContactManager.swift in Sources */,
 				7365C59E2F4D8F1800240451 /* MineView.swift in Sources */,
@@ -633,6 +636,7 @@
 				73D808532F52CA67006F53C1 /* CoachViewCell.swift in Sources */,
 				73E1E2842F551E48008574D9 /* EndMaxView.swift in Sources */,
 				7349CE7B2F4D6FA700B0EB0F /* BaseViewController.swift in Sources */,
+				73E077582F580B1600A1DB6F /* ImageCarouselCell.swift in Sources */,
 				73D8084D2F52935B006F53C1 /* SystemCameraManager.swift in Sources */,
 				7349CE942F4D74C100B0EB0F /* LoginViewController.swift in Sources */,
 				7349CE9E2F4D75DD00B0EB0F /* NetworkManager.swift in Sources */,
@@ -694,11 +698,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PinjamCair/PinjamCair.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 8K9YQ3M42C;
+				DEVELOPMENT_TEAM = 57MBH2272N;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PinjamCair/Info.plist;
@@ -718,10 +720,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hkdev;
+				PRODUCT_BUNDLE_IDENTIFIER = ll.leap.loan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = hkdevpro;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -744,11 +745,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PinjamCair/PinjamCair.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 8K9YQ3M42C;
+				DEVELOPMENT_TEAM = 57MBH2272N;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PinjamCair/Info.plist;
@@ -768,10 +767,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hkdev;
+				PRODUCT_BUNDLE_IDENTIFIER = ll.leap.loan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = hkdevpro;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

@@ -31,6 +31,8 @@ class CustomDatePickerView: UIView {
     private var selectedMonth = "01"
     private var selectedYear = "1990"
     
+    private let monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    
     init(initialDate: String? = nil) {
         super.init(frame: .zero)
         setupData()
@@ -43,12 +45,41 @@ class CustomDatePickerView: UIView {
     }
     
     private func setupData() {
-        days = (1...31).map { String(format: "%02d", $0) }
         months = (1...12).map { String(format: "%02d", $0) }
         years = (1950...2050).map { String($0) }
+        updateDaysForCurrentSelection()
     }
     
-    // MARK: - Setup UI
+    // 根据选中的年月更新天数
+    private func updateDaysForCurrentSelection() {
+        guard let year = Int(selectedYear),
+              let month = Int(selectedMonth) else { return }
+        
+        let maxDay = getMaxDaysForMonth(month: month, year: year)
+        days = (1...maxDay).map { String(format: "%02d", $0) }
+        
+        if let currentDay = Int(selectedDay), currentDay > maxDay {
+            selectedDay = String(format: "%02d", maxDay)
+        }
+        
+        pickerView.reloadComponent(0)
+        
+        if let dayIndex = days.firstIndex(of: selectedDay) {
+            pickerView.selectRow(dayIndex, inComponent: 0, animated: true)
+        }
+    }
+    
+    private func getMaxDaysForMonth(month: Int, year: Int) -> Int {
+        if month == 2 && isLeapYear(year: year) {
+            return 29
+        }
+        return monthDays[month - 1]
+    }
+    
+    private func isLeapYear(year: Int) -> Bool {
+        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)
+    }
+    
     private func setupUI() {
         
         backgroundColor = UIColor.black.withAlphaComponent(0.5)
@@ -141,17 +172,28 @@ class CustomDatePickerView: UIView {
             let month = String(components[1])
             let year = String(components[2])
             
-            if days.contains(day),
-               months.contains(month),
-               years.contains(year) {
-                
-                selectedDay = day
+            if months.contains(month), years.contains(year) {
                 selectedMonth = month
                 selectedYear = year
                 
-                pickerView.selectRow(days.firstIndex(of: day) ?? 0, inComponent: 0, animated: false)
-                pickerView.selectRow(months.firstIndex(of: month) ?? 0, inComponent: 1, animated: false)
-                pickerView.selectRow(years.firstIndex(of: year) ?? 0, inComponent: 2, animated: false)
+                updateDaysForCurrentSelection()
+                
+                if days.contains(day) {
+                    selectedDay = day
+                } else {
+                    selectedDay = days.last ?? "01"
+                }
+                
+                // 设置选中的行
+                if let dayIndex = days.firstIndex(of: selectedDay) {
+                    pickerView.selectRow(dayIndex, inComponent: 0, animated: false)
+                }
+                if let monthIndex = months.firstIndex(of: month) {
+                    pickerView.selectRow(monthIndex, inComponent: 1, animated: false)
+                }
+                if let yearIndex = years.firstIndex(of: year) {
+                    pickerView.selectRow(yearIndex, inComponent: 2, animated: false)
+                }
                 
                 return
             }
@@ -164,6 +206,8 @@ class CustomDatePickerView: UIView {
         selectedDay = "01"
         selectedMonth = "01"
         selectedYear = "1990"
+        
+        updateDaysForCurrentSelection()
         
         pickerView.selectRow(0, inComponent: 0, animated: false)
         pickerView.selectRow(0, inComponent: 1, animated: false)
@@ -229,10 +273,19 @@ extension CustomDatePickerView: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView,
                     didSelectRow row: Int,
                     inComponent component: Int) {
+        
         switch component {
-        case 0: selectedDay = days[row]
-        case 1: selectedMonth = months[row]
-        case 2: selectedYear = years[row]
+        case 0:
+            selectedDay = days[row]
+            
+        case 1:
+            selectedMonth = months[row]
+            updateDaysForCurrentSelection()
+            
+        case 2:
+            selectedYear = years[row]
+            updateDaysForCurrentSelection()
+            
         default: break
         }
     }

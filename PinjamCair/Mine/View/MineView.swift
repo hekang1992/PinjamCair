@@ -40,6 +40,7 @@ class MineView: BaseView {
     
     lazy var messageListView: MineMessageView = {
         let messageListView = MineMessageView()
+        messageListView.serviceBtn.isHidden = true
         return messageListView
     }()
     
@@ -195,7 +196,7 @@ extension MineView: UITableViewDelegate, UITableViewDataSource {
             .throttle(.microseconds(200), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.ocTapBlock?(LocalStr("All"))
+                self.ocTapBlock?("4")
             }).disposed(by: disposeBag)
         
         twoBtn
@@ -204,7 +205,7 @@ extension MineView: UITableViewDelegate, UITableViewDataSource {
             .throttle(.microseconds(200), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.ocTapBlock?(LocalStr("In progress"))
+                self.ocTapBlock?("7")
             }).disposed(by: disposeBag)
         
         threeBtn
@@ -213,7 +214,7 @@ extension MineView: UITableViewDelegate, UITableViewDataSource {
             .throttle(.microseconds(200), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.ocTapBlock?(LocalStr("Repayment"))
+                self.ocTapBlock?("6")
             }).disposed(by: disposeBag)
         
         fourBtn
@@ -222,7 +223,7 @@ extension MineView: UITableViewDelegate, UITableViewDataSource {
             .throttle(.microseconds(200), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.ocTapBlock?(LocalStr("Finished"))
+                self.ocTapBlock?("5")
             }).disposed(by: disposeBag)
         
         return headView

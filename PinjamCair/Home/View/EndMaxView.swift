@@ -19,6 +19,8 @@ class EndMaxView: BaseView {
     
     var tapProductBlock: ((String) -> Void)?
     
+    var tapBannerBlock: ((String) -> Void)?
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.separatorStyle = .none
@@ -136,7 +138,13 @@ extension EndMaxView: UITableViewDelegate, UITableViewDataSource {
             
         case "clavaloneular":
             let cell = tableView.dequeueReusableCell(withIdentifier: "AppBannerViewCell", for: indexPath) as! AppBannerViewCell
+            let modelArray = model?.notdropality ?? []
+            cell.modelArray = modelArray
+            cell.clickTapBlock = { [weak self] pageUrl in
+                self?.tapBannerBlock?(pageUrl)
+            }
             return cell
+            
             
         case "noteent":
             let cell = tableView.dequeueReusableCell(withIdentifier: "MaxProductViewCell", for: indexPath) as! MaxProductViewCell

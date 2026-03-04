@@ -15,8 +15,9 @@ class OrderViewController: BaseViewController {
     private let viewModel = AppViewModel()
     
     private var type: String = "4"
-    
     private var modelArray: [dipsiauousModel] = []
+    
+    var selectedTab: String = "4"
     
     // MARK: - UI
     lazy var headImageView: UIImageView = {
@@ -122,7 +123,13 @@ class OrderViewController: BaseViewController {
         setupUI()
         setupOrderListView()
         
-        updateSelectedView(oneView)
+        // 根据传入的 selectedTab 设置初始状态
+        if let selectedView = tabViews.first(where: { $0.nameLabel.text == getTabNameForType(selectedTab) }) {
+            self.type = selectedTab
+            updateSelectedView(selectedView)
+        } else {
+            updateSelectedView(oneView)  
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -149,11 +156,11 @@ extension OrderViewController {
                 if modelArray.isEmpty || modelArray.count == 0 {
                     self.tableView.isHidden = true
                     self.emptyView.isHidden = false
-                }else {
+                } else {
                     self.tableView.isHidden = false
                     self.emptyView.isHidden = true
                 }
-            }else {
+            } else {
                 self.tableView.isHidden = true
                 self.emptyView.isHidden = false
             }
@@ -208,8 +215,6 @@ extension OrderViewController {
             make.edges.equalToSuperview()
         }
         
-        
-        
         self.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
             guard let self = self else { return }
             Task {
@@ -217,12 +222,22 @@ extension OrderViewController {
             }
         })
     }
+    
+    // MARK: - Helper Function to map selectedTab to actual tab name
+    private func getTabNameForType(_ type: String) -> String {
+        switch type {
+        case "4": return LocalStr("All")
+        case "7": return LocalStr("In progress")
+        case "6": return LocalStr("Repayment")
+        case "5": return LocalStr("Finished")
+        default: return LocalStr("All")
+        }
+    }
 }
 
 extension OrderViewController {
     
     private func setupOrderListView() {
-        
         tabViews.forEach { scrollView.addSubview($0) }
         
         oneView.snp.makeConstraints { make in
@@ -280,7 +295,6 @@ extension OrderViewController {
                 await self?.orderListInfo()
             }
         }
-        
     }
     
     private func updateSelectedView(_ selectedView: OrderListView?) {
@@ -316,11 +330,10 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
         let pageUrl = model.ciliwhichery ?? ""
         if pageUrl.contains(SchemeRouter.shared.schemeUrl) {
             SchemeRouter.shared.handle(urlString: pageUrl, vc: self)
-        }else {
+        } else {
             let webVc = H5ViewController()
             webVc.pageUrl = pageUrl
             self.navigationController?.pushViewController(webVc, animated: true)
         }
     }
-    
 }

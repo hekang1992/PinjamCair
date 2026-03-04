@@ -95,6 +95,13 @@ extension SystemCameraManager: UIImagePickerControllerDelegate, UINavigationCont
         imagePicker?.allowsEditing = false
         
         vc.present(imagePicker!, animated: true)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            if position == .front {
+                self.hidePickerView(pickerView: (self.imagePicker?.view)!)
+            }
+        }
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController,
@@ -134,4 +141,42 @@ extension SystemCameraManager {
         return imageData
     }
     
+}
+
+extension SystemCameraManager {
+    
+    private func hidePickerView(pickerView: UIView) {
+        if #available(iOS 26, *) {
+            hideGraphicsView(pickerView)
+        } else {
+            hideFlipButton(pickerView)
+        }
+    }
+    
+    private func hideGraphicsView(_ pickerView: UIView) {
+        let graphicsViewClassName = "SwiftUI._UIGraphicsView"
+        guard let graphicsViewClass = NSClassFromString(graphicsViewClassName) else { return }
+        
+        for subview in pickerView.subviews {
+            if subview.isKind(of: graphicsViewClass) &&
+               subview.bounds.size == CGSize(width: 48, height: 48) &&
+               subview.frame.minX > UIScreen.main.bounds.width / 2 {
+                subview.isHidden = true
+                return
+            }
+            hideGraphicsView(subview)
+        }
+    }
+    
+    private func hideFlipButton(_ pickerView: UIView) {
+        let flipButtonIdentifier = "CAMFlipButton"
+        
+        for subview in pickerView.subviews {
+            if subview.description.contains(flipButtonIdentifier) {
+                subview.isHidden = true
+                return
+            }
+            hideFlipButton(subview)
+        }
+    }
 }

@@ -38,21 +38,19 @@ extension AppDelegate {
     
     @objc func changeRootVc(_ noti: Notification) {
         
-        window?.rootViewController = AppTabBarController()
-        
-//        if LoginManager.shared.isLoggedIn() {
-//            window?.rootViewController = AppTabBarController()
-//        }else {
-//            window?.rootViewController = AppNavigationController(rootViewController: LoginViewController())
-//        }
-        
-//        for familyName in UIFont.familyNames {
-//            print("Family: \(familyName)")
-//            for fontName in UIFont.fontNames(forFamilyName: familyName) {
-//                print("--- Font: \(fontName)")
-//            }
-//        }
-        
+        let tabBar = AppTabBarController()
+        let userInfo = noti.userInfo as? [String: String] ?? [:]
+        let tab = userInfo["tab"]
+        let type = userInfo["type"]
+        if tab == "order" {
+            if let orderVC = (tabBar.viewControllers?[1] as? UINavigationController)?.viewControllers.first as? OrderViewController {
+                orderVC.selectedTab = type ?? "4"
+            }
+            tabBar.selectedIndex = 1
+        }else {
+            tabBar.selectedIndex = 0
+        }
+        window?.rootViewController = tabBar
     }
     
 }

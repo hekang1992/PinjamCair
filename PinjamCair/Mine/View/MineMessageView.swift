@@ -21,7 +21,7 @@ class MineMessageView: BaseView {
     lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.textAlignment = .left
-        let phone = LoginManager.shared.getPhone()
+        let phone = desensitizePhoneSimple(LoginManager.shared.getPhone())
         let token = LoginManager.shared.getToken()
         nameLabel.text = "\(LocalStr("Hi"))，\(token.isEmpty ? LocalStr("Please log in") : phone)"
         nameLabel.textColor = UIColor.init(hexString: "#FFFFFF")

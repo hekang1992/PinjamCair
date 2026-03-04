@@ -187,7 +187,8 @@ extension ProductDetailViewController {
     }
     
     private func configTitle(model: BaseModel) {
-        self.headView.nameLabel.text = model.casia?.spergice?.shareian ?? ""
+//        self.headView.nameLabel.text = model.casia?.spergice?.shareian ?? ""
+        self.headView.nameLabel.text = LocalStr("Loan Details")
         self.nextBtn.setTitle(model.casia?.spergice?.employeesome ?? "", for: .normal)
     }
     

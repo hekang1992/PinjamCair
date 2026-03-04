@@ -105,7 +105,15 @@ class notdropalityModel: Codable {
     var townaire: String?
     var multatule: String?
     var sense: String?
+    var urgth: String?
+    var feliee: String?
 }
+
+//extension notdropalityModel: Equatable {
+//    static func == (lhs: notdropalityModel, rhs: notdropalityModel) -> Bool {
+//        return (lhs.urgth == rhs.urgth) && (lhs.feliee == rhs.feliee)
+//    }
+//}
 
 class mrerModel: Codable {
     var rusbadior: String?
@@ -113,6 +121,7 @@ class mrerModel: Codable {
     var tergiosity: Int?
     var systemeur: String?
     var ommfic: String?
+    var voiceant: String?
 }
 
 class spergiceModel: Codable {

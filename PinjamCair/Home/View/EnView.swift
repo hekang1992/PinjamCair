@@ -20,6 +20,9 @@ class EnView: BaseView {
     
     var privacyBlock: ((String) -> Void)?
     
+    var leftBlock: ((String) -> Void)?
+    var rightBlock: ((String) -> Void)?
+    
     var model: notdropalityModel? {
         didSet {
             guard let model = model else { return }
@@ -65,6 +68,7 @@ class EnView: BaseView {
         let threeImageView = UIImageView()
         threeImageView.image = UIImage(named: "three_home_me_image")
         threeImageView.contentMode = .scaleAspectFit
+        threeImageView.isUserInteractionEnabled = true
         return threeImageView
     }()
     
@@ -117,6 +121,16 @@ class EnView: BaseView {
         attributedString.addAttribute(.foregroundColor, value: UIColor(hexString: "#1DBC79"), range: range)
         termsLabel.attributedText = attributedString
         return termsLabel
+    }()
+    
+    lazy var oneBtn: UIButton = {
+        let oneBtn = UIButton(type: .custom)
+        return oneBtn
+    }()
+    
+    lazy var twoBtn: UIButton = {
+        let twoBtn = UIButton(type: .custom)
+        return twoBtn
     }()
     
     override init(frame: CGRect) {
@@ -211,6 +225,28 @@ class EnView: BaseView {
                 guard let self = self else { return }
                 self.privacyBlock?(base_h5_url + "/decaan")
             }).disposed(by: disposeBag)
+        
+        threeImageView.addSubview(oneBtn)
+        threeImageView.addSubview(twoBtn)
+        
+        oneBtn
+            .rx
+            .tap
+            .throttle(.microseconds(300), scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.privacyBlock?(base_h5_url + "/cephalward")
+            }).disposed(by: disposeBag)
+        
+        twoBtn
+            .rx
+            .tap
+            .throttle(.microseconds(300), scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.privacyBlock?(base_h5_url)
+            }).disposed(by: disposeBag)
+        
     }
     
     private func setupGestures() {

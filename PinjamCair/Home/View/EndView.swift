@@ -18,6 +18,9 @@ class EndView: BaseView {
     
     var privacyBlock: ((String) -> Void)?
     
+    var leftBlock: ((String) -> Void)?
+    var rightBlock: ((String) -> Void)?
+    
     var model: notdropalityModel? {
         didSet {
             guard let model = model else { return }
@@ -96,6 +99,16 @@ class EndView: BaseView {
         return listView
     }()
     
+    lazy var oneBtn: UIButton = {
+        let oneBtn = UIButton(type: .custom)
+        return oneBtn
+    }()
+    
+    lazy var twoBtn: UIButton = {
+        let twoBtn = UIButton(type: .custom)
+        return twoBtn
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(scrollView)
@@ -153,6 +166,9 @@ class EndView: BaseView {
             make.size.equalTo(CGSize(width: 305.pix(), height: 64.pix()))
         }
         
+        twoImageView.addSubview(oneBtn)
+        twoImageView.addSubview(twoBtn)
+        
         oneImageView
             .rx
             .tapGesture()
@@ -172,6 +188,33 @@ class EndView: BaseView {
             .bind(onNext: { [weak self] _ in
                 guard let self = self else { return }
                 self.privacyBlock?(base_h5_url + "/decaan")
+            }).disposed(by: disposeBag)
+        
+        oneBtn.snp.makeConstraints { make in
+            make.left.bottom.equalToSuperview()
+            make.size.equalTo(CGSize(width: 125.pix(), height: 94.pix()))
+        }
+        twoBtn.snp.makeConstraints { make in
+            make.right.bottom.equalToSuperview()
+            make.size.equalTo(CGSize(width: 125.pix(), height: 94.pix()))
+        }
+        
+        oneBtn
+            .rx
+            .tap
+            .throttle(.microseconds(300), scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.privacyBlock?(base_h5_url + "/cephalward")
+            }).disposed(by: disposeBag)
+        
+        twoBtn
+            .rx
+            .tap
+            .throttle(.microseconds(300), scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.privacyBlock?(base_h5_url)
             }).disposed(by: disposeBag)
         
     }

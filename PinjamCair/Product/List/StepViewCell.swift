@@ -17,7 +17,7 @@ class StepViewCell: UITableViewCell {
             let logoUrl = model.systemeur ?? ""
             logoImageView.kf.setImage(with: URL(string: logoUrl))
             nameLabel.text = model.rusbadior ?? ""
-            descLabel.text = model.larggovernmenton ?? ""
+            descLabel.text = model.voiceant ?? ""
             
             let tergiosity = model.tergiosity ?? 0
             bgView.backgroundColor = tergiosity == 1 ? UIColor.init(hexString: "#E7FDE3") : UIColor.init(hexString: "#1DBC79")
