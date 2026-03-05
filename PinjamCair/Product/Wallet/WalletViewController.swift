@@ -63,7 +63,7 @@ class WalletViewController: BaseViewController {
     
     lazy var stepImageView: UIImageView = {
         let stepImageView = UIImageView()
-        stepImageView.image = UIImage(named: "fv_step_image")
+        stepImageView.image = UIImage(named: LocalStr("fv_step_image"))
         stepImageView.contentMode = .scaleAspectFit
         return stepImageView
     }()

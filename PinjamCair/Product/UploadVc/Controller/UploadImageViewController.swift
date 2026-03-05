@@ -63,7 +63,7 @@ class UploadImageViewController: BaseViewController {
     
     lazy var stepImageView: UIImageView = {
         let stepImageView = UIImageView()
-        stepImageView.image = UIImage(named: "one_step_image")
+        stepImageView.image = UIImage(named: LocalStr("one_step_image"))
         stepImageView.contentMode = .scaleAspectFit
         return stepImageView
     }()

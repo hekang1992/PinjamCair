@@ -5,3 +5,11 @@
   Created by hekang on 2026/2/24.
   
 */
+
+"NSLocationWhenInUseUsageDescription" = "Pinjam Cair uses your location to provide more relevant loan services and recommend suitable products for you.";
+
+"NSCameraUsageDescription" = "Pinjam Cair uses the camera to complete identity verification quickly and speed up your loan application process.";
+
+"NSUserTrackingUsageDescription" = "Pinjam Cair requests IDFA permission to provide personalized services while ensuring your data is secure and encrypted.";
+
+"NSContactsUsageDescription" = "Pinjam Cair uses your contacts for identity verification and risk assessment to enhance account security and ensure smooth loan processing.";

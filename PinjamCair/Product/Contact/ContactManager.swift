@@ -123,14 +123,14 @@ extension ContactManager {
         guard let rootVC = UIApplication.shared.windows.first?.rootViewController else { return }
         
         let alert = UIAlertController(
-            title: "通讯录权限未开启",
-            message: "请前往设置开启通讯录权限",
+            title: LocalStr("CONTACT_DECLINE_PERMISSION"),
+            message: LocalStr("CONTACT_DECLINE"),
             preferredStyle: .alert
         )
         
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel))
+        alert.addAction(UIAlertAction(title: LocalStr("Cancel"), style: .cancel))
         
-        alert.addAction(UIAlertAction(title: "去设置", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: LocalStr("Go to Settings"), style: .default, handler: { _ in
             if let url = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(url)
             }

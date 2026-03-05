@@ -117,8 +117,8 @@ class ShowAlertManager {
         }
         
         let alert = UIAlertController(
-            title: "权限未开启",
-            message: "请在设置中开启权限",
+            title: LocalStr("LOCATION_DECLINE_PERMISSION"),
+            message: LocalStr("LOCATION_DECLINE"),
             preferredStyle: .alert
         )
         

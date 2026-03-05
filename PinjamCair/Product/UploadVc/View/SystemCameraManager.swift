@@ -58,17 +58,14 @@ extension SystemCameraManager {
     
     private func showPermissionAlert(from vc: UIViewController) {
         let alert = UIAlertController(
-            title: "无法使用相机",
-            message: "请在设置中开启相机权限",
+            title: LocalStr("CAMREA_DECLINE_PERMISSION"),
+            message: LocalStr("CAMERA_DECLINE"),
             preferredStyle: .alert
         )
         
-        alert.addAction(UIAlertAction(title: "取消",
-                                      style: .cancel))
+        alert.addAction(UIAlertAction(title: LocalStr("Cancel"), style: .cancel))
         
-        alert.addAction(UIAlertAction(title: "去设置",
-                                      style: .default,
-                                      handler: { _ in
+        alert.addAction(UIAlertAction(title: LocalStr("Go to Settings"), style: .default, handler: { _ in
             if let url = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(url)
             }

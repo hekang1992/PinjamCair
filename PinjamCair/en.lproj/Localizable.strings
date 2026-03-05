@@ -71,3 +71,21 @@
 "Go to Settings" = "Go to Settings";
 "Loan Details" = "Loan Details";
 "eplease_bg_image" = "eplease_bg_image";
+"one_step_image" = "en_step_one_image";
+"two_step_image" = "en_step_two_image";
+"three_step_image" = "en_step_three_image";
+"fv_step_image" = "en_step_four_image";
+
+// MARK: - DECLINE
+
+"LOCATION_DECLINE" = "Location permission is required to complete identity verification and ensure your application is secure. This data is used solely for verification purposes. Please enable location permission in Settings to continue.";
+
+"CAMERA_DECLINE" = "Camera permission is needed to take photos of your ID for identity verification. Your information will be processed safely and confidentially. Please enable camera permission in Settings.";
+
+"CONTACT_DECLINE" = "Contacts permission is required for identity verification, fraud prevention, and faster review. Please enable it in your device Settings.";
+
+"LOCATION_DECLINE_PERMISSION" = "Location Permission";
+
+"CAMREA_DECLINE_PERMISSION" = "Camera Permission";
+
+"CONTACT_DECLINE_PERMISSION" = "Contacts Permission";

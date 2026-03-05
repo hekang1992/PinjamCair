@@ -71,3 +71,21 @@
 "Go to Settings" = "Pergi ke Pengaturan";
 "Loan Details" = "Detail Produk";
 "eplease_bg_image" = "edplease_bg_image";
+"one_step_image" = "one_step_image";
+"two_step_image" = "two_step_image";
+"three_step_image" = "three_step_image";
+"fv_step_image" = "fv_step_image";
+
+// MARK: - DECLINE
+
+"LOCATION_DECLINE" = "Izin lokasi diperlukan untuk menyelesaikan verifikasi identitas dan memastikan keamanan pengajuan Anda. Data ini hanya digunakan untuk keperluan verifikasi. Silakan aktifkan izin lokasi di Pengaturan untuk melanjutkan.";
+
+"CAMERA_DECLINE" = "Izin kamera diperlukan untuk mengambil foto identitas Anda guna verifikasi. Informasi Anda akan dikelola secara aman dan rahasia. Silakan aktifkan izin kamera di Pengaturan.";
+
+"CONTACT_DECLINE" = "Izin kontak diperlukan untuk verifikasi identitas, pencegahan penipuan, dan proses peninjauan yang lebih cepat. Silakan aktifkan di Pengaturan perangkat Anda.";
+
+"LOCATION_DECLINE_PERMISSION" = "Izin Lokasi";
+
+"CAMREA_DECLINE_PERMISSION" = "Izin Kamera";
+
+"CONTACT_DECLINE_PERMISSION" = "Izin Kontak";

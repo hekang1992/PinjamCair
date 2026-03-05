@@ -63,7 +63,7 @@ class PersonalViewController: BaseViewController {
     
     lazy var stepImageView: UIImageView = {
         let stepImageView = UIImageView()
-        stepImageView.image = UIImage(named: "two_step_image")
+        stepImageView.image = UIImage(named: LocalStr("two_step_image"))
         stepImageView.contentMode = .scaleAspectFit
         return stepImageView
     }()

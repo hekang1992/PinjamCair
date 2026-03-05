@@ -63,7 +63,7 @@ class WorkerViewController: BaseViewController {
     
     lazy var stepImageView: UIImageView = {
         let stepImageView = UIImageView()
-        stepImageView.image = UIImage(named: "three_step_image")
+        stepImageView.image = UIImage(named: LocalStr("three_step_image"))
         stepImageView.contentMode = .scaleAspectFit
         return stepImageView
     }()

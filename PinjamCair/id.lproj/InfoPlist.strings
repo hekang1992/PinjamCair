@@ -5,3 +5,11 @@
   Created by hekang on 2026/2/24.
   
 */
+
+"NSLocationWhenInUseUsageDescription" = "Pinjam Cair menggunakan lokasi Anda untuk menyediakan layanan pinjaman yang sesuai dan merekomendasikan produk yang tepat.";
+
+"NSCameraUsageDescription" = "Pinjam Cair menggunakan kamera untuk melakukan verifikasi identitas dengan cepat dan mempercepat proses pengajuan pinjaman Anda.";
+
+"NSUserTrackingUsageDescription" = "Pinjam Cair meminta izin IDFA untuk menyediakan layanan personal, dengan menjaga keamanan dan enkripsi data Anda.";
+
+"NSContactsUsageDescription" = "Pinjam Cair menggunakan daftar kontak untuk verifikasi identitas dan penilaian risiko, guna meningkatkan keamanan akun dan kelancaran proses pinjaman.";
