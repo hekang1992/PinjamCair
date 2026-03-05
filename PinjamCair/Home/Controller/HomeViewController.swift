@@ -309,12 +309,14 @@ extension HomeViewController {
     private func uploadDeviceInfo() async {
         
         if languageCode == .indonesian {
-            locationManager.requestLocation { [weak self] result in
-                Task {
-                    do {
-                        let _ = try await self?.viewModel.uploadLocationInfo(parameters: result)
-                    } catch {
-                        
+            if LoginManager.shared.isLoggedIn() {
+                locationManager.requestLocation { [weak self] result in
+                    Task {
+                        do {
+                            let _ = try await self?.viewModel.uploadLocationInfo(parameters: result)
+                        } catch {
+                            
+                        }
                     }
                 }
             }
