@@ -2,7 +2,7 @@
 //  SystemCameraManager.swift
 //  PinjamCair
 //
-//  Created by hekang on 2026/2/28.
+//  Created by Ryan Thomas on 2026/2/28.
 //
 
 import UIKit

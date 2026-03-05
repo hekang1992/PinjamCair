@@ -2,7 +2,7 @@
 //  MineMessageView.swift
 //  PinjamCair
 //
-//  Created by hekang on 2026/2/26.
+//  Created by Ryan Thomas on 2026/2/26.
 //
 
 import UIKit

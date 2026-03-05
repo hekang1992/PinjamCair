@@ -2,7 +2,7 @@
 //  DeviceInfoManager.swift
 //  PinjamCair
 //
-//  Created by hekang on 2026/3/3.
+//  Created by Ryan Thomas on 2026/3/3.
 //
 
 import UIKit

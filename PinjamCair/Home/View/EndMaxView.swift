@@ -2,7 +2,7 @@
 //  EndMaxView.swift
 //  PinjamCair
 //
-//  Created by hekang on 2026/3/2.
+//  Created by Ryan Thomas on 2026/3/2.
 //
 
 import UIKit
