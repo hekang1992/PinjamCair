@@ -63,9 +63,9 @@ class LoginViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        self.loginView.phoneFiled.becomeFirstResponder()
+        self.loginView.phoneFiled.becomeFirstResponder()
         Task {
-            try await Task.sleep(nanoseconds: 250_000_000)
+            try await Task.sleep(nanoseconds: 300_000_000)
             locationManager.requestLocation { result in }
         }
     }
